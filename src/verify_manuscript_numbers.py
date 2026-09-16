@@ -40,7 +40,7 @@ for k,m,u,a,o in [(3,8,270.7,458.0,223.2),(3,16,20.7,54.3,16.7),(3,25,9.2,15.9,8
     if not s:bad.append(f'adaptive k{k} m{m}: MISSING');continue
     s=s[0];chk(f'adaptive k{k} m{m} uniform',s['uniform_mae']*1000,u);chk(f'adaptive k{k} m{m} deployable',s['adaptive_mae']*1000,a);chk(f'adaptive k{k} m{m} oracle',s['oracle_nonuniform_mae']*1000,o)
 gains=[(x['uniform_mae']-x['oracle_nonuniform_mae'])/x['uniform_mae']*100 for x in ad if x['estimator']=='state_mean' and 'oracle_nonuniform_mae' in x]
-print(f'oracle gain over uniform, state_mean, all cells: min {min(gains):.1f}% max {max(gains):.1f}% median {np.median(gains):.1f}%  (manuscript says 10-17%)')
+print(f'oracle gain over uniform, state_mean, all cells: min {min(gains):.1f}% max {max(gains):.1f}% median {np.median(gains):.1f}%  (manuscript says 8% to 25%, median 17%)')
 
 ct=json.load(open(E/'ctsd_baseline_dev_v1_2026-09-15/scored.json'))
 def dist(k,m,meth):

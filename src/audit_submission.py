@@ -269,6 +269,83 @@ for i, blk in enumerate(blocks[1:], 1):
             f'will overlap at column width')
     else:
         good(f'figure block {i}: log axis has explicit ticks or minor ticks off')
+    # the y axis has the same failure mode, plus 10^1-style labels that are
+    # inconsistent with the plain numbers used elsewhere
+    logy = len(re.findall(r"set_yscale\('log'\)", blk))
+    yticks = len(re.findall(r'plain_log_ticks\([a-z\[\]0-9]+\.yaxis|set_yticks\(', blk))
+    if logy and yticks < logy:
+        bad(f'figure block {i}: {logy} log y axes but only {yticks} with explicit ticks; '
+            f'the rest will be labelled 10^1, 10^2 with overlapping minor labels')
+
+# ------------------------------------------------- duplicate References heading
+# thebibliography prints its own heading; a \section*{References} in front of it
+# puts the word on the page twice.
+if re.search(r'\\section\*\{References\}\s*\\begin\{thebibliography\}', body):
+    bad('\\section*{References} directly before thebibliography: the heading prints twice')
+else:
+    good('single References heading')
+
+# ------------------------------------------------- compiled PDFs are current
+# The manifest records the manuscript hash each PDF was built from; if the
+# manuscript changed since, the PDFs on the desktop are stale.
+if DESK.exists():
+    manifest = json.loads((DESK / 'Package_Manifest.json').read_text(encoding='utf-8'))
+    cur = hashlib.sha256(MST.read_bytes()).hexdigest()
+    built = manifest.get('built_from_tex', {})
+    if not built:
+        bad('Package_Manifest.json has no built_from_tex record: rebuild with build_submission_package.py')
+    else:
+        stale = [f for f, h in built.items() if h != cur]
+        if stale:
+            bad(f'{len(stale)} package files were built from an older manuscript: {stale}')
+        else:
+            good(f'all {len(built)} compiled/copied manuscript files were built from the current tex')
+    try:
+        import fitz  # PyMuPDF
+        for f in ('01_Upload/00_Manuscript_compiled.pdf', '01_Upload/00_Manuscript_anonymous.pdf'):
+            with fitz.open(DESK / f) as doc:
+                text = '\n'.join(page.get_text() for page in doc)
+            heads = re.findall(r'(?m)^References\s*$', text)
+            if len(heads) > 1:
+                bad(f'{f}: the References heading appears {len(heads)} times')
+            for ph in ('Journal Name', 'Author et al', 'dd Month yyyy'):
+                if ph in text.replace('\n', ' ') and ph != 'dd Month yyyy':
+                    bad(f'{f}: template placeholder "{ph}" is visible in the PDF')
+            if 'anonymous' in f:
+                leak = [w for w in ('Jun Ji', 'Zihan Li', 'Bowen Tan', 'Yi Sui', 'Shengjie Guo',
+                                    'Xiaolei Zhang', 'Yi Li', 'Qingdao', 'qdu.edu.cn', 'Jun-Jason-Ji',
+                                    'zenodo', 'Hohhot', 'Kowloon', 'Anthropic')
+                        if w in text]
+                if leak:
+                    bad(f'{f}: identifying strings survive anonymisation: {leak}')
+                else:
+                    good('anonymous PDF carries no author, affiliation, e-mail, repository or DOI string')
+            else:
+                good(f'{f}: single References heading, no template placeholder text')
+    except ImportError:
+        note('PyMuPDF not available; PDF text checks skipped')
+
+# ------------------------------------------------- package notes are current
+for f, must_not in (('03_Reference/README_SUBMISSION.md', ('待填', '六位', '本机无 LaTeX')),
+                    ('03_Reference/HOW_TO_DEPOSIT.md', ('六位作者',)),
+                    ('00_READ_FIRST_投稿说明.txt', ('本机没有 LaTeX', '待填'))):
+    p = DESK / f
+    if p.exists():
+        t = p.read_text(encoding='utf-8')
+        hit = [w for w in must_not if w in t]
+        if hit:
+            bad(f'{f} is stale: still says {hit}')
+        n_authors = len(re.findall(r'Zihan Li|Shengjie Guo', t))
+        if 'README' in f and n_authors < 2:
+            bad(f'{f} does not list the current seven authors')
+if DESK.exists():
+    good('package notes mention no unfilled items and list the current authors')
+    from datetime import date
+    cl = (DESK / '01_Upload/06_Cover_Letter.txt').read_text(encoding='utf-8').splitlines()[1].strip()
+    today = date.today().strftime('%d %B %Y').lstrip('0')
+    if cl != today:
+        note(f'cover letter is dated "{cl}", today is {today}; change line 2 of '
+             f'paper/mst/cover_letter.txt and rebuild if submitting today')
 
 # ---------------------------------------------------------------- real compile
 TECT = Path(r'C:\Users\Jason\AppData\Local\Temp\claude\E--research-VLLM'

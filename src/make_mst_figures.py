@@ -31,6 +31,18 @@ W2, W1 = 6.0, 4.3
 STYLE = {2: ('#1f77b4', 'o', '-'), 3: ('#2ca02c', 's', '--'), 7: ('#d62728', '^', ':')}
 
 
+def plain_log_ticks(axis, ticks):
+    """Label a log axis with plain numbers at the given positions.
+
+    Left to itself matplotlib writes 10^1, 10^2 at the decades and labels the
+    minor ticks as 2x10^1 etc; the latter overlap at column width and the
+    former are harder to read than 10, 20, 50.  Every log axis in this file
+    goes through here or through an explicit set_xticks, so the panels agree.
+    """
+    axis.set_ticks(ticks)
+    axis.set_ticklabels([str(t) for t in ticks])
+
+
 def stat(S, k, m, method='state_mean'):
     v = [s['mae_m'] for s in S if s['views'] == k and s['moments'] == m
          and s['method'] == method and s['mae_m'] is not None]
@@ -79,7 +91,8 @@ def main():
         ax.errorbar([2, 3, 7], y, yerr=np.array(e).T, marker=marks[i], linestyle=lss[i],
                     capsize=2, lw=1.0, label=f'$m$ = {m}')
     ax.set_xscale('log'); ax.set_yscale('log')
-    ax.set_xticks([2, 3, 7]); ax.set_xticklabels(['2', '3', '7']); ax.minorticks_off()
+    ax.set_xticks([2, 3, 7]); ax.set_xticklabels(['2', '3', '7'])
+    plain_log_ticks(ax.yaxis, [10, 20, 50, 100]); ax.minorticks_off()
     ax.set_xlabel('views per instant, $k$'); ax.set_ylabel('path-length MAE (mm)')
     ax.legend(frameon=False, ncol=2, columnspacing=.8)
     fig.tight_layout(pad=.3); fig.savefig(OUT / 'fig2.pdf'); fig.savefig(OUT / 'fig2.png', dpi=400); plt.close(fig)
@@ -93,7 +106,8 @@ def main():
     ax.plot(x, [s['adaptive_mae'] * 1000 for s in rows], marker='s', linestyle='--', color='#d62728', label='curvature density')
     ax.plot(x, [s['oracle_nonuniform_mae'] * 1000 for s in rows], marker='^', linestyle=':', color='#1f77b4', label='oracle placement')
     ax.set_xscale('log'); ax.set_yscale('log')
-    ax.set_xticks(x); ax.set_xticklabels([str(v) for v in x]); ax.minorticks_off()
+    ax.set_xticks(x); ax.set_xticklabels([str(v) for v in x])
+    plain_log_ticks(ax.yaxis, [10, 20, 50, 100, 200, 500]); ax.minorticks_off()
     ax.set_xlabel('time instants, $m$ (three views)')
     ax.set_ylabel('path-length MAE (mm)'); ax.legend(frameon=False)
     fig.tight_layout(pad=.3); fig.savefig(OUT / 'fig3.pdf'); fig.savefig(OUT / 'fig3.png', dpi=400); plt.close(fig)
@@ -110,7 +124,8 @@ def main():
         ax[0].plot([3 * m for m in M], y, marker=mk, linestyle=ls, color='#333333' if mk == 'o' else '#d62728', label=lab)
     ax[0].set_xscale('log'); ax[0].set_yscale('log')
     ax[0].set_xticks([24, 48, 99, 150, 300, 600])
-    ax[0].set_xticklabels(['24', '48', '99', '150', '300', '600']); ax[0].minorticks_off()
+    ax[0].set_xticklabels(['24', '48', '99', '150', '300', '600'])
+    plain_log_ticks(ax[0].yaxis, [5, 10, 20, 50, 100, 200]); ax[0].minorticks_off()
     ax[0].set_xlabel('camera frames per window'); ax[0].set_ylabel('path-length error (mm)')
     ax[0].set_title('(a) rise appears only in the mean'); ax[0].legend(frameon=False)
     for fe, c, mk, ls in (('orb', '#1f77b4', 'o', '-'), ('xfeat', '#2ca02c', 's', '--')):
@@ -120,9 +135,15 @@ def main():
         ax[1].plot(x, [abs(pb[str(b)]['bias']) * 1000 for b in x], linestyle=(0, (1, 1)), color=c,
                    alpha=.55, lw=.8, label=f'{name}, |bias|')
     ax[1].set_xscale('log'); ax[1].set_yscale('log')
-    ax[1].set_xticks([8, 16, 32, 64]); ax[1].set_xticklabels(['8', '16', '32', '64']); ax[1].minorticks_off()
+    ax[1].set_xticks([8, 16, 32, 64]); ax[1].set_xticklabels(['8', '16', '32', '64'])
+    # The curves fill the panel from lower left to upper right, so there is no
+    # empty corner for a four-entry legend. Extend the axis upwards and put
+    # the legend in the space that creates; nothing is drawn above 200 mm.
+    ax[1].set_ylim(1.3, 1500)
+    plain_log_ticks(ax[1].yaxis, [2, 5, 10, 20, 50, 100, 200, 500]); ax[1].minorticks_off()
     ax[1].set_xlabel('frames per window'); ax[1].set_ylabel('path-length MAE (mm)')
-    ax[1].set_title('(b) single-camera chain, 14 unseen windows'); ax[1].legend(frameon=False)
+    ax[1].set_title('(b) single-camera chain, 14 unseen windows')
+    ax[1].legend(frameon=False, loc='upper left')
     fig.tight_layout(pad=.3); fig.savefig(OUT / 'fig4.pdf'); fig.savefig(OUT / 'fig4.png', dpi=400); plt.close(fig)
 
     for p in sorted(OUT.glob('*.pdf')):

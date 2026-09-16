@@ -21,6 +21,7 @@ Encoded rules:
 """
 import re
 import sys
+sys.stdout.reconfigure(encoding="utf-8")  # messages may quote non-ASCII file names
 from pathlib import Path
 
 PAPER = Path(__file__).resolve().parents[1] / 'paper/mst'
