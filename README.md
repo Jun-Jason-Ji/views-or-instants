@@ -115,7 +115,8 @@ full scope and for the third-party software terms.
 See [CITATION.cff](CITATION.cff).
 
 - Concept DOI, always the latest version: [10.5281/zenodo.22784740](https://doi.org/10.5281/zenodo.22784740)
-- This version, v1.0.0: [10.5281/zenodo.22784741](https://doi.org/10.5281/zenodo.22784741)
+- This version, v1.0.1: [10.5281/zenodo.22791285](https://doi.org/10.5281/zenodo.22791285)
+- Previous version, v1.0.0: [10.5281/zenodo.22784741](https://doi.org/10.5281/zenodo.22784741)
 
 ## Licence
 

@@ -16,7 +16,7 @@ ROOT = Path(__file__).resolve().parents[1]
 MST = ROOT / 'paper/mst/mst_manuscript.tex'
 DESK = Path(r'C:\Users\Jason\Desktop\MST_Submission_v1.0.0_2026-09-15')
 REPO = ROOT / 'paper/repo'
-ZIP = ROOT / 'paper/zenodo/view_instant_allocation_v1.0.0.zip'
+ZIP = ROOT / 'paper/zenodo/view_instant_allocation_v1.0.1.zip'
 
 issues, notes, ok = [], [], []
 
