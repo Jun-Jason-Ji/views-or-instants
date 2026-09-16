@@ -1,11 +1,13 @@
 # Novelty statement for Measurement Science and Technology (required, under 100 words).
 # Paste into the submission system. Lines beginning with # are not counted.
 
-The bias trade-off between sparse and dense temporal sampling of a trajectory
-is established for single-sensor telemetry, where the sampling rate is fixed
-by the device. We show that a camera network has a second lever competing for
-the same processing budget, and measure the resulting error surface: accuracy
-saturates at three views, so the budget should buy time instants, giving the
-same measurement at 43% of the frames. We explain the saturation, which the
-literature reports but does not account for: the reconstruction error is
-largely common-mode, and a path length is invariant to a common translation.
+We evaluate how a multi-camera trajectory-length measurement should divide a
+fixed processing budget between simultaneous views and sampling instants.
+At 84 frames per window, a calibration-selected three-view configuration
+achieves lower observed error than seven views on the same confirmation
+windows. Explicit record-level comparisons, completion reporting and
+reference-sensitivity analysis qualify the resulting design guidance.
+Overlapping-subset simulations, disjoint-camera comparisons and a robust
+triangulation control test possible explanations without assuming a universal
+saturation mechanism. The study provides a reproducible approach to evaluating
+frame-budget allocation for a specified measurement chain.

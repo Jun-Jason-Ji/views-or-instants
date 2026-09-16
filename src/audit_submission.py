@@ -6,6 +6,7 @@ match the sealed artefacts, and inconsistencies between the manuscript, the
 GitHub repository and the Zenodo archive.
 """
 import hashlib
+import argparse
 import json
 import re
 import sys
@@ -15,6 +16,11 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 MST = ROOT / 'paper/mst/mst_manuscript.tex'
 DESK = Path(r'C:\Users\Jason\Desktop\MST_Submission_v1.0.0_2026-09-15')
+parser = argparse.ArgumentParser()
+parser.add_argument('--package', type=Path)
+args = parser.parse_args()
+if args.package:
+    DESK = args.package.resolve()
 REPO = ROOT / 'paper/repo'
 ZIP = ROOT / 'paper/zenodo/view_instant_allocation_v1.0.1.zip'
 
@@ -194,6 +200,53 @@ for rec, v in mech.items():
     else:
         good(f'mechanism table record {n}: all five values match')
 
+# -------------------------------------------------- revised evidence checks
+derived = ROOT / 'experiments/submission_sensitivity_2026-09-16'
+tum = json.load(open(ROOT / 'experiments/tum_dense_cheap_confirm_v1_2026-09-15/evaluation.json'))
+rev = json.load(open(derived / 'tum_sequence_equal.json'))
+for fe in ('orb', 'xfeat'):
+    for b, entry in rev[fe]['per_budget'].items():
+        rr = [r for r in tum if r['method'] == fe and r['budget_label'] == b and r['errors_m']]
+        seqs = sorted({r['sequence'] for r in rr})
+        bias = np.mean([np.mean([r['errors_m']['state_mean'] for r in rr if r['sequence']==seq]) for seq in seqs])
+        mae = np.mean([np.mean([abs(r['errors_m']['state_mean']) for r in rr if r['sequence']==seq]) for seq in seqs])
+        if not (abs(bias-entry['bias_seq_equal']) < 1e-12 and abs(mae-entry['mae_seq_equal']) < 1e-12 and abs(bias) <= mae+1e-12):
+            bad(f'revised secondary summary {fe}/{b}: inconsistent weighting or |bias| > MAE')
+        else:
+            good(f'sequence-equal MAE/bias verified independently: {fe}/{b}')
+pair = json.load(open(derived / 'paired_records.json'))['comparisons']
+equal = [r for r in pair if r['m3'] == 28 and r['m7'] == 12][0]
+if equal['frames3'] != equal['frames7'] or equal['frames3'] != 84:
+    bad('revised equal-budget comparison does not have equal frame costs')
+else:
+    good('revised main equal-budget comparison uses exactly 84 frames in both arms')
+for r in pair:
+    if r['m3'] != r['m7']: continue
+    line = f"{r['m3']} & {r['mae3_mm']:.2f} & {r['mae7_mm']:.2f} & ${r['difference_mm']:+.2f}$ & $[{r['cluster_percentile95_mm'][0]:.2f},{r['cluster_percentile95_mm'][1]:.2f}]$"
+    if line not in body:
+        bad(f'record-level table m={r["m3"]} differs from derived results')
+    else:
+        good(f'record-level table m={r["m3"]}: MAEs, difference and interval agree')
+cfg = json.load(open(ROOT / 'experiments/tum_dense_cheap_confirm_v1_2026-09-15/config.json'))
+decision = json.load(open(ROOT / 'experiments/tum_dense_cheap_confirm_v1_2026-09-15/decision.json'))['decision']
+if cfg['frontends']['primary'] != 'xfeat' or decision['xfeat']['gate_pass'] or not decision['orb']['gate_pass']:
+    bad('primary/secondary gate interpretation differs from frozen records')
+elif 'It was not fully met' not in body or 'XFeat was the pre-specified primary' not in body:
+    bad('manuscript does not explicitly disclose the incomplete primary criterion')
+else:
+    good('primary XFeat failure and secondary ORB success disclosed')
+for folder in ('allocation_confirm_v1_2026-09-15','tum_dense_cheap_confirm_v1_2026-09-15'):
+    folder = ROOT / 'experiments' / folder
+    seal = json.load(open(folder / 'prediction_seal.json'))['sha256']
+    if hashlib.sha256((folder / 'predictions.json').read_bytes()).hexdigest() != seal:
+        bad(f'original sealed predictions changed: {folder.name}')
+    else:
+        good(f'original prediction seal intact: {folder.name}')
+if 'Anthropic Claude' in body or 'OpenAI GPT' not in body:
+    bad('acknowledgments AI name not updated')
+else:
+    good('acknowledgments name OpenAI GPT')
+
 # ---------------------------------------------------------------- package integrity
 if DESK.exists():
     man = json.loads((DESK / 'Package_Manifest.json').read_text(encoding='utf-8'))['files']
@@ -231,9 +284,9 @@ if ZIP.exists():
         if names:
             zh = hashlib.sha256(z.read(names[0])).hexdigest()
             if zh != hashlib.sha256(MST.read_bytes()).hexdigest():
-                note('the published Zenodo archive holds the manuscript as it was before the DOI '
-                     'was inserted. That is inherent: the DOI cannot be inside the thing it names. '
-                     'The GitHub repository carries the current manuscript.')
+                note('the published Zenodo archive is a historical snapshot and differs from '
+                     'the current manuscript; a new archive version is needed to include '
+                     'subsequent manuscript changes. The local repository copy is checked separately.')
             else:
                 good('Zenodo archive manuscript matches the current one')
 

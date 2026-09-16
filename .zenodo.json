@@ -4,7 +4,7 @@
   "version": "1.0.1",
   "license": "mit",
   "access_right": "open",
-  "description": "<p>Analysis code, frozen protocols, input digests, sealed predictions and scored results for the article <em>How many views does a path-length measurement need? Trading camera views for time instants under a fixed frame budget</em>, submitted to Measurement Science and Technology.</p><p>A camera network that reports how far a target moved spends a finite processing budget, and that budget can buy either more simultaneous views at each instant or more instants. We measure the resulting error surface on a seven-camera rig with an independent optical tracking reference, under a protocol registered in advance whose predictions were sealed before the reference was read. Three views and seven views give path-length error that cannot be distinguished at any sampling density tested, so the budget should buy instants: the same accuracy is reached with 43% of the frames. The saturation is explained by common-mode reconstruction error, which averaging over views cannot remove and which largely cancels in a path length because a length is invariant to a common translation of its points.</p><p>The two datasets analysed are third-party public releases and are not redistributed. Input digest lists are supplied instead, so that a reader who obtains the data independently can verify byte for byte that they hold the same inputs. No model weights are included. See NOTICE.md for the full scope and the third-party software terms.</p>",
+  "description": "<p>Analysis code, frozen protocols and sealed results for the trajectory-length frame-budget allocation study prepared for Measurement Science and Technology.</p><p>The current working manuscript includes a post-v1.0.1 analysis revision. At 84 frames per window, the selected triple at 28 instants gives MAE 9.60 mm against 50.77 mm for seven views at 12 instants. Equal accuracy is not claimed. Exploratory analyses report record-level comparisons, sequence-equal MAE and bias, camera-overlap controls, temporal error increments and a fixed robust-triangulation baseline. The primary single-camera confirmation criterion was not fully met; the secondary ORB criterion passed. Frozen prediction files remain unchanged. The immutable Zenodo v1.0.1 archive predates this working revision.</p>",
   "keywords": [
     "vision-based measurement",
     "distance travelled",
@@ -16,28 +16,23 @@
   ],
   "creators": [
     {
-      "name": "Ji, Jun",
-      "affiliation": "College of Computer Science and Technology, Qingdao University, Qingdao, China",
-      "orcid": "0000-0003-3194-2183"
+      "name": "Tan, Bowen",
+      "affiliation": "The Hong Kong University of Science and Technology, Hong Kong SAR, China",
+      "orcid": "0009-0007-0554-9261"
     },
     {
       "name": "Li, Zihan",
       "affiliation": "College of Mathematics and Statistics, Qingdao University, Qingdao, China"
     },
     {
-      "name": "Tan, Bowen",
-      "affiliation": "The Hong Kong University of Science and Technology, Hong Kong SAR, China",
-      "orcid": "0009-0007-0554-9261"
+      "name": "Guo, Shengjie",
+      "affiliation": "Inner Mongolia Agricultural University, Hohhot, China",
+      "orcid": "0009-0004-6852-4836"
     },
     {
       "name": "Sui, Yi",
       "affiliation": "College of Computer Science and Technology, Qingdao University, Qingdao, China",
       "orcid": "0009-0001-8081-5183"
-    },
-    {
-      "name": "Guo, Shengjie",
-      "affiliation": "Inner Mongolia Agricultural University, Hohhot, China",
-      "orcid": "0009-0004-6852-4836"
     },
     {
       "name": "Zhang, Xiaolei",
@@ -48,6 +43,11 @@
       "name": "Li, Yi",
       "affiliation": "College of Computer Science and Technology, Qingdao University, Qingdao, China",
       "orcid": "0000-0002-4185-3152"
+    },
+    {
+      "name": "Ji, Jun",
+      "affiliation": "College of Computer Science and Technology, Qingdao University, Qingdao, China",
+      "orcid": "0000-0003-3194-2183"
     }
   ]
 }

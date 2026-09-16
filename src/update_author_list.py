@@ -12,13 +12,13 @@ ROOT = Path(__file__).resolve().parents[1]
 
 # order, English name, Chinese name, affiliation key, ORCID or None, corresponding
 AUTHORS = [
-    ('Jun Ji',       '纪军',   'qdu',   '0000-0003-3194-2183', False),
-    ('Zihan Li',     '李梓晗', 'maths', None,                  False),  # ORCID pending
     ('Bowen Tan',    '谭博文', 'hkust', '0009-0007-0554-9261', False),
-    ('Yi Sui',       '隋毅',   'qdu',   '0009-0001-8081-5183', False),
+    ('Zihan Li',     '李梓晗', 'maths', None,                  False),  # ORCID pending
     ('Shengjie Guo', '郭圣杰', 'imau',  '0009-0004-6852-4836', False),
+    ('Yi Sui',       '隋毅',   'qdu',   '0009-0001-8081-5183', False),
     ('Xiaolei Zhang', '张晓蕾', 'qdu',  '0000-0002-0122-4554', False),
-    ('Yi Li',        '李毅',   'qdu',   '0000-0002-4185-3152', True),
+    ('Yi Li',        '李毅',   'qdu',   '0000-0002-4185-3152', False),
+    ('Jun Ji',       '纪军',   'qdu',   '0000-0003-3194-2183', True),
 ]
 EMAIL = {'Jun Ji': 'junji@qdu.edu.cn', 'Zihan Li': '15589811228@163.com',  # to move to a qdu.edu.cn address later
          'Bowen Tan': 'btanab@connect.ust.hk', 'Yi Sui': 'suiyi@qdu.edu.cn',

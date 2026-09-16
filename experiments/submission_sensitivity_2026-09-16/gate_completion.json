@@ -1,0 +1,8 @@
+{
+  "window_arms": 2625,
+  "completed": 2432,
+  "failed": 193,
+  "gated_observations": 3940,
+  "window_arms_with_temporal_rejections": 99,
+  "note": "Combined view-consensus and temporal gate; failures remain in completion denominator."
+}

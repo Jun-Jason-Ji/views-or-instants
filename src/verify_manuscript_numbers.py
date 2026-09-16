@@ -61,10 +61,12 @@ chk('gate k3 m200 off',np.median([c['mae_off'] for c in it])*1000,37.7);chk('gat
 imp=sum(c['mae_on']<c['mae_off'] for c in it)
 if imp!=34:bad.append(f'gate improved subsets: quoted 34 got {imp}')
 
-tu=json.load(open(E/'tum_dense_cheap_confirm_v1_2026-09-15/decision.json'))['decision']
-for fe,vals in (('orb',[(8,18.9,-10),(16,33.0,-2),(32,43.8,18),(64,125.6,135)]),('xfeat',[(8,27.9,-20),(16,31.8,-2),(32,53.5,26),(64,170.0,178)])):
+tu=json.load(open(E/'submission_sensitivity_2026-09-16/tum_sequence_equal.json'))
+for fe,vals in (('orb',[(8,18.9,-10.0),(16,33.0,-6.9),(32,43.8,11.4),(64,125.6,91.1)]),('xfeat',[(8,27.9,-18.3),(16,31.8,-2.2),(32,53.5,26.0),(64,170.0,146.8)])):
     for b,mae,bias in vals:
-        s=tu[fe]['per_budget'][str(b)];chk(f'tum {fe} B{b} mae',s['mae_seq_equal']*1000,mae);chk(f'tum {fe} B{b} bias',abs(s['bias'])*1000,abs(bias),.15)
+        s=tu[fe]['per_budget'][str(b)];chk(f'tum {fe} B{b} mae',s['mae_seq_equal']*1000,mae);chk(f'tum {fe} B{b} bias',s['bias_seq_equal']*1000,bias,.025)
+        if abs(s['bias_seq_equal']) > s['mae_seq_equal']+1e-12:bad.append(f'tum {fe} B{b}: |bias| exceeds same-weight MAE')
+tu=json.load(open(E/'tum_dense_cheap_confirm_v1_2026-09-15/decision.json'))['decision']
 if tu['orb']['gate_pass'] is not True:bad.append('tum orb gate_pass is not True')
 if tu['xfeat']['gate_pass'] is not False:bad.append('tum xfeat gate_pass is not False')
 

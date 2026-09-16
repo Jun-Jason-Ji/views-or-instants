@@ -4,51 +4,40 @@
 
 Reproducibility archive for the article *How many views does a path-length
 measurement need? Trading camera views for time instants under a fixed frame
-budget*, submitted to *Measurement Science and Technology*.
+budget*, prepared for *Measurement Science and Technology*.
 
 Everything here runs on CPU. No model is trained and none is proposed.
 
-## The question
+## Current manuscript revision (16 September 2026)
 
-A camera network that reports how far a target moved spends a finite processing
-budget. Every frame that is transferred, decoded, detected and triangulated
-costs the same, so a budget of `B` frame reads can buy `k` simultaneous views at
-each of `m` time instants, subject to `B = k·m`. The two knobs act on opposite
-biases of the same estimate: more instants reduce the corner cutting that makes
-a sparsely sampled polyline too short, more views reduce the point noise that
-makes a densely sampled one too long. Where should the budget go?
+The current working manuscript and derived analyses postdate the v1.0.1
+Zenodo snapshot. That immutable archive preserves the original protocols,
+predictions and results; it is not a byte-identical copy of this revision.
 
-## What we found
+## The question and current findings
 
-**The budget should buy instants.** On a seven-camera rig, three views and seven
-views give path-length error that cannot be distinguished at any sampling
-density we tested, so the same measurement is obtained with 43 % of the
-processed frames. On the pre-registered confirmation set, at 33 instants:
+We evaluate a frame-request budget B = k*m, a processing proxy rather than
+measured runtime, energy or camera acquisition cost.
 
-| views | frames per window | path-length MAE |
-|---|---|---|
-| 3 | 99 | 8.3 mm |
-| 7 | 231 | 8.6 mm |
+At exactly 84 frames per window, the calibration-selected triple at 28
+instants has MAE 9.60 mm, versus 50.77 mm for seven views at 12 instants.
+This is an exploratory comparison on the recorded secondary confirmation grid.
+At a fixed 33 instants, the selected triple uses 99 rather than 231 frames,
+but its MAE is 9.25 rather than 8.63 mm. Statistical equivalence is not established.
+Subset medians (8.3 versus 8.6 mm) are different descriptive quantities.
 
-**Why the extra views are wasted.** A geometric model with independent pixel
-noise predicts that seven views should be 41 % more accurate than three. The
-realised ratio across five records is 0.46 to 1.92, mean 1.08. The reason is
-that the reconstruction errors are largely common-mode: the median cosine
-between the three-view and seven-view error vectors is 0.87. Extra views can
-only average away the independent part, and a path length is invariant to a
-common translation of its points, so the independent part is the only one that
-survives into the length. On all five records the seven-view solution improves
-when a single camera is removed, by 4 % to 45 %.
+Additional exploratory controls examine overlapping and disjoint camera
+sets, independent pixel noise, temporal error increments and a fixed robust
+triangulation rule. They do not identify a unique causal mechanism or a
+shared-error variance fraction. The reference-assisted curvature rule is
+one baseline, not a general optimality bound. The dense-regime mean is
+strongly affected by rare extreme errors, and gating trades error against
+completion. XFeat, the pre-specified primary single-camera method, did not
+meet its full confirmation criterion; the secondary ORB method did.
 
-**Two bounds on further tuning.** Non-uniform placement of the instants gains
-only 8 % to 25 % even with oracle access to the reference trajectory, and the
-deployable closed-form rule is worse than uniform sampling. Separately, what
-looked like noise accumulation at dense sampling is exposure to rare gross
-outliers: the median and the ninetieth percentile fall monotonically, and the
-mean rises because of one bad window in seventy-five.
-
-**A single-camera chain has the opposite optimum,** so the allocation is a
-property of the instrument and must be measured for each one.
+Error dispersion and reference-decimation sensitivity are conditional
+summaries, not a complete instrument uncertainty budget or verified coverage.
+The manuscript reports these limitations explicitly.
 
 ## Layout
 
@@ -72,14 +61,20 @@ Each confirmation experiment runs in four steps, and each leaves a file behind:
    which it did so. That timestamp is always later than the seal.
 4. The decision file records the pre-declared gates and whether each passed.
 
-So for any number in the article the chain from protocol to prediction to score
-can be re-walked, and the order of the timestamps shows the reference was not
-consulted while the predictions were being made.
+The primary-rig confirmation records had previously been exposed to per-frame
+triangulation quality checks. The local timestamps document execution order,
+not independently timestamped public preregistration. New analyses are marked
+exploratory and do not modify frozen source snapshots or original decisions.
+Some original decisions predate corrected failure aggregation; use the current
+manuscript and derived summaries rather than treating all historical summaries
+as current conclusions.
 
 ## Reproducing
 
 ```bash
-python src/verify_manuscript_numbers.py   # re-derive every number in the article
+python src/submission_sensitivity_analysis.py  # record-level and sequence-equal summaries
+python src/submission_sensitivity_analysis.py --geometry  # also requires original primary data
+python src/verify_manuscript_numbers.py   # check tabulated original and revised values
 python src/check_mst_compliance.py        # check the manuscript against the journal's rules
 ```
 
@@ -90,11 +85,11 @@ Main entry points:
 | `run_allocation_sweep.py` | development sweep over all camera subsets |
 | `run_allocation_confirm.py` | pre-registered confirmation, in `freeze` / `predict` / `score` steps |
 | `score_allocation_v2.py` | corrected aggregation, counting a failed window as failed for every estimator |
-| `run_view_saturation_mechanism.py` | geometric prediction, common-mode measurement, leave-one-camera-out |
+| `run_view_saturation_mechanism.py` | geometric prediction, error directions and leave-one-camera-out diagnostics |
 | `run_adaptive_moments.py` | non-uniform placement including the oracle arm |
 | `run_ctsd_baseline.py` | calibrated continuous-time estimator comparison |
-| `uncertainty_budget.py` | uncertainty budget and its consistency check |
-| `paired_view_test.py` | paired three-versus-seven-view test |
+| `uncertainty_budget.py` | historical error-scale calculation; current interpretation is qualified in the manuscript |
+| `paired_view_test.py` | historical window/subset test; superseded by exploratory record comparisons |
 | `run_tum_dense_cheap_confirm.py` | single-camera chain, pre-registered unseen windows |
 
 Scripts that re-run an experiment write to a new output directory and refuse to
@@ -115,7 +110,7 @@ full scope and for the third-party software terms.
 See [CITATION.cff](CITATION.cff).
 
 - Concept DOI, always the latest version: [10.5281/zenodo.22784740](https://doi.org/10.5281/zenodo.22784740)
-- This version, v1.0.1: [10.5281/zenodo.22791285](https://doi.org/10.5281/zenodo.22791285)
+- Original archived results, v1.0.1: [10.5281/zenodo.22791285](https://doi.org/10.5281/zenodo.22791285)
 - Previous version, v1.0.0: [10.5281/zenodo.22784741](https://doi.org/10.5281/zenodo.22784741)
 
 ## Licence

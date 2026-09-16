@@ -1,0 +1,82 @@
+{
+  "orb": {
+    "per_budget": {
+      "8": {
+        "mae_seq_equal": 0.018888560725594562,
+        "bias_seq_equal": -0.010046601409261939,
+        "n_by_sequence": {
+          "nostructure_texture_near_withloop": 7,
+          "sitting_xyz": 5,
+          "structure_texture_far": 2
+        }
+      },
+      "16": {
+        "mae_seq_equal": 0.03302793191839031,
+        "bias_seq_equal": -0.006909855694050293,
+        "n_by_sequence": {
+          "nostructure_texture_near_withloop": 7,
+          "sitting_xyz": 5,
+          "structure_texture_far": 2
+        }
+      },
+      "32": {
+        "mae_seq_equal": 0.043834946576389096,
+        "bias_seq_equal": 0.011429146126832485,
+        "n_by_sequence": {
+          "nostructure_texture_near_withloop": 7,
+          "sitting_xyz": 5,
+          "structure_texture_far": 2
+        }
+      },
+      "64": {
+        "mae_seq_equal": 0.12557385657011869,
+        "bias_seq_equal": 0.09113970227372221,
+        "n_by_sequence": {
+          "nostructure_texture_near_withloop": 7,
+          "sitting_xyz": 5,
+          "structure_texture_far": 2
+        }
+      }
+    }
+  },
+  "xfeat": {
+    "per_budget": {
+      "8": {
+        "mae_seq_equal": 0.027943280366019268,
+        "bias_seq_equal": -0.018334563451141705,
+        "n_by_sequence": {
+          "nostructure_texture_near_withloop": 7,
+          "sitting_xyz": 5,
+          "structure_texture_far": 2
+        }
+      },
+      "16": {
+        "mae_seq_equal": 0.03183050187789996,
+        "bias_seq_equal": -0.0022415261912623204,
+        "n_by_sequence": {
+          "nostructure_texture_near_withloop": 7,
+          "sitting_xyz": 5,
+          "structure_texture_far": 2
+        }
+      },
+      "32": {
+        "mae_seq_equal": 0.05352589178801328,
+        "bias_seq_equal": 0.025977709197038627,
+        "n_by_sequence": {
+          "nostructure_texture_near_withloop": 7,
+          "sitting_xyz": 5,
+          "structure_texture_far": 2
+        }
+      },
+      "64": {
+        "mae_seq_equal": 0.17003748012066477,
+        "bias_seq_equal": 0.14679098972207782,
+        "n_by_sequence": {
+          "nostructure_texture_near_withloop": 7,
+          "sitting_xyz": 5,
+          "structure_texture_far": 2
+        }
+      }
+    }
+  }
+}

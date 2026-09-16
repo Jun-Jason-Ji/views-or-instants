@@ -10,48 +10,44 @@ We submit for your consideration the Paper "How many views does a path-length
 measurement need? Trading camera views for time instants under a fixed frame
 budget".
 
-A camera network that reports how far a target moved must spend a finite
-processing budget, and that budget can buy either more simultaneous views at
-each time instant or more instants. The two choices act on the two opposite
-biases of the same estimate. The bias trade-off itself is established in the
-telemetry literature, where a single sensor has a fixed sampling rate and the
-only practical response is post-hoc correction; the allocation question that a
-multi-sensor instrument faces is not addressed there. We measure that error
-surface directly.
+We study how a multi-camera trajectory-length measurement divides a finite
+processing budget between simultaneous views and sampling instants. The
+contribution is an explicit evaluation of the joint allocation surface,
+including accuracy, completion and reference sensitivity, for a specified
+measurement chain. The familiar sparse-versus-dense sampling bias is credited
+to the telemetry literature; we examine the additional budget constraint
+introduced by multiple cameras.
 
-We believe the work fits the scope of Measurement Science and Technology for
-three reasons. First, the contribution is an advance in measurement technique
-rather than the application of an established one: we identify a design
-variable that the existing treatment of this bias does not contain, and we
-give a quantitative rule for setting it. Second, the article contains a full
-consideration of measurement uncertainty, as the journal requires: we give a
-top-down budget in the vocabulary of the GUM and the VIM, with a determined
-and separately reported sampling bias of -8.2 mm and an expanded uncertainty
-of 14.9 mm at a coverage factor of two, and we use the reconstruction error as
-a consistency check on that budget rather than as an additional term. Third,
-the central negative result is a measurement-design guideline: we bound the
-achievable gain from non-uniform temporal placement at 8 to 25 per cent even
-when the reference trajectory is used to choose the placement, which tells a
-practitioner not to invest there.
+At exactly 84 frames per window, a calibration-selected three-view
+configuration at 28 instants gives a mean absolute error of 9.60 mm, compared
+with 50.77 mm for seven views at 12 instants, on 60 confirmation windows.
+This comparison is explicitly identified as an exploratory analysis of the
+recorded secondary grid. At 33 instants, the selected triple uses 43 percent
+of the frames but has slightly larger error, 9.25 versus 8.63 mm; we do not
+claim statistical equivalence. Record-level comparisons acknowledge that
+the 60 windows come from only four records on one rig.
 
-Two features of the study may be of particular interest to your reviewers. The
-confirmation experiments were pre-registered: the protocol, the candidate
-list, the decision gates and the source-file hashes were frozen before the
-confirmation records were read, and every prediction was sealed by a
-cryptographic hash before the reference was loaded. And we report a
-methodological caution that applies well beyond this measurand: what appeared
-in our data to be the classical noise-accumulation limb is in fact exposure to
-rare gross outliers, visible in the mean but not in the median or the
-ninetieth percentile, and the two mechanisms call for different engineering
-responses.
+The article also includes disjoint-camera comparisons, independent-pixel-noise
+controls with shared cameras, temporal error diagnostics and a fixed robust
+triangulation baseline. These qualify possible explanations rather than claim
+an identified common-mode mechanism. A reference-assisted curvature sampling
+rule is evaluated as a baseline, not a general optimization bound. Error
+reductions under a combined robustness gate are reported together with the
+loss of completed windows. In a secondary single-camera experiment, the
+pre-specified primary criterion is not fully met; that result is reported
+alongside the successful secondary analysis.
 
-We state plainly in the manuscript what we do not claim. The bias mechanism
-belongs to the telemetry literature we cite, and the existence of saturation
-in camera count has been reported in biomechanics; our contribution is the
-budget axis that couples them, the mechanism behind the saturation, and the
-two bounds. The saturation point of three views is a property of the
-instruments we measured, not a universal constant, and the manuscript gives
-the reason it cannot be universal.
+Measurement uncertainty is discussed through observed error dispersion,
+uncorrected bias, reference-resolution sensitivity, and the calibration and
+reference contributions that remain unquantified. We do not present the
+descriptive error scale as a validated coverage interval. Protocol freezing,
+prior quality-control exposure of the primary confirmation records, prediction
+sealing, and subsequent exploratory analyses are distinguished explicitly.
+
+We believe the work is relevant to readers designing vision-based measurement
+systems under limited processing resources. Its conclusions concern the
+tested processing chain, rather than camera acquisition costs or a universal
+number of cameras.
 
 The work is original, has not been published elsewhere and is not under
 consideration by another journal. All authors have approved the submission and
@@ -63,9 +59,9 @@ We would be grateful for your consideration.
 
 Yours sincerely,
 
-Yi Li (corresponding author)
+Jun Ji (corresponding author)
 College of Computer Science and Technology, Qingdao University
 308 Ningxia Road, Qingdao 266071, China
-ly2005@qdu.edu.cn
+junji@qdu.edu.cn
 
-on behalf of Jun Ji, Zihan Li, Bowen Tan, Yi Sui, Shengjie Guo, Xiaolei Zhang and Yi Li
+on behalf of Bowen Tan, Zihan Li, Shengjie Guo, Yi Sui, Xiaolei Zhang, Yi Li and Jun Ji

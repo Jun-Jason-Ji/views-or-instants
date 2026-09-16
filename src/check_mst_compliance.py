@@ -58,7 +58,7 @@ chk(not badid, 'every ORCID iD is 14 digits with hyphen separators'
     + ('' if not badid else f'; malformed or placeholder: {", ".join(badid)}'), soft=True)
 
 authors = re.search(r'\\author\{(.*?)\n\n', body, re.S)
-n_auth = len(re.findall(r'\\orcid', authors.group(1))) if authors else 0
+n_auth = len(re.findall(r'[A-Z][a-z]+ [A-Z][a-z]+\$', authors.group(1))) if authors else 0
 n_affil = len(re.findall(r'\\affil\{', body))
 chk(n_auth >= 1, f'{n_auth} authors in the author block')
 chk(n_affil >= 2, f'{n_affil} affil blocks (one per institution plus the corresponding-author note)')

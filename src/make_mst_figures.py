@@ -113,7 +113,7 @@ def main():
     fig.tight_layout(pad=.3); fig.savefig(OUT / 'fig3.pdf'); fig.savefig(OUT / 'fig3.png', dpi=400); plt.close(fig)
 
     mc = json.load(open(ROOT / 'experiments/ctsd_baseline_dev_v1_2026-09-15/scored.json'))
-    tu = json.load(open(ROOT / 'experiments/tum_dense_cheap_confirm_v1_2026-09-15/decision.json'))['decision']
+    tu = json.load(open(ROOT / 'experiments/submission_sensitivity_2026-09-16/tum_sequence_equal.json'))
     fig, ax = plt.subplots(1, 2, figsize=(W2, 2.5))
     M = [8, 12, 16, 25, 33, 50, 100, 200]
     for lab, fn, mk, ls in (('mean over 75 windows', np.mean, 'o', '-'),
@@ -127,12 +127,12 @@ def main():
     ax[0].set_xticklabels(['24', '48', '99', '150', '300', '600'])
     plain_log_ticks(ax[0].yaxis, [5, 10, 20, 50, 100, 200]); ax[0].minorticks_off()
     ax[0].set_xlabel('camera frames per window'); ax[0].set_ylabel('path-length error (mm)')
-    ax[0].set_title('(a) rise appears only in the mean'); ax[0].legend(frameon=False)
+    ax[0].set_title('(a) extreme errors dominate the mean'); ax[0].legend(frameon=False)
     for fe, c, mk, ls in (('orb', '#1f77b4', 'o', '-'), ('xfeat', '#2ca02c', 's', '--')):
         pb = tu[fe]['per_budget']; x = sorted(int(b) for b in pb)
-        name = 'binary descriptor' if fe == 'orb' else 'learned descriptor'
+        name = 'ORB (secondary)' if fe == 'orb' else 'XFeat (primary)'
         ax[1].plot(x, [pb[str(b)]['mae_seq_equal'] * 1000 for b in x], marker=mk, linestyle=ls, color=c, label=name)
-        ax[1].plot(x, [abs(pb[str(b)]['bias']) * 1000 for b in x], linestyle=(0, (1, 1)), color=c,
+        ax[1].plot(x, [abs(pb[str(b)]['bias_seq_equal']) * 1000 for b in x], linestyle=(0, (1, 1)), color=c,
                    alpha=.55, lw=.8, label=f'{name}, |bias|')
     ax[1].set_xscale('log'); ax[1].set_yscale('log')
     ax[1].set_xticks([8, 16, 32, 64]); ax[1].set_xticklabels(['8', '16', '32', '64'])
@@ -141,8 +141,8 @@ def main():
     # the legend in the space that creates; nothing is drawn above 200 mm.
     ax[1].set_ylim(1.3, 1500)
     plain_log_ticks(ax[1].yaxis, [2, 5, 10, 20, 50, 100, 200, 500]); ax[1].minorticks_off()
-    ax[1].set_xlabel('frames per window'); ax[1].set_ylabel('path-length MAE (mm)')
-    ax[1].set_title('(b) single-camera chain, 14 unseen windows')
+    ax[1].set_xlabel('frames per window'); ax[1].set_ylabel('MAE and |bias| (mm)')
+    ax[1].set_title('(b) single-camera chain, sequence-equal')
     ax[1].legend(frameon=False, loc='upper left')
     fig.tight_layout(pad=.3); fig.savefig(OUT / 'fig4.pdf'); fig.savefig(OUT / 'fig4.png', dpi=400); plt.close(fig)
 

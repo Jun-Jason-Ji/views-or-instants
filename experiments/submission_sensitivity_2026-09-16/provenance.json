@@ -1,0 +1,9 @@
+{
+  "status": "exploratory analysis after confirmation outcomes were examined",
+  "script_sha256": "7dea5a087b78e402d46b56286844fcf27bdd2988f511a857fe9b2b55165f1540",
+  "input_sha256": {
+    "experiments\\allocation_confirm_v1_2026-09-15\\scored.json": "889a6b688cf6dc5a4e86bbf76fbcabdc9799f839c454b3a0c42a7cf426e7491c",
+    "experiments\\tum_dense_cheap_confirm_v1_2026-09-15\\evaluation.json": "c3252d780677fc3783c61ac55a7c8df310897ff2ae74f88f911f3658460d613f",
+    "experiments\\tum_dense_cheap_confirm_v1_2026-09-15\\config.json": "9e486bd5ae07d47949e08281b2d828199b042f086dc65faa255d45ef34db91ef"
+  }
+}
