@@ -1,0 +1,35 @@
+{
+  "frontends": [
+    "orb",
+    "xfeat"
+  ],
+  "budgets": [
+    8,
+    16,
+    32,
+    64,
+    "all"
+  ],
+  "windows": "fr3 confirmation plan.json (15 windows, offsets 1/5/9/13/17 s, 4 s)",
+  "K": [
+    [
+      535.4,
+      0,
+      320.1
+    ],
+    [
+      0,
+      539.2,
+      247.6
+    ],
+    [
+      0,
+      0,
+      1
+    ]
+  ],
+  "chain": "uniform selection -> extract -> match -> paired_depth -> solve_rigid -> advance; first failed edge fails query; state_mean(sigma=3mm)/limited/polygon",
+  "comparison": "existing LighterGlue GPU lg_baseline/depth_weighted B16/B32 rows from fr3_weighted_confirmation_v1 evaluation.json",
+  "scope": "development screen on already-seen fr3 windows; not an unseen confirmation",
+  "utc": "2026-09-15T16:18:29.579939+00:00"
+}

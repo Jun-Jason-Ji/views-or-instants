@@ -1,0 +1,81 @@
+{
+  "records": [
+    "record15",
+    "record16",
+    "record17",
+    "record18"
+  ],
+  "windows": "start 0,200,...,2800; end=start+199 (15 per record, 60 total)",
+  "cost_unit": "camera frame requests = views x moments; missing detections still charged",
+  "prior_protocol": {
+    "views": 7,
+    "moments": 8,
+    "frames": 56,
+    "estimators": [
+      "state_mean",
+      "limited"
+    ]
+  },
+  "candidates": [
+    {
+      "views": 2,
+      "cameras": "3e0f8f0+44c4b2e",
+      "moments": 28,
+      "frames": 56,
+      "estimator": "state_mean"
+    },
+    {
+      "views": 2,
+      "cameras": "3e0f8f0+44c4b2e",
+      "moments": 33,
+      "frames": 66,
+      "estimator": "state_mean"
+    },
+    {
+      "views": 3,
+      "cameras": "216f21c1+3e0f8f0+44c4b2e",
+      "moments": 19,
+      "frames": 57,
+      "estimator": "state_mean"
+    }
+  ],
+  "secondary": {
+    "all_pairs_and_triples": true,
+    "views": [
+      2,
+      3,
+      7
+    ],
+    "moments": [
+      8,
+      12,
+      16,
+      19,
+      25,
+      28,
+      33,
+      50,
+      100,
+      200
+    ],
+    "estimators": [
+      "polygon",
+      "limited",
+      "state_mean(m<=50)"
+    ],
+    "estimator_choice": "state_mean chosen on dev for m<=33; limited for m>33"
+  },
+  "camera_rule": "calibration-only scene center (closest point to all optical axes) then min over subsets of worst-pair z/(f*sin(angle))",
+  "scene_center_m": [
+    1.0186821225907774,
+    0.5400430151797001,
+    0.9059957247647037
+  ],
+  "failure_policy": "A moment with <2 visible views is dropped from the polyline; if either endpoint is missing the query fails. Failures are counted and reported, never dropped from denominators.",
+  "gates": {
+    "primary": "Each candidate at equal-or-lower frames (56/57) vs prior 7x8 state_mean: MAE reduction >=50% overall, every record improves, failed queries <= prior + 0",
+    "also": "66-frame 2x33 candidate reported vs 7x8 (56) and vs 7x12 (84) state_mean; not part of the primary gate"
+  },
+  "scope": "Same rig, same session, publisher 2D caches, mocap reference; NOT end-to-end RGB, NOT an independent laboratory. Per-frame cost model only.",
+  "utc": "2026-09-15T15:55:02.660270+00:00"
+}

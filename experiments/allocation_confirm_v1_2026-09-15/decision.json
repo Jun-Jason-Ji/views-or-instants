@@ -1,0 +1,133 @@
+{
+  "reference_first_read_utc": "2026-09-15T16:00:58.351198+00:00",
+  "decision": {
+    "prior_7x8_state_mean": {
+      "n": 60,
+      "failed": 0,
+      "mae_m": 0.2234203150548805,
+      "p95_m": 0.6108024111536079,
+      "bias_m": -0.2234203150548805,
+      "per_record": {
+        "record15": 0.19187562603351882,
+        "record16": 0.2578188637245606,
+        "record17": 0.2099763340553891,
+        "record18": 0.23401043640605354
+      },
+      "frames": 56,
+      "cameras": "all7"
+    },
+    "prior_7x8_limited": {
+      "n": 60,
+      "failed": 0,
+      "mae_m": 0.3489758641026079,
+      "p95_m": 0.9633053876710055,
+      "bias_m": -0.3489758641026079,
+      "per_record": {
+        "record15": 0.2983152394749172,
+        "record16": 0.4091404732846673,
+        "record17": 0.32942346990629456,
+        "record18": 0.3590242737445527
+      },
+      "frames": 56,
+      "cameras": "all7"
+    },
+    "prior_7x12_state_mean": {
+      "n": 60,
+      "failed": 0,
+      "mae_m": 0.05076828438287692,
+      "p95_m": 0.13108010393014977,
+      "bias_m": -0.05076828438287692,
+      "per_record": {
+        "record15": 0.04619641552065161,
+        "record16": 0.05548638981123511,
+        "record17": 0.05319932553556974,
+        "record18": 0.04819100666405121
+      },
+      "frames": 84,
+      "cameras": "all7"
+    },
+    "candidates": [
+      {
+        "candidate": {
+          "views": 2,
+          "cameras": "3e0f8f0+44c4b2e",
+          "moments": 28,
+          "frames": 56,
+          "estimator": "state_mean"
+        },
+        "result": {
+          "n": 48,
+          "failed": 0,
+          "mae_m": 0.01252012326153377,
+          "p95_m": 0.037017031728204225,
+          "bias_m": -0.009230385925336463,
+          "per_record": {
+            "record15": 0.011882875103118806,
+            "record16": 0.01217554552590149,
+            "record17": 0.013956736040013854,
+            "record18": 0.011866784551128601
+          },
+          "frames": 56,
+          "cameras": "3e0f8f0+44c4b2e"
+        },
+        "relative_gain": 0.9439615718988743,
+        "every_record_improves": true,
+        "primary_gate": true
+      },
+      {
+        "candidate": {
+          "views": 2,
+          "cameras": "3e0f8f0+44c4b2e",
+          "moments": 33,
+          "frames": 66,
+          "estimator": "state_mean"
+        },
+        "result": {
+          "n": 48,
+          "failed": 0,
+          "mae_m": 0.011246685323319405,
+          "p95_m": 0.025168859564640787,
+          "bias_m": -0.00830411909073947,
+          "per_record": {
+            "record15": 0.010910690636340576,
+            "record16": 0.011967201383642627,
+            "record17": 0.011061373464267686,
+            "record18": 0.010950165954250095
+          },
+          "frames": 66,
+          "cameras": "3e0f8f0+44c4b2e"
+        },
+        "relative_gain": 0.9496613129358591,
+        "every_record_improves": true,
+        "primary_gate": "not_in_primary_gate"
+      },
+      {
+        "candidate": {
+          "views": 3,
+          "cameras": "216f21c1+3e0f8f0+44c4b2e",
+          "moments": 19,
+          "frames": 57,
+          "estimator": "state_mean"
+        },
+        "result": {
+          "n": 60,
+          "failed": 0,
+          "mae_m": 0.014863636158290087,
+          "p95_m": 0.03532704419327119,
+          "bias_m": -0.014573568366294835,
+          "per_record": {
+            "record15": 0.014980169012808749,
+            "record16": 0.015007966999113739,
+            "record17": 0.014656177889213732,
+            "record18": 0.014810230732024128
+          },
+          "frames": 57,
+          "cameras": "216f21c1+3e0f8f0+44c4b2e"
+        },
+        "relative_gain": 0.9334723158248209,
+        "every_record_improves": true,
+        "primary_gate": true
+      }
+    ]
+  }
+}

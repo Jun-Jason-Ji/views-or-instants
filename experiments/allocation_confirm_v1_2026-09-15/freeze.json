@@ -1,0 +1,16 @@
+{
+  "hashes": {
+    "src/run_allocation_confirm.py": "3d55f4d79f69daca923468dcaa1827ad84743d98ee4dda507bd11e191e460126",
+    "src/run_allocation_sweep.py": "f71958b2ec9c7820dfdff8de7bba10cfa2143016007747f74ff5392fea5566f7",
+    "src/analyze_allocation.py": "7d2b53c1bfa12ab62b25c25bc27dbefc4cdda76660e7329d28d6432bd45e48b3",
+    "src/limited_arc_cpu.py": "41f6eb7f12945d8d4c379715b9ec9fa40e52f98d47b7036248bde0e088d70c64",
+    "src/continuous_motion_cpu.py": "ca8983d42f31b0a8252d382a9085feb051a02edace87226d7958de7c3ef4e75e",
+    "src/mcalib_cache_observer.py": "a29c6db2e7d826673cb771c5f24a406d0ba39950f2e19e4e66cd34cc0d2caaff",
+    "src/robust_triangulation_cpu.py": "182de76d3e86079e0cacb00ce949d258542ed83357771117a2575b2923a02d70",
+    "src/audit_mcalib_sample.py": "73461f80985309bc7aa01d9a8bf53cb7485a2917364a4afcec899499f6ba070f",
+    "src/prepare_mcalib_cache.py": "211cdd21adc5a12fc9fb25d31bc433c6687454130a68ec80f5286f975e8cbf29",
+    "tests/test_bearing_fusion.py": "c43e570254be61f091706f42f1ff95f3ce916044e7666d2e174b295d080c690f",
+    "experiments/mcalib_3d_cache_2026-09-13_verified/public/calibration.json": "8ba602a36a0a13520d515d1880a8de07127f4aa5a9e46eebc7e12e135be8f2a6"
+  },
+  "utc": "2026-09-15T15:55:02.660270+00:00"
+}

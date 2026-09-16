@@ -1,0 +1,860 @@
+%% Measurement Science and Technology (IOP Publishing) submission.
+%% Prepared with the official IOP template iopjournal.cls, downloaded 2026-09-15
+%% from https://publishingsupport.iopscience.iop.org/wp-content/uploads/2025/07/ioplatextemplate.zip
+%%
+%% TO COMPILE: keep iopjournal.cls, orcid.pdf and fig1.pdf .. fig4.pdf in this
+%% same directory (IOP requires a flat directory, no subfolders), then run
+%% pdflatex twice.
+%%
+%% ARTICLE TYPE: Paper (full research paper, not a Technical Design Note,
+%% which IOP caps at about 2500 words).
+%%
+%% ITEMS STILL TO CONFIRM BEFORE SUBMISSION ARE MARKED <<...>>.
+
+\documentclass{iopjournal}
+
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{url}
+
+\begin{document}
+
+\articletype{Paper}
+
+\title{How many views does a path-length measurement need? Trading camera
+views for time instants under a fixed frame budget}
+
+\author{Jun Ji$^1$\orcid{0000-0003-3194-2183},
+Bowen Tan$^2$\orcid{0009-0007-0554-9261},
+Yi Sui$^1$\orcid{0009-0001-8081-5183},
+Shengjie Guo$^3$\orcid{<<0000-0000-0000-0000>>},
+Xiaolei Zhang$^1$\orcid{0000-0002-0122-4554}
+and Yi Li$^{1,*}$\orcid{0000-0002-4185-3152}}
+
+\affil{$^1$College of Computer Science and Technology, Qingdao University,
+308 Ningxia Road, Qingdao 266071, China}
+
+\affil{$^2$The Hong Kong University of Science and Technology, Clear Water Bay,
+Kowloon, Hong Kong SAR, China}
+
+\affil{$^3$<<College/Department>>, Inner Mongolia Agricultural University,
+Hohhot <<010018>>, Inner Mongolia, China}
+
+\affil{$^*$Author to whom any correspondence should be addressed.}
+
+\email{ly2005@qdu.edu.cn}
+
+\keywords{vision-based measurement, distance travelled, trajectory length,
+multi-camera triangulation, sampling design, measurement uncertainty,
+budget allocation}
+
+\begin{abstract}
+A camera network that reports how far a target moved must spend a finite
+processing budget. Every camera frame that is transferred, decoded, detected
+and triangulated costs the same, so a fixed budget can buy more simultaneous
+views at each time instant, or more instants. The two choices act on opposite
+biases of one estimate: more instants reduce the corner cutting that makes a
+sparsely sampled polyline too short, while more views reduce the point noise
+that makes a densely sampled one too long. That trade-off is established for
+single-sensor telemetry, where the sampling rate is fixed by the device, but
+the allocation question it raises for a camera network is not. We characterise
+the two-dimensional error surface on a seven-camera rig with an independent
+optical tracking reference, under a protocol registered in advance whose
+predictions were sealed before the reference was read. Three views and seven
+views give path-length errors that cannot be distinguished at any sampling
+density tested, so the budget should buy instants: the same accuracy is
+reached with forty-three percent of the frames. We then explain why the extra
+views are wasted. A geometric model with independent pixel noise predicts a
+large gain from seven views, and the measured ratio shows none, because the
+reconstruction errors are largely shared across views and a path length is
+invariant to a common translation of its points. Two further results bound
+what remains to be tuned, and a single-camera chain is shown to have the
+opposite optimum.
+\end{abstract}
+
+% =====================================================================
+\section{Introduction}
+\label{sec:introduction}
+
+A recurring measurement task is to report how far a target moved over a time
+window: the arc length of its trajectory, rather than the straight-line
+displacement between the endpoints. When the trajectory is observed only at
+discrete instants, the estimate is biased in two directions at once.
+Connecting sparse samples by straight lines cuts every corner and
+underestimates the arc. Connecting dense samples accumulates the per-sample
+position noise, and in the limit of infinitely dense sampling the polyline
+length diverges.
+
+This trade-off is established. Palmer [1] simulated it for fishing-vessel
+tracks and noted that the overestimation at high polling rates is inversely
+proportional to vessel speed. Ranacher \textit{et al} gave a closed form for
+the noise-driven overestimate [2] and devoted a separate study to locating the
+balance point for floating-car data [3]. Noonan \textit{et al} [4] established
+the full picture for animal telemetry, proved the divergence result, named the
+balance point the `Goldilocks sampling frequency', argued that it is
+impractical to hit deliberately, and published a corrective estimator.
+Rowcliffe \textit{et al} [5] and Schoombie \textit{et al} [6] quantified the
+two limbs empirically. We claim none of this as new and we build on it
+directly.
+
+It is also known that adding cameras to a markerless motion-capture rig helps
+less than one might expect. Mulla \textit{et al} [7] found that two cameras
+can match four for markerless hand tracking, and Walker \textit{et al} [8]
+found that eighteen, twelve and six cameras change biomechanical kinematics by
+only a few degrees. We report the existence of saturation as confirmation of
+their finding, not as a discovery.
+
+What neither literature contains is the allocation question that these two
+facts jointly create. A telemetry collar has one sensor and a fixed duty
+cycle, so the sampling interval is its only lever, and the practical response
+to the bias trade-off is post-hoc correction. A camera rig has two levers, and
+they compete for the same budget. If the cost that matters is the number of
+camera frames that must be transferred, decoded, detected and triangulated,
+then a budget of $B$ frame reads per window satisfies
+\begin{equation}
+B = k\,m,
+\label{eq:budget}
+\end{equation}
+where $k$ is the number of simultaneous views used at each instant and $m$ is
+the number of instants. The design question is where to spend. The saturation
+studies [7, 8] vary the camera count at a fixed frame rate, and so measure
+only one edge of that surface.
+
+This paper contributes the following.
+
+\begin{enumerate}
+\item \textit{A budget-equalised allocation result.} Under a fixed frame
+budget the budget should buy instants, down to the point where view count
+saturates. On our rig three views match seven at every sampling density
+tested, so the same measurement is obtained with 43\% of the processed frames;
+at equal cost, three views at nineteen instants give 14.9\,mm against
+27.9\,mm for seven views at sixteen instants.
+
+\item \textit{A mechanism for the saturation, and evidence that extra views
+can be harmful.} An independent-pixel-noise model predicts a 41\% gain from
+seven views over three; the realised ratio is 1.08 on average. The
+reconstruction errors are largely common-mode, with a median cosine of 0.87
+between the three-view and seven-view error vectors, so the extra views have
+little independent noise to average. On all five development records the
+seven-view solution improves when a single camera is removed, by 4\% to 45\%.
+
+\item \textit{Two bounds on further tuning.} Non-uniform placement of the
+instants gains only 8\% to 25\% even with oracle access to the reference, and
+the deployable closed-form rule is worse than uniform sampling. Separately,
+the apparent dense-sampling degradation in our data is gross-outlier exposure
+rather than noise accumulation; the median and the ninetieth-percentile error
+fall monotonically, and a consistency gate, not a different allocation, is the
+appropriate response.
+\end{enumerate}
+
+We follow the vision-based measurement framing of Shirmohammadi and Ferrero
+[9]: the camera rig is the instrument, and the object of study is the
+measurand and its uncertainty, not the performance of an algorithm.
+Section~\ref{sec:opposite} reports the same allocation question for a
+single-camera chained-registration system, where the optimum sits at the
+opposite end, which is why we present the allocation as a quantity to be
+measured per instrument rather than as a constant.
+
+% =====================================================================
+\section{Related work}
+\label{sec:related}
+
+\subsection{Sampling-density bias in distance travelled}
+The two-sided bias, the interior optimum, and its dependence on the ratio of
+motion per interval to measurement noise are established in [1--4]. Noonan
+\textit{et al} [4] give a practical sampling window bounded below by the ratio
+of error variance to velocity variance and above by the velocity
+autocorrelation time, prove that no estimator recovers distance when the
+sampling interval exceeds three times that autocorrelation time, and provide a
+continuous-time speed and distance estimator. Codling and Hill [10] give
+analytic expressions for how apparent step length scales with sampling rate in
+a correlated random walk; Jerde and Visscher [11] and Hurford [12] document
+the noise-driven corruption of step lengths and turn angles. The fractal and
+tortuosity literature [13, 14] is the conceptual antecedent. All of this work
+treats a single sensor with a fixed sampling rate.
+
+\subsection{Camera count in multi-view measurement}
+Triangulation uncertainty as a function of camera count, baseline and noise is
+characterised in [15], and diminishing returns are expected. Markerless
+motion-capture studies report saturation empirically [7, 8, 16]. Leizea
+\textit{et al} [17] build an uncertainty budget for a multi-camera system and
+test the premise that more viewpoints lower uncertainty. These analyses hold
+the temporal sampling fixed and vary only the view count, so they do not
+address a shared budget.
+
+\subsection{Network design and negative results in measurement}
+Shen \textit{et al} [18] derive network-configuration guidance from an error
+characterisation of an industrial photogrammetric system, which is the closest
+methodological precedent to what we do, but for a static network and a static
+measurand. Nasiri \textit{et al} [19] show that a textbook optimal
+triangulation method is not optimal, and Das \textit{et al} [20] show that a
+widely used agreement statistic misrepresents markerless versus marker-based
+comparison; our sections~\ref{sec:nonuniform} and \ref{sec:outliers} are of
+that kind.
+
+\subsection{Positioning}
+Our contribution is the budget axis of equation~\eqref{eq:budget}, the
+mechanism behind the saturation, and the two bounds. The bias mechanism
+belongs to [1--4]; the existence of saturation belongs to [7, 8].
+
+% =====================================================================
+\section{Measurand, measurement chain and cost model}
+\label{sec:chain}
+
+\subsection{Measurand}
+The arc length of the target's trajectory between two specified instants, in
+metres. We report it separately from the endpoint displacement, which is a
+different quantity and behaves differently under sampling.
+
+\subsection{Chain}
+At each selected instant the target's image position in each selected camera
+is triangulated by the direct linear transform into a three-dimensional point.
+The sequence of positions is converted to a length by one of three estimators:
+
+\begin{itemize}
+\item \textit{Polygon}: the sum of the segment lengths.
+\item \textit{Limited arc}: a segment-wise Hermite interpolation with a
+limiter that removes backward longitudinal overshoot while retaining
+transverse curvature, integrated by 32-point Gauss--Legendre quadrature.
+\item \textit{State mean}: the length of the conditional mean path of a
+Wiener-velocity state-space model fitted to the selected positions, with the
+acceleration spectral density chosen by innovation likelihood [21]. This is
+the strongest of the three at realistic budgets and is the primary estimator
+throughout.
+\end{itemize}
+
+A fourth estimator integrates the conditional expected speed. By Fubini's
+theorem the integral of the expected speed equals the expectation of the
+integrated speed, so under our state model this is exactly the estimator of
+[4]; section~\ref{sec:ctsd} reports it with the observation noise calibrated
+as [4] requires.
+
+\subsection{Cost model}
+One camera frame read at one instant is one unit, so a window costs $B=km$.
+Frames in which the detector returns nothing are still charged. This counts
+transfer, decoding, detection and triangulation, and deliberately does not
+count acquisition: a rig that records seven cameras and processes three has
+already paid for the sensors. The model therefore answers how much of a
+recorded multi-camera stream must be processed, not how many cameras to buy.
+
+\subsection{Uncertainty budget}
+\label{sec:uncertainty}
+For the recommended configuration ($k=3$, $m=33$, 60 confirmation windows,
+mean measurand 6.625\,m) the budget is evaluated top-down, in the vocabulary
+of the Guide to the Expression of Uncertainty in Measurement and of the
+International Vocabulary of Metrology, and is given in
+table~\ref{tab:uncertainty}. The result is stated as: path length $=$ measured
+value $+\,8.2$\,mm, a measurement bias that we determine but do not apply,
+with an expanded uncertainty $U = 14.9$\,mm at coverage factor $k_{c}=2$ and
+approximately 95\% coverage, that is 0.22\% of the measurand.
+
+\begin{table}
+\caption{Uncertainty budget for the recommended configuration, three views and
+33 instants, that is 99 camera frames per window, on the pre-registered
+confirmation set.}
+\centering
+\begin{tabular}{llr}
+\hline
+Component & Evaluation & Value (mm)\\
+\hline
+Finite temporal sampling, $b_{\mathrm{samp}}$ & determined, uncorrected & $-8.23$\\
+Dispersion over windows, $u_{A}$ & Type A, $\nu=59$ & $7.43$\\
+Reference realisation, $u_{\mathrm{ref}}$ & Type B, rectangular & $0.55$\\
+\hline
+Combined standard uncertainty, $u_{c}$ & & $7.45$\\
+Expanded uncertainty, $U$ ($k_{c}=2$) & & $14.9$\\
+\hline
+\end{tabular}
+\label{tab:uncertainty}
+\end{table}
+
+The reconstruction error is deliberately not a separate term: it is one of the
+effects that varies between windows and is therefore already inside $u_{A}$.
+We instead use it as a consistency check, and the check is informative. The
+measured per-point position error is 5.84\,mm root mean square; propagated
+incoherently over the 32 segments it would predict a dispersion of 46.8\,mm,
+against the 7.43\,mm observed, an over-prediction of 6.3 times. The reason is
+that a path length is invariant to a common translation of its points, so the
+common-mode component identified in section~\ref{sec:mechanism}, which
+dominates the position error, largely cancels in the length. This is why the
+length is a more robust measurand than position, and it is the same fact that
+makes extra views nearly worthless here: additional views can only reduce the
+independent component, and the independent component is the only one that
+survives into the length.
+
+Coverage is asserted from a normal approximation rather than verified by a
+coverage study; windows within a record share a rig, a calibration and a
+session, so the effective degrees of freedom are below 59; and
+$b_{\mathrm{samp}}$ is configuration-specific, growing rapidly as $m$ falls
+below 25. Where we compare configurations we use paired differences on the
+windows that both arms completed, with bootstrap intervals.
+
+\subsection{Failure policy}
+An instant at which fewer than two views yield a detection is dropped from the
+polyline. If either endpoint instant is lost, the window is a failure.
+Failures are counted and never removed from denominators.
+
+% =====================================================================
+\section{Data and pre-registered protocol}
+\label{sec:data}
+
+\subsection{Primary rig}
+Seven hardware-synchronised cameras at 50\,Hz observe a single passive marker
+carried through free-space motion, and an optical tracking system records the
+marker at 200\,Hz as an independent reference [22]. We use the publisher's
+released per-camera two-dimensional centroids and intrinsics, with extrinsics
+fitted once on a held-out record. Each record gives 15 non-overlapping windows
+of 3.98\,s, that is 200 camera frames. Development used records 19 to 23,
+giving 75 windows. Confirmation used records 15 to 18, giving 60 windows,
+previously touched only by a per-frame triangulation quality check and never
+by any path, sampling or estimator design.
+
+\subsection{Secondary chain, opposite regime}
+Three sequences from a public colour-and-depth benchmark [23] with a single
+moving camera and an optical tracking reference for the camera pose. Positions
+come from chained pairwise rigid registrations, not independent triangulation.
+Development used the 15 windows at offsets 1 to 17\,s used by earlier work;
+confirmation used the 14 valid windows at offsets of at least 21\,s, never
+previously touched.
+
+\subsection{Pre-registration}
+For each confirmation the protocol, candidate list, camera-subset rule, gates
+and source-file hashes were frozen before any confirmation record was read,
+and all predictions were computed and sealed by a cryptographic hash before
+the reference was loaded. Sealing timestamps and hashes are in the released
+artefacts.
+
+\subsection{Reference caveat}
+The reference length is the polyline of the 200\,Hz trace between the window
+endpoints, itself a sampled estimate. Decimating it by two changes the
+reference length by a few millimetres, the scale of the smallest differences
+we report.
+
+% =====================================================================
+\section{Results}
+\label{sec:results}
+
+\begin{figure}
+\centering
+\includegraphics{fig1.pdf}
+\caption{Path-length error against the frame budget $B=km$, on the development
+set (a) and the pre-registered confirmation set (b). Each curve is the median
+over all camera subsets of that size, 21 pairs and 35 triples; the shaded
+bands span the best to the worst subset. Line style and marker distinguish the
+view counts, so the panels remain readable in greyscale.}
+\label{fig:frontier}
+\end{figure}
+
+\subsection{Three views match seven, so the budget should buy instants}
+\label{sec:saturation}
+Figure~\ref{fig:frontier} shows the error against the frame budget, and
+figure~\ref{fig:saturation} shows it against view count at fixed sampling
+density on the pre-registered confirmation set. Table~\ref{tab:confirm} gives
+the numbers.
+
+\begin{figure}
+\centering
+\includegraphics{fig2.pdf}
+\caption{Error against the number of views at fixed sampling density on the
+pre-registered confirmation set. Three views and seven views are
+indistinguishable; the bars span the best to the worst camera subset of that
+size.}
+\label{fig:saturation}
+\end{figure}
+
+\begin{table}
+\caption{Confirmation set, 60 windows, state-mean estimator. Median over
+camera subsets of the mean absolute error, in millimetres, and the number of
+failed window-arms.}
+\centering
+\begin{tabular}{rrrrl}
+\hline
+$m$ & $k=2$ & $k=3$ & $k=7$ & failed, $k=2/3/7$\\
+\hline
+16 & 33.6 & 24.5 & 27.9 & 250 / 0 / 0\\
+19 & 25.1 & \textbf{14.7} & 14.9 & 250 / 0 / 0\\
+25 & 18.1 & \textbf{9.6} & 9.8 & 250 / 0 / 0\\
+28 & 18.1 & \textbf{8.8} & 9.1 & 250 / 0 / 0\\
+33 & 17.6 & \textbf{8.3} & 8.6 & 250 / 0 / 0\\
+\hline
+\end{tabular}
+\label{tab:confirm}
+\end{table}
+
+Three views and seven views are indistinguishable at every density, and the
+difference has no consistent sign. A paired comparison confirms this. Taking
+for each of the 35 triples the mean absolute error over the windows that it
+and the seven-view configuration both completed, the median difference for
+$m \geq 19$ is $-0.20$ to $-0.38$\,mm in favour of three views, 19 to 21 of
+the 35 triples are better than seven views, and a sign test gives $p = 0.31$
+to $0.74$. For the triple selected by our calibration-only rule, the bootstrap
+95\% interval of the paired difference is within $\pm 1.4$\,mm and contains
+zero at every $m \geq 19$. At $m=16$ the comparison is dominated by one window
+in which a view dropped out and the triple degenerated to two views, producing
+a 3.1\,m error; that window is the subject of section~\ref{sec:outliers}.
+
+Two views are consistently worse and, more importantly, they fail: across the
+21 pairs, 250 window-arms lost an endpoint to a missing detection, against
+zero for every triple. Three views is the smallest subset that is both
+accurate and reliable on this rig.
+
+The allocation consequence follows. At $m=33$ the three-view configuration
+costs 99 frames against 231, for the same accuracy: the same measurement at
+43\% of the processed frames. At equal cost, three views at 19 instants, that
+is 57 frames, give 14.9\,mm while seven views at 16 instants, that is 112
+frames, give 27.9\,mm, so halving the cost also roughly halves the error.
+
+\subsection{Why the extra views are wasted}
+\label{sec:mechanism}
+Saturation at a handful of cameras has been reported before [7, 8]; the
+mechanism has not. Three measurements on the five development records identify
+it, and are collected in table~\ref{tab:mechanism}.
+
+\begin{table}
+\caption{Predicted and realised effect of using seven views instead of three,
+on the five development records. The independent-pixel-noise model predicts a
+ratio near 0.59; the realised ratio averages 1.08. The median cosine is taken
+between the three-view and seven-view position error vectors.}
+\centering
+\begin{tabular}{lrrrrrl}
+\hline
+Record & 3 views & 7 views & Realised & Model & Median & Best six-view\\
+ & RMS (mm) & RMS (mm) & ratio & ratio & cosine & subset\\
+\hline
+19 & 3.078 & 2.369 & 0.770 & 0.589 & 0.881 & drop cam.\ 1: 2.274 ($-4.0$\%)\\
+20 & 3.146 & 2.412 & 0.767 & 0.586 & 0.875 & drop cam.\ 1: 2.323 ($-3.7$\%)\\
+21 & 2.992 & 4.415 & \textbf{1.476} & 0.593 & 0.869 & drop cam.\ 6: 2.437 ($-44.8$\%)\\
+22 & 17.047 & 7.765 & 0.456 & 0.583 & 0.866 & drop cam.\ 2: 6.411 ($-17.4$\%)\\
+23 & 2.958 & 5.678 & \textbf{1.920} & 0.591 & 0.868 & drop cam.\ 2: 3.179 ($-44.0$\%)\\
+\hline
+\end{tabular}
+\label{tab:mechanism}
+\end{table}
+
+\subsubsection{The geometric prediction.}
+Under independent isotropic pixel noise the triangulation covariance is
+\begin{equation}
+\mathrm{Cov}(\mathbf{X}) = \sigma_{\mathrm{px}}^{2}
+\left( \sum_{i=1}^{k} \mathbf{J}_{i}^{\top}\mathbf{J}_{i} \right)^{-1},
+\label{eq:cov}
+\end{equation}
+where $\mathbf{J}_{i}$ is the $2\times3$ projection Jacobian of camera $i$ at
+the point $\mathbf{X}$. Evaluated along the reference trajectory, this model
+predicts a seven-view to three-view error ratio of 0.583 to 0.593 across the
+five records, that is, seven views should be about 41\% more accurate.
+
+\subsubsection{The realised ratio.}
+The realised ratio averages 1.08, and on two records the seven-view solution
+is worse than the three-view one.
+
+\subsubsection{The reason is common-mode error.}
+The median cosine between the three-view and seven-view error vectors is 0.866
+to 0.881 on every record. The two reconstructions err in nearly the same
+direction, so roughly seven eighths of the error is a shared component that
+averaging over more views cannot remove. This is the same structure that
+Ranacher \textit{et al} [2] carry as a correlation factor in their closed
+form: averaging removes the uncorrelated part only. Plausible physical sources
+here are extrinsic-calibration residuals, common to every reconstruction that
+uses those cameras, and a marker-centroid bias that depends on the target's
+orientation and on motion blur and therefore moves together in all views at
+once. We do not separate them.
+
+\subsubsection{Extra views can be harmful.}
+On all five records the seven-view solution improves when one camera is
+removed, by 3.7\% to 44.8\%. A single degraded view is not rejected by an
+unweighted least-squares solution, and on records 21 and 23 it dominates. This
+is why seven views are not merely no better than three but sometimes worse,
+and it is a practical argument for view selection or robust weighting rather
+than for using every available camera.
+
+\subsubsection{Why this matters more for a length than for a position.}
+The measurand compounds the effect. A path length is invariant to a common
+translation of its points, so the common-mode component largely cancels in the
+length even though it dominates the position error;
+section~\ref{sec:uncertainty} shows this quantitatively, with incoherent
+propagation of the per-point error over-predicting the observed dispersion by
+a factor of 6.3. The two facts together leave extra views very little to do.
+
+\subsubsection{Consequence for the design guideline.}
+A geometry-only network-design calculation of the kind used in photogrammetric
+network design [18] will over-value additional cameras on a rig like this by
+roughly a factor of two, because it assumes that the errors it is averaging
+are independent. The saturation point should be measured on the instrument,
+not predicted from geometry.
+
+\subsection{Non-uniform placement of instants has almost no headroom}
+\label{sec:nonuniform}
+For a smooth curve the deficit of one segment is approximately
+\begin{equation}
+\Delta_{i} \approx \frac{(\Delta t_{i})^{3}}{24}\,
+\kappa_{i}^{2}\,\lVert \mathbf{v}_{i} \rVert^{3},
+\label{eq:deficit}
+\end{equation}
+with $\kappa$ the curvature and $\mathbf{v}$ the velocity. Minimising
+$\sum_{i}\Delta_{i}$ subject to $\sum_{i}\Delta t_{i} = T$ gives
+$\Delta t_{i} \propto (\kappa_{i}^{2}\lVert\mathbf{v}_{i}\rVert^{3})^{-1/3}$,
+that is, instants placed at equal increments of the cumulative density
+\begin{equation}
+\rho(t) = \left(\kappa^{2}\lVert\mathbf{v}\rVert^{3}\right)^{1/3}
+= \frac{\lVert \mathbf{v}\times\mathbf{a}\rVert^{2/3}}
+{\lVert \mathbf{v}\rVert}.
+\label{eq:rho}
+\end{equation}
+Unlike a telemetry collar, a camera system can actually execute such a
+placement, so this is the natural next lever after the budget split.
+
+We tested three arms at identical cost: uniform placement; a deployable arm
+that spends half the budget on a uniform probe, fits the state model, computes
+$\rho$ from the smoothed trajectory and places the remaining instants at equal
+increments of the cumulative $\rho$ while keeping the probe instants; and an
+oracle arm that computes $\rho$ from the reference trajectory. The oracle is
+not a deployable method but an upper bound on what any placement rule driven
+by this criterion could reach. Figure~\ref{fig:nonuniform} and
+table~\ref{tab:nonuniform} give the result.
+
+\begin{figure}
+\centering
+\includegraphics{fig3.pdf}
+\caption{Non-uniform placement of instants on the development set, at three
+views. Even the oracle, which uses the reference trajectory, gains only 8\% to
+25\% over uniform sampling, and the deployable rule is worse than uniform
+throughout.}
+\label{fig:nonuniform}
+\end{figure}
+
+\begin{table}
+\caption{Non-uniform placement at identical cost on the development set, 75
+windows, state-mean estimator, mean absolute error in millimetres. The last
+column counts the windows in which the deployable rule beat uniform sampling.}
+\centering
+\begin{tabular}{rrrrrl}
+\hline
+$k$ & $m$ & Uniform & Curvature & Oracle & Deployable wins\\
+\hline
+3 & 8  & 270.7 & 458.0 & 223.2 & 12 / 67\\
+3 & 16 & 20.7  & 54.3  & 16.7  & 7 / 63\\
+3 & 25 & 9.2   & 15.9  & 8.4   & 10 / 61\\
+3 & 33 & 7.6   & 10.1  & 7.0   & 18 / 62\\
+7 & 8  & 242.9 & 425.5 & 200.9 & 13 / 75\\
+7 & 33 & 7.4   & 9.8   & 6.6   & 20 / 75\\
+\hline
+\end{tabular}
+\label{tab:nonuniform}
+\end{table}
+
+The deployable rule loses everywhere, by 30\% to 170\%. Two mechanisms are
+visible: equation~\eqref{eq:deficit} holds only for small $\Delta t$, so
+concentrating instants in high-curvature regions creates long gaps whose cubic
+penalty outweighs the local gain; and the curvature estimated from a
+half-budget probe is very noisy.
+
+The consequential number is the oracle. Even with access to the reference
+trajectory, curvature-driven non-uniform placement improves on uniform
+sampling by only 8\% to 25\%, with a median of 17\% across the tested cells.
+Uniform sampling is close to optimal for this measurand, and an adaptive or
+learned instant-selection rule has correspondingly little to win.
+
+An earlier enumeration on the same data found a larger apparent headroom,
+about 35\%, by selecting the subset of instants that directly minimises the
+final path error. That criterion can exploit cancellation between over- and
+under-estimates within a window, and the gap between 35\% and 17\% is a
+reasonable estimate of how much of that apparent headroom is cancellation
+rather than recoverable signal.
+
+\subsection{A calibrated continuous-time estimator does not remove the effect}
+\label{sec:ctsd}
+A natural objection is that the corrective estimator of [4] should be used
+instead of characterising the allocation. Under our state model that estimator
+is the integral of the conditional expected speed. We calibrated the
+observation noise from a dense consecutive burst at the native frame interval,
+where measurement noise dominates process noise, obtaining 0.20 to 0.43\,mm
+per record and subset.
+
+Calibrating the noise gives a small consistent improvement to the state-mean
+estimator, from 8.81 to 7.86\,mm at three views and 33 instants. The
+conditional-speed estimator does reduce sensitivity to sampling density at the
+sparse end, as designed: at seven views and eight instants it gives 165.2\,mm
+against 242.9\,mm. But it carries a large positive bias at every setting
+tested, $+42$ to $+180$\,mm, and is dominated in absolute error by the
+conditional-mean-path estimator throughout. We attribute this to model
+misspecification rather than to the method: [4] uses an
+Ornstein--Uhlenbeck process with a fitted velocity autocorrelation time and
+selects the model by a corrected information criterion, whereas our
+Wiener-velocity model has none. We therefore do not claim that the method of
+[4] fails, only that with our state model it does not remove the allocation
+effect: even granting the sparse configuration its own best estimator, the
+best dense-few-view configuration remains roughly nine times more accurate at
+equal cost.
+
+\subsection{The dense-regime rise is outlier exposure, not noise accumulation}
+\label{sec:outliers}
+The mean absolute error over our windows rises at high sampling density, which
+invites the interpretation that the classical noise-inflation limb has been
+reached. The distribution, in table~\ref{tab:outliers} and
+figure~\ref{fig:regimes}(a), shows otherwise.
+
+\begin{table}
+\caption{Development set at three views, state-mean estimator with calibrated
+noise, in millimetres, as a function of the number of instants. The median and
+the ninetieth percentile fall monotonically; the mean rises because of one
+window at 50 instants and one at 200.}
+\centering
+\begin{tabular}{lrrrrrrr}
+\hline
+Statistic & 8 & 16 & 25 & 33 & 50 & 100 & 200\\
+\hline
+Mean & 269.6 & 21.1 & 10.0 & 7.9 & \textbf{29.4} & 6.5 & \textbf{35.2}\\
+Median & 114.0 & 16.8 & 8.8 & 6.6 & 6.1 & 5.8 & 6.1\\
+90th percentile & 592.8 & 41.7 & 20.6 & 15.7 & 13.5 & 12.6 & 11.5\\
+Maximum & 1893.7 & 60.6 & 29.2 & 26.8 & \textbf{1691.6} & 20.3 & \textbf{2182.5}\\
+Windows over 100\,mm & 38 & 0 & 0 & 0 & \textbf{1} & 0 & \textbf{1}\\
+\hline
+\end{tabular}
+\label{tab:outliers}
+\end{table}
+
+The rise in the mean at 50 and at 200 instants is produced by a single window
+each, in which one instant received a grossly wrong triangulation. This is
+outlier exposure: denser sampling draws more instants and has more
+opportunities to include a bad one. An order-of-magnitude estimate of the
+classical mechanism for this rig, with calibrated white noise near 0.4\,mm and
+about 34\,mm of motion per 20\,ms step, gives roughly 2\,mm of inflation at
+the densest setting, consistent with the median flattening near 5 to 6\,mm
+rather than rising.
+
+The remedy is therefore robustness, not a change of allocation. A chi-square
+gate on the Kalman innovations reduces the median error across 35 triples from
+38\,mm to 6\,mm at 200 instants and improves 34 of them, precisely by removing
+these windows. The same gate slightly hurts at 33 instants and below, where it
+begins rejecting real fast motion, so it belongs in the dense regime only.
+
+We flag this as a reporting caution of general relevance: the mean absolute
+error alone cannot distinguish a smooth noise-accumulation mechanism from rare
+gross failures, and the two call for different engineering responses.
+
+\subsection{The opposite regime: chained single-camera egomotion}
+\label{sec:opposite}
+In the secondary chain the positions come from chained pairwise rigid
+registrations of a single moving camera. Each edge contributes registration
+noise that does not shrink with more edges, while the roughly 0.8\,m of smooth
+motion in a 4\,s window is nearly fully captured by eight instants.
+Figure~\ref{fig:regimes}(b) and table~\ref{tab:opposite} give the result on 14
+unseen windows.
+
+\begin{figure}
+\centering
+\includegraphics{fig4.pdf}
+\caption{(a) The dense-regime rise appears only in the mean, not in the
+median, so it is gross-outlier exposure rather than noise accumulation.
+(b) A chained single-camera system has the opposite allocation optimum, and
+the magnitude of the signed bias reaches a minimum between 16 and 32 frames,
+where the bias changes sign.}
+\label{fig:regimes}
+\end{figure}
+
+\begin{table}
+\caption{Secondary chain, 14 unseen windows, pre-registered. Mean absolute
+error in millimetres, with the signed bias in parentheses.}
+\centering
+\begin{tabular}{lrrrr}
+\hline
+Front end & 8 frames & 16 & 32 & 64\\
+\hline
+Binary descriptor & \textbf{18.9} ($-10$) & 33.0 ($-2$) & 43.8 ($+18$) & 125.6 ($+135$)\\
+Learned descriptor & \textbf{27.9} ($-20$) & 31.8 ($-2$) & 53.5 ($+26$) & 170.0 ($+178$)\\
+\hline
+\end{tabular}
+\label{tab:opposite}
+\end{table}
+
+The pre-registered gates, namely that eight frames beat 32 and 64 in every
+sequence with no loss of completion, pass for the binary descriptor; for the
+learned descriptor the aggregate and completion conditions pass but one
+sequence does not. The bias flips sign between 16 and 32 frames, the signature
+of the classical trade-off, here with a per-edge rather than a per-point noise
+source. The allocation optimum is at the sparse end in this chain and at the
+dense end in the multi-camera chain, so allocation guidance cannot be
+transferred between instruments without measuring it.
+
+% =====================================================================
+\section{Limitations}
+\label{sec:limitations}
+\begin{itemize}
+\item \textit{Two instruments, each a single rig.} The saturation point of
+about three views is a property of these camera geometries and of their
+detection-error structure, not a universal constant.
+Section~\ref{sec:mechanism} gives the reason it cannot be universal: it
+depends on how much of the error is common-mode, which is a property of the
+calibration and of the target.
+\item \textit{Published detections, not raw pixels.} For the multi-camera rig
+we use the publisher's released centroids, so detection cost and detection
+failure modes are inherited rather than measured.
+\item \textit{The cost model counts processing, not acquisition.} A
+capture-design reading, namely to buy three cameras rather than seven, is not
+supported, because a rig built with three cameras would have different
+occlusion behaviour.
+\item \textit{Reference resolution.} Differences of one to three millimetres
+are within the sensitivity of the reference polyline to its own sampling.
+\item \textit{One target, free-space motion.} No occlusion-heavy, multi-target
+or articulated cases are covered.
+\item \textit{No learned component.} The oracle bound in
+section~\ref{sec:nonuniform} constrains only placement rules driven by the
+curvature criterion on this measurand.
+\end{itemize}
+
+% =====================================================================
+\section{Conclusion}
+\label{sec:conclusion}
+For trajectory-length measurement from a synchronised multi-camera rig under a
+fixed frame budget, the budget should buy time instants rather than
+simultaneous views, down to the point where view count saturates, which on our
+rig is three. This gives the same accuracy at 43\% of the processed frames and
+was confirmed on a pre-registered held-out set with sealed predictions. The
+saturation is not the diminishing return that a geometric calculation
+predicts: it occurs about twice as early because the reconstruction errors are
+largely common-mode, and beyond it additional views are sometimes actively
+harmful, so the saturation point should be measured on the instrument rather
+than derived from network geometry. Beyond the budget split there is little
+left to tune, since non-uniform placement of the instants is bounded at 8\% to
+25\% even with oracle access to the reference, and the dense-sampling
+degradation in our data is gross-outlier exposure best handled by a
+consistency gate. A single-camera chained-registration system has the opposite
+optimum, so the allocation is a property of the instrument and must be
+measured for each one.
+
+% =====================================================================
+% Back matter. iopjournal.cls generates the headings automatically.
+% =====================================================================
+
+\ack{The authors used a large language model based artificial intelligence
+assistant (Anthropic Claude) under author direction to help implement the
+analysis scripts, to run the experiments reported here, to build the tooling
+that re-derives every number in this manuscript from the sealed result files,
+and to draft and revise the text. All experimental protocols, gates and
+thresholds were fixed before the corresponding data were read, all reported
+numbers were verified by the authors against the sealed artefacts, and the
+authors take full responsibility for the content of the publication.
+
+The authors declare no conflict of interest: no employment, consultancy, stock
+ownership, honoraria, paid expert testimony, patent application or other
+financial or personal relationship has influenced the work reported here.}
+
+\funding{This research did not receive any specific grant from funding
+agencies in the public, commercial or not-for-profit sectors.}
+
+% Contributor roles use the NISO CRediT taxonomy, https://credit.niso.org
+\roles{\textbf{Jun Ji:} data curation, methodology, formal analysis,
+resources, writing -- original draft.
+\textbf{Bowen Tan:} software, formal analysis, writing -- review and editing.
+\textbf{Yi Sui:} supervision, validation, writing -- review and editing.
+\textbf{Shengjie Guo:} software, formal analysis, validation, writing --
+review and editing.
+\textbf{Xiaolei Zhang:} supervision, project administration, writing --
+review and editing.
+\textbf{Yi Li:} supervision, project administration, writing -- review and
+editing.}
+
+\data{The two datasets analysed here are third-party public releases, cited as
+[22] and [23]; we redistribute neither, and the access routes are those given
+by their publishers. The analysis code, the frozen protocols, the input hash
+lists, the sealed predictions and the scoring records that support the
+findings of this study are openly available at <<repository URL or DOI>>.
+Every confirmation run writes a frozen protocol with source hashes, an input
+hash list, a cryptographic seal over the predictions, and the timestamp at
+which the reference was first read, so that each reported number can be
+re-derived from the sealed artefacts.}
+
+% =====================================================================
+\section*{References}
+\begin{thebibliography}{99}
+
+\bibitem{} Palmer M C 2008 Calculation of distance traveled by fishing vessels
+using GPS positional data: a theoretical evaluation of the sources of error
+\textit{Fish. Res.} \textbf{89} 57--64
+
+\bibitem{} Ranacher P, Brunauer R, Trutschnig W, Van der Spek S and Reich S
+2016 Why GPS makes distances bigger than they are
+\textit{Int. J. Geogr. Inf. Sci.} \textbf{30} 316--33
+
+\bibitem{} Ranacher P, Brunauer R, Van der Spek S and Reich S 2016 What is an
+appropriate temporal sampling rate to record floating car data with a GPS?
+\textit{ISPRS Int. J. Geo-Inf.} \textbf{5} 1
+
+\bibitem{} Noonan M J \textit{et al} 2019 Scale-insensitive estimation of
+speed and distance traveled from animal tracking data
+\textit{Mov. Ecol.} \textbf{7} 35
+
+\bibitem{} Rowcliffe J M, Carbone C, Kays R, Kranstauber B and Jansen P A 2012
+Bias in estimating animal travel distance: the effect of sampling frequency
+\textit{Methods Ecol. Evol.} \textbf{3} 653--62
+
+\bibitem{} Schoombie S, Wilson R P, Ropert-Coudert Y, Dilley B J and Ryan P G
+2024 The efficiency of detecting seabird behaviour from movement patterns: the
+effect of sampling frequency on inferring movement metrics in
+Procellariiformes \textit{Mov. Ecol.} \textbf{12} 59
+
+\bibitem{} Mulla D M, Majoni N, Tilley P M and Keir P J 2025 Two cameras can
+be as good as four for markerless hand tracking during simple finger movements
+\textit{J. Biomech.} \textbf{181} 112534
+
+\bibitem{} Walker R, Robinson M A, Outerleys J \textit{et al} 2026 The effect
+of camera configuration on multi-camera markerless motion capture for
+biomechanical analysis \textit{J. Biomech.} \textbf{206} 113522
+
+\bibitem{} Shirmohammadi S and Ferrero A 2014 Camera as the instrument: the
+rising trend of vision based measurement
+\textit{IEEE Instrum. Meas. Mag.} \textbf{17} 41--47
+
+\bibitem{} Codling E A and Hill N A 2005 Sampling rate effects on measurements
+of correlated and biased random walks
+\textit{J. Theor. Biol.} \textbf{233} 573--88
+
+\bibitem{} Jerde C L and Visscher D R 2005 GPS measurement error influences on
+movement model parameterization \textit{Ecol. Appl.} \textbf{15} 806--10
+
+\bibitem{} Hurford A 2009 GPS measurement error gives rise to spurious
+180-degree turning angles and strong directional biases in animal movement
+data \textit{PLoS ONE} \textbf{4} e5632
+
+\bibitem{} Turchin P 1996 Fractal analyses of animal movement: a critique
+\textit{Ecology} \textbf{77} 2086--90
+
+\bibitem{} Benhamou S 2004 How to reliably estimate the tortuosity of an
+animal's path \textit{J. Theor. Biol.} \textbf{229} 209--20
+
+\bibitem{} Lee S H and Civera J 2020 Robust uncertainty-aware multiview
+triangulation \textit{arXiv} 2008.01258
+
+\bibitem{} Nakano N \textit{et al} 2020 Evaluation of 3D markerless motion
+capture accuracy using OpenPose with multiple video cameras
+\textit{Front. Sports Act. Living} \textbf{2} 50
+
+\bibitem{} Leizea I, Herrera I and Puerto P 2023 Calibration procedure of a
+multi-camera system: process uncertainty budget
+\textit{Sensors} \textbf{23} 589
+
+\bibitem{} Shen X, Yue J, Dou S and Huang G 2023 Network configuration and
+repeatability precision of industrial photogrammetry
+\textit{Measurement} \textbf{211} 112589
+
+\bibitem{} Nasiri S-M, Hosseini R and Moradi H 2023 The optimal triangulation
+method is not really optimal \textit{IET Image Process.} \textbf{17} 2855--65
+
+\bibitem{} Das K, de Paula Oliveira T and Newell J 2023 Comparison of
+markerless and marker-based motion capture systems using 95\% functional
+limits of agreement \textit{Sci. Rep.} \textbf{13} 22880
+
+\bibitem{} S\"arkk\"a S and Svensson L 2023 \textit{Bayesian Filtering and
+Smoothing} 2nd edn (Cambridge: Cambridge University Press)
+
+\bibitem{} <<Citation for the multi-camera dataset used as the primary rig:
+authors, year, title, and the dataset release with its DOI or URL.>>
+
+\bibitem{} Sturm J, Engelhard N, Endres F, Burgard W and Cremers D 2012 A
+benchmark for the evaluation of RGB-D SLAM systems \textit{Proc. IEEE/RSJ Int.
+Conf. on Intelligent Robots and Systems} pp 573--80
+
+\end{thebibliography}
+
+\end{document}

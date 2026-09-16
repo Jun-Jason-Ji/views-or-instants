@@ -1,0 +1,64 @@
+cff-version: 1.2.0
+message: "If you use this software or these results, please cite the article and this archive."
+type: software
+title: "Views or instants: reproducibility archive for frame-budget allocation in multi-camera path-length measurement"
+version: "1.0.0"
+abstract: "Analysis code, frozen protocols, input digests, sealed predictions and scored results for a study of how a fixed camera-frame budget should be divided between simultaneous views and time instants when measuring the path length of a moving target. No third-party datasets and no model weights are redistributed; see NOTICE.md."
+repository-code: "https://github.com/Jun-Jason-Ji/views-or-instants"
+license: MIT
+keywords:
+  - vision-based measurement
+  - distance travelled
+  - trajectory length
+  - multi-camera triangulation
+  - sampling design
+  - measurement uncertainty
+  - budget allocation
+authors:
+  - family-names: "Ji"
+    given-names: "Jun"
+    orcid: "https://orcid.org/0000-0003-3194-2183"
+    affiliation: "College of Computer Science and Technology, Qingdao University, 308 Ningxia Road, Qingdao 266071, China"
+  - family-names: "Tan"
+    given-names: "Bowen"
+    orcid: "https://orcid.org/0009-0007-0554-9261"
+    affiliation: "The Hong Kong University of Science and Technology, Clear Water Bay, Kowloon, Hong Kong SAR, China"
+  - family-names: "Sui"
+    given-names: "Yi"
+    orcid: "https://orcid.org/0009-0001-8081-5183"
+    affiliation: "College of Computer Science and Technology, Qingdao University, 308 Ningxia Road, Qingdao 266071, China"
+  - family-names: "Guo"
+    given-names: "Shengjie"
+    affiliation: "Inner Mongolia Agricultural University, Hohhot, Inner Mongolia, China"
+  - family-names: "Zhang"
+    given-names: "Xiaolei"
+    orcid: "https://orcid.org/0000-0002-0122-4554"
+    affiliation: "College of Computer Science and Technology, Qingdao University, 308 Ningxia Road, Qingdao 266071, China"
+  - family-names: "Li"
+    given-names: "Yi"
+    orcid: "https://orcid.org/0000-0002-4185-3152"
+    affiliation: "College of Computer Science and Technology, Qingdao University, 308 Ningxia Road, Qingdao 266071, China"
+preferred-citation:
+  type: article
+  title: "How many views does a path-length measurement need? Trading camera views for time instants under a fixed frame budget"
+  status: submitted
+  journal: "Measurement Science and Technology"
+  year: 2026
+  authors:
+    - family-names: "Ji"
+      given-names: "Jun"
+      orcid: "https://orcid.org/0000-0003-3194-2183"
+    - family-names: "Tan"
+      given-names: "Bowen"
+      orcid: "https://orcid.org/0009-0007-0554-9261"
+    - family-names: "Sui"
+      given-names: "Yi"
+      orcid: "https://orcid.org/0009-0001-8081-5183"
+    - family-names: "Guo"
+      given-names: "Shengjie"
+    - family-names: "Zhang"
+      given-names: "Xiaolei"
+      orcid: "https://orcid.org/0000-0002-0122-4554"
+    - family-names: "Li"
+      given-names: "Yi"
+      orcid: "https://orcid.org/0000-0002-4185-3152"

@@ -1,0 +1,124 @@
+{
+  "sequences": [
+    "structure_texture_far",
+    "nostructure_texture_near_withloop",
+    "sitting_xyz"
+  ],
+  "windows": {
+    "structure_texture_far": [
+      {
+        "offset": 21.0,
+        "frames": 115,
+        "public_failure": null
+      },
+      {
+        "offset": 25.0,
+        "frames": 112,
+        "public_failure": null
+      }
+    ],
+    "nostructure_texture_near_withloop": [
+      {
+        "offset": 21.0,
+        "frames": 110,
+        "public_failure": null
+      },
+      {
+        "offset": 25.0,
+        "frames": 116,
+        "public_failure": null
+      },
+      {
+        "offset": 29.0,
+        "frames": 116,
+        "public_failure": null
+      },
+      {
+        "offset": 33.0,
+        "frames": 117,
+        "public_failure": null
+      },
+      {
+        "offset": 37.0,
+        "frames": 118,
+        "public_failure": null
+      },
+      {
+        "offset": 41.0,
+        "frames": 117,
+        "public_failure": null
+      },
+      {
+        "offset": 45.0,
+        "frames": 112,
+        "public_failure": null
+      }
+    ],
+    "sitting_xyz": [
+      {
+        "offset": 21.0,
+        "frames": 111,
+        "public_failure": null
+      },
+      {
+        "offset": 25.0,
+        "frames": 115,
+        "public_failure": null
+      },
+      {
+        "offset": 29.0,
+        "frames": 107,
+        "public_failure": null
+      },
+      {
+        "offset": 33.0,
+        "frames": 117,
+        "public_failure": null
+      },
+      {
+        "offset": 37.0,
+        "frames": 116,
+        "public_failure": null
+      }
+    ]
+  },
+  "previously_used_offsets": [
+    1,
+    5,
+    9,
+    13,
+    17
+  ],
+  "new_offsets": "all valid windows with offset>=21 s from the frozen windows_for rule",
+  "frontends": {
+    "primary": "xfeat",
+    "secondary": "orb"
+  },
+  "budgets": [
+    8,
+    16,
+    32,
+    64
+  ],
+  "K": [
+    [
+      535.4,
+      0,
+      320.1
+    ],
+    [
+      0,
+      539.2,
+      247.6
+    ],
+    [
+      0,
+      0,
+      1
+    ]
+  ],
+  "primary_gate": "xfeat state_mean sequence-equal MAE: B8 < B32 and B8 < B64; each sequence B8 <= B32; completed(B8) >= completed(B32). Windows failing in either arm are excluded from the paired MAE but counted.",
+  "secondary": "B8 vs B16 (report only); orb same gates (report only)",
+  "scope": "Same three fr3 sequences as before, new time windows; same rig/day; development chain frozen from tum_dense_cheap_v1",
+  "utc": "2026-09-15T16:43:43.833450+00:00"
+}

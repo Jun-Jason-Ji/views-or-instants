@@ -1,0 +1,16 @@
+{
+ "hashes": {
+  "src/run_tum_dense_cheap_confirm.py": "68cdca1ecdd363161511b48cef228a29d40f1a95d2389af12aaccd121beff04b",
+  "src/run_tum_dense_cheap_v1.py": "3d930d4f6abdc914e48ee2852fc5e671c0f3eb476256e98d4542c713e51ec095",
+  "src/calibrated_measurement_core_v1.py": "1b7b3d5fc5b5c2dd59230554f53914d8b29380bd07d8da1a35325c838bee512f",
+  "src/rgbd_rigid_route_cpu.py": "4ade52e8986475c04b373eac2bf78f719890d6b5731697e6294fb18fcf68d757",
+  "src/rgbd_odometry_cpu.py": "bc5769fc6fb1aa9b91d9ac53ac799a875bd95c2c6b243266397449b6eed1e08d",
+  "src/continuous_motion_cpu.py": "ca8983d42f31b0a8252d382a9085feb051a02edace87226d7958de7c3ef4e75e",
+  "src/limited_arc_cpu.py": "41f6eb7f12945d8d4c379715b9ec9fa40e52f98d47b7036248bde0e088d70c64",
+  "src/feature_chain_core.py": "77ca57fe325ba21f85305dd4f52010fbdac71b281c6770d045331f341d0d4cfd",
+  "src/xfeat_cpu_adapter.py": "cc4065983d4a50becd8092cad7ecdee549cd5a41f8825636107f24feca40e784",
+  "src/run_fixed_observer_replication_cpu.py": "f4248db6111ffb18e88a0fff5c3a99957ef2d6eebb3dcfd9f916b5fb0bc26cca",
+  "src/run_tum_rgbd_cpu.py": "7baa0812f7d6a6475c55f0ece870f2efd16e844d83b7b6baab7fddc840cf59a2"
+ },
+ "utc": "2026-09-15T16:43:43.833450+00:00"
+}

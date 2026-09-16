@@ -1,0 +1,3 @@
+# Byte-exact preservation: this is a reproducibility archive and SHA256SUMS.txt
+# must match what a clone produces, so git must not rewrite line endings.
+* -text

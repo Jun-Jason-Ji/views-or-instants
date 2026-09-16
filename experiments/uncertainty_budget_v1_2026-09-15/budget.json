@@ -1,0 +1,54 @@
+{
+ "configuration": {
+  "views": 3,
+  "instants": 33,
+  "frames": 99,
+  "estimator": "state_mean",
+  "windows": 60,
+  "mean_measurand_m": 6.624856893595612,
+  "dataset": "pre-registered confirmation, records 15-18"
+ },
+ "components": [
+  {
+   "symbol": "b_samp",
+   "source": "systematic error from finite temporal sampling (measurement bias, VIM 2.18)",
+   "type": "determined, uncorrected",
+   "value_mm": -8.229580828576506,
+   "note": "mean signed error; sign is negative because sparse sampling cuts corners"
+  },
+  {
+   "symbol": "u_A",
+   "source": "dispersion of the error over windows",
+   "type": "A",
+   "value_mm": 7.4268042569330035,
+   "dof": 59,
+   "note": "experimental standard deviation of the signed error"
+  },
+  {
+   "symbol": "u_ref",
+   "source": "realisation of the reference quantity value",
+   "type": "B",
+   "value_mm": 0.5474352679353423,
+   "note": "rectangular, half-width 0.95 mm from decimating the 200 Hz reference (max 2.22 mm)"
+  }
+ ],
+ "consistency_check": {
+  "per_point_rms_mm": 5.844254327805474,
+  "segments": 32,
+  "incoherent_propagation_mm": 46.75403462244379,
+  "observed_dispersion_mm": 7.4268042569330035,
+  "ratio": 6.295309934794415,
+  "median_common_mode_cosine": 0.8718661166408754,
+  "reading": "Incoherent propagation of the per-point error over-predicts the observed dispersion by 6.3x. A path length is invariant to a common translation of its points, so the common-mode component that dominates the position error largely cancels in the length. This is why the length measurand is more robust than position, and why extra views, which can only reduce the already-small independent component, change it so little."
+ },
+ "combined_standard_uncertainty_mm": 7.446952856261253,
+ "expanded_uncertainty_k2_mm": 14.893905712522505,
+ "relative_expanded": 0.0022481852742993976,
+ "statement": "path length = measured value + 8.2 mm (bias correction, not applied) with U = 14.9 mm (k = 2, approximately 95 % coverage), i.e. 0.22 % of a 6.62 m measurand",
+ "caveats": [
+  "Coverage is asserted from a normal approximation, not verified by a coverage study.",
+  "u_A is a top-down estimate over 60 windows of one rig and one motion type; it is not a bottom-up model of the instrument.",
+  "b_samp is configuration-specific: it changes with m and dominates every other term at m < 25.",
+  "Windows within a record share a rig, a calibration and a session, so they are not fully independent; the effective degrees of freedom are below 59."
+ ]
+}
