@@ -1,5 +1,7 @@
 # Views or instants? Frame-budget allocation for multi-camera path-length measurement
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22784740.svg)](https://doi.org/10.5281/zenodo.22784740)
+
 Reproducibility archive for the article *How many views does a path-length
 measurement need? Trading camera views for time instants under a fixed frame
 budget*, submitted to *Measurement Science and Technology*.
@@ -110,8 +112,10 @@ full scope and for the third-party software terms.
 
 ## Citing
 
-See [CITATION.cff](CITATION.cff). The archived release has its own DOI, minted
-by Zenodo, which is given in the article's data availability statement.
+See [CITATION.cff](CITATION.cff).
+
+- Concept DOI, always the latest version: [10.5281/zenodo.22784740](https://doi.org/10.5281/zenodo.22784740)
+- This version, v1.0.0: [10.5281/zenodo.22784741](https://doi.org/10.5281/zenodo.22784741)
 
 ## Licence
 
