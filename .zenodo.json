@@ -15,11 +15,39 @@
     "budget allocation"
   ],
   "creators": [
-    {"name": "Ji, Jun", "affiliation": "College of Computer Science and Technology, Qingdao University, Qingdao, China", "orcid": "0000-0003-3194-2183"},
-    {"name": "Tan, Bowen", "affiliation": "The Hong Kong University of Science and Technology, Hong Kong SAR, China", "orcid": "0009-0007-0554-9261"},
-    {"name": "Sui, Yi", "affiliation": "College of Computer Science and Technology, Qingdao University, Qingdao, China", "orcid": "0009-0001-8081-5183"},
-    {"name": "Guo, Shengjie", "affiliation": "Inner Mongolia Agricultural University, Hohhot, China"},
-    {"name": "Zhang, Xiaolei", "affiliation": "College of Computer Science and Technology, Qingdao University, Qingdao, China", "orcid": "0000-0002-0122-4554"},
-    {"name": "Li, Yi", "affiliation": "College of Computer Science and Technology, Qingdao University, Qingdao, China", "orcid": "0000-0002-4185-3152"}
+    {
+      "name": "Ji, Jun",
+      "affiliation": "College of Computer Science and Technology, Qingdao University, Qingdao, China",
+      "orcid": "0000-0003-3194-2183"
+    },
+    {
+      "name": "Li, Zihan",
+      "affiliation": "College of Mathematics and Statistics, <<UNIVERSITY NAME>>, China"
+    },
+    {
+      "name": "Tan, Bowen",
+      "affiliation": "The Hong Kong University of Science and Technology, Hong Kong SAR, China",
+      "orcid": "0009-0007-0554-9261"
+    },
+    {
+      "name": "Sui, Yi",
+      "affiliation": "College of Computer Science and Technology, Qingdao University, Qingdao, China",
+      "orcid": "0009-0001-8081-5183"
+    },
+    {
+      "name": "Guo, Shengjie",
+      "affiliation": "Inner Mongolia Agricultural University, Hohhot, China",
+      "orcid": "0009-0004-6852-4836"
+    },
+    {
+      "name": "Zhang, Xiaolei",
+      "affiliation": "College of Computer Science and Technology, Qingdao University, Qingdao, China",
+      "orcid": "0000-0002-0122-4554"
+    },
+    {
+      "name": "Li, Yi",
+      "affiliation": "College of Computer Science and Technology, Qingdao University, Qingdao, China",
+      "orcid": "0000-0002-4185-3152"
+    }
   ]
 }
