@@ -20,7 +20,7 @@ AUTHORS = [
     ('Xiaolei Zhang', '张晓蕾', 'qdu',  '0000-0002-0122-4554', False),
     ('Yi Li',        '李毅',   'qdu',   '0000-0002-4185-3152', True),
 ]
-EMAIL = {'Jun Ji': 'junji@qdu.edu.cn', 'Zihan Li': '2072144@qq.com',  # alt 15589811228@163.com; to move to a qdu.edu.cn address
+EMAIL = {'Jun Ji': 'junji@qdu.edu.cn', 'Zihan Li': '15589811228@163.com',  # to move to a qdu.edu.cn address later
          'Bowen Tan': 'btanab@connect.ust.hk', 'Yi Sui': 'suiyi@qdu.edu.cn',
          'Shengjie Guo': 'guosj@emails.imau.edu.cn',
          'Xiaolei Zhang': 'zhangxiaolei@qdu.edu.cn', 'Yi Li': 'ly2005@qdu.edu.cn'}
