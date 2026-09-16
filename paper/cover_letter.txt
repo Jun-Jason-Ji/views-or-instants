@@ -1,0 +1,71 @@
+Cover letter for Measurement Science and Technology
+15 September 2026
+
+To the Editor,
+Measurement Science and Technology, IOP Publishing
+
+Dear Editor,
+
+We submit for your consideration the Paper "How many views does a path-length
+measurement need? Trading camera views for time instants under a fixed frame
+budget".
+
+A camera network that reports how far a target moved must spend a finite
+processing budget, and that budget can buy either more simultaneous views at
+each time instant or more instants. The two choices act on the two opposite
+biases of the same estimate. The bias trade-off itself is established in the
+telemetry literature, where a single sensor has a fixed sampling rate and the
+only practical response is post-hoc correction; the allocation question that a
+multi-sensor instrument faces is not addressed there. We measure that error
+surface directly.
+
+We believe the work fits the scope of Measurement Science and Technology for
+three reasons. First, the contribution is an advance in measurement technique
+rather than the application of an established one: we identify a design
+variable that the existing treatment of this bias does not contain, and we
+give a quantitative rule for setting it. Second, the article contains a full
+consideration of measurement uncertainty, as the journal requires: we give a
+top-down budget in the vocabulary of the GUM and the VIM, with a determined
+and separately reported sampling bias of -8.2 mm and an expanded uncertainty
+of 14.9 mm at a coverage factor of two, and we use the reconstruction error as
+a consistency check on that budget rather than as an additional term. Third,
+the central negative result is a measurement-design guideline: we bound the
+achievable gain from non-uniform temporal placement at 8 to 25 per cent even
+when the reference trajectory is used to choose the placement, which tells a
+practitioner not to invest there.
+
+Two features of the study may be of particular interest to your reviewers. The
+confirmation experiments were pre-registered: the protocol, the candidate
+list, the decision gates and the source-file hashes were frozen before the
+confirmation records were read, and every prediction was sealed by a
+cryptographic hash before the reference was loaded. And we report a
+methodological caution that applies well beyond this measurand: what appeared
+in our data to be the classical noise-accumulation limb is in fact exposure to
+rare gross outliers, visible in the mean but not in the median or the
+ninetieth percentile, and the two mechanisms call for different engineering
+responses.
+
+We state plainly in the manuscript what we do not claim. The bias mechanism
+belongs to the telemetry literature we cite, and the existence of saturation
+in camera count has been reported in biomechanics; our contribution is the
+budget axis that couples them, the mechanism behind the saturation, and the
+two bounds. The saturation point of three views is a property of the
+instruments we measured, not a universal constant, and the manuscript gives
+the reason it cannot be universal.
+
+The work is original, has not been published elsewhere and is not under
+consideration by another journal. All authors have approved the submission and
+declare no conflict of interest. The use of an artificial intelligence
+assistant in preparing the analysis software and the manuscript is disclosed
+in the acknowledgments.
+
+We would be grateful for your consideration.
+
+Yours sincerely,
+
+Yi Li (corresponding author)
+College of Computer Science and Technology, Qingdao University
+308 Ningxia Road, Qingdao 266071, China
+ly2005@qdu.edu.cn
+
+on behalf of Jun Ji, Zihan Li, Bowen Tan, Yi Sui, Shengjie Guo, Xiaolei Zhang and Yi Li
