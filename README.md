@@ -10,9 +10,11 @@ Everything here runs on CPU. No model is trained and none is proposed.
 
 ## Current manuscript revision (16 September 2026)
 
-The current working manuscript and derived analyses postdate the v1.0.1
-Zenodo snapshot. That immutable archive preserves the original protocols,
-predictions and results; it is not a byte-identical copy of this revision.
+Version 1.0.2 archives the revised manuscript, compiled PDF and derived
+exploratory analyses at https://doi.org/10.5281/zenodo.22793719.
+The matching source release is https://github.com/Jun-Jason-Ji/views-or-instants/tree/v1.0.2.
+Original protocols and sealed predictions remain unchanged. Earlier Zenodo
+versions preserve historical snapshots. The manuscript is prepared for submission.
 
 ## The question and current findings
 
@@ -110,6 +112,7 @@ full scope and for the third-party software terms.
 See [CITATION.cff](CITATION.cff).
 
 - Concept DOI, always the latest version: [10.5281/zenodo.22784740](https://doi.org/10.5281/zenodo.22784740)
+- Current manuscript and analysis revision, v1.0.2: [10.5281/zenodo.22793719](https://doi.org/10.5281/zenodo.22793719)
 - Original archived results, v1.0.1: [10.5281/zenodo.22791285](https://doi.org/10.5281/zenodo.22791285)
 - Previous version, v1.0.0: [10.5281/zenodo.22784741](https://doi.org/10.5281/zenodo.22784741)
 

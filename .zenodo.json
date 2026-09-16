@@ -1,10 +1,10 @@
 {
   "title": "Views or instants: reproducibility archive for frame-budget allocation in multi-camera path-length measurement",
   "upload_type": "software",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "mit",
   "access_right": "open",
-  "description": "<p>Analysis code, frozen protocols and sealed results for the trajectory-length frame-budget allocation study prepared for Measurement Science and Technology.</p><p>The current working manuscript includes a post-v1.0.1 analysis revision. At 84 frames per window, the selected triple at 28 instants gives MAE 9.60 mm against 50.77 mm for seven views at 12 instants. Equal accuracy is not claimed. Exploratory analyses report record-level comparisons, sequence-equal MAE and bias, camera-overlap controls, temporal error increments and a fixed robust-triangulation baseline. The primary single-camera confirmation criterion was not fully met; the secondary ORB criterion passed. Frozen prediction files remain unchanged. The immutable Zenodo v1.0.1 archive predates this working revision.</p>",
+  "description": "<p>Analysis code, frozen protocols and sealed results for the trajectory-length frame-budget allocation study prepared for Measurement Science and Technology.</p><p>Version 1.0.2 includes the revised manuscript and exploratory analyses. At 84 frames per window, the selected triple at 28 instants gives MAE 9.60 mm against 50.77 mm for seven views at 12 instants. Equal accuracy is not claimed. Exploratory analyses report record-level comparisons, sequence-equal MAE and bias, camera-overlap controls, temporal error increments and a fixed robust-triangulation baseline. The primary single-camera confirmation criterion was not fully met; the secondary ORB criterion passed. Frozen prediction files remain unchanged. This version archives the manuscript and exploratory analysis revision together; versions 1.0.0 and 1.0.1 remain available as historical snapshots.</p>",
   "keywords": [
     "vision-based measurement",
     "distance travelled",
@@ -49,5 +49,14 @@
       "affiliation": "College of Computer Science and Technology, Qingdao University, Qingdao, China",
       "orcid": "0000-0003-3194-2183"
     }
-  ]
+  ],
+  "publication_date": "2026-09-16",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/Jun-Jason-Ji/views-or-instants/tree/v1.0.2",
+      "relation": "isSupplementTo",
+      "resource_type": "software"
+    }
+  ],
+  "notes": "Version 1.0.2 updates author order and contributions, the manuscript, sequence-equal aggregation, record-level comparisons, geometry controls and reproducibility tooling. New analyses are exploratory. Original frozen protocols, prediction files and decision records remain unchanged. No third-party image datasets or model weights are redistributed; the included calibration matrices support reproducibility of the geometry controls. The manuscript is prepared for submission and has not yet been submitted."
 }

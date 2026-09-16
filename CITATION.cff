@@ -2,8 +2,8 @@ cff-version: 1.2.0
 message: "If you use this software or these results, please cite the article and this archive."
 type: software
 title: "Views or instants: reproducibility archive for frame-budget allocation in multi-camera path-length measurement"
-version: "1.0.1"
-doi: "10.5281/zenodo.22784740"
+version: "1.0.2"
+doi: "10.5281/zenodo.22793719"
 abstract: "Analysis code, frozen protocols, input digests, sealed predictions and scored results for a study of how a fixed camera-frame budget should be divided between simultaneous views and time instants when measuring the path length of a moving target. No third-party datasets and no model weights are redistributed; see NOTICE.md."
 repository-code: "https://github.com/Jun-Jason-Ji/views-or-instants"
 license: MIT
@@ -46,7 +46,7 @@ authors:
 preferred-citation:
   type: article
   title: "How many views does a path-length measurement need? Trading camera views for time instants under a fixed frame budget"
-  status: submitted
+  status: in-preparation
   journal: "Measurement Science and Technology"
   year: 2026
   authors:

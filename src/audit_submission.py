@@ -22,7 +22,7 @@ args = parser.parse_args()
 if args.package:
     DESK = args.package.resolve()
 REPO = ROOT / 'paper/repo'
-ZIP = ROOT / 'paper/zenodo/view_instant_allocation_v1.0.1.zip'
+ZIP = ROOT / 'paper/zenodo/view_instant_allocation_v1.0.2.zip'
 
 issues, notes, ok = [], [], []
 
