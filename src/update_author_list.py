@@ -13,20 +13,20 @@ ROOT = Path(__file__).resolve().parents[1]
 # order, English name, Chinese name, affiliation key, ORCID or None, corresponding
 AUTHORS = [
     ('Jun Ji',       '纪军',   'qdu',   '0000-0003-3194-2183', False),
-    ('Zihan Li',     '李梓晗', 'maths', None,                  False),
+    ('Zihan Li',     '李梓晗', 'maths', None,                  False),  # ORCID pending
     ('Bowen Tan',    '谭博文', 'hkust', '0009-0007-0554-9261', False),
     ('Yi Sui',       '隋毅',   'qdu',   '0009-0001-8081-5183', False),
     ('Shengjie Guo', '郭圣杰', 'imau',  '0009-0004-6852-4836', False),
     ('Xiaolei Zhang', '张晓蕾', 'qdu',  '0000-0002-0122-4554', False),
     ('Yi Li',        '李毅',   'qdu',   '0000-0002-4185-3152', True),
 ]
-EMAIL = {'Jun Ji': 'junji@qdu.edu.cn', 'Zihan Li': '2072144@qq.com',
+EMAIL = {'Jun Ji': 'junji@qdu.edu.cn', 'Zihan Li': '2072144@qq.com',  # alt 15589811228@163.com; to move to a qdu.edu.cn address
          'Bowen Tan': 'btanab@connect.ust.hk', 'Yi Sui': 'suiyi@qdu.edu.cn',
          'Shengjie Guo': 'guosj@emails.imau.edu.cn',
          'Xiaolei Zhang': 'zhangxiaolei@qdu.edu.cn', 'Yi Li': 'ly2005@qdu.edu.cn'}
 AFFIL = {
     'qdu':   'College of Computer Science and Technology, Qingdao University, Qingdao, China',
-    'maths': 'College of Mathematics and Statistics, <<UNIVERSITY NAME>>, China',
+    'maths': 'College of Mathematics and Statistics, Qingdao University, Qingdao, China',
     'hkust': 'The Hong Kong University of Science and Technology, Hong Kong SAR, China',
     'imau':  'Inner Mongolia Agricultural University, Hohhot, China',
 }
