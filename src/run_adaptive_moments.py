@@ -7,8 +7,8 @@ Protocol per window and camera subset, for a total budget of m moments:
              the cumulative rho while KEEPING the probe moments. Total distinct
              moments = m, so the camera-frame cost is identical.
   oracle_nonuniform (diagnostic only): same count, breakpoints chosen using the
-             reference trajectory; an upper bound on what any non-uniform rule
-             could reach here, never a deployable method.
+             reference trajectory for this curvature rule; not an optimum or
+             an upper bound on other sampling rules, and not deployable.
 
 Sigma is calibrated from a consecutive burst, as in run_ctsd_baseline.
 Reference is read only for scoring (and for the explicitly flagged oracle).

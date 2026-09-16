@@ -6,9 +6,8 @@ Measurement Science and Technology, IOP Publishing
 
 Dear Editor,
 
-We submit for your consideration the Paper "How many views does a path-length
-measurement need? Trading camera views for time instants under a fixed frame
-budget".
+We submit for your consideration the Paper "Allocating camera views and time instants for trajectory-length
+measurement under a frame-processing budget".
 
 We study how a multi-camera trajectory-length measurement divides a finite
 processing budget between simultaneous views and sampling instants. The
@@ -19,19 +18,21 @@ to the telemetry literature; we examine the additional budget constraint
 introduced by multiple cameras.
 
 At exactly 84 frames per window, a calibration-selected three-view
-configuration at 28 instants gives a mean absolute error of 9.60 mm, compared
-with 50.77 mm for seven views at 12 instants, on 60 confirmation windows.
-This comparison is explicitly identified as an exploratory analysis of the
-recorded secondary grid. At 33 instants, the selected triple uses 43 percent
-of the frames but has slightly larger error, 9.25 versus 8.63 mm; we do not
-claim statistical equivalence. Record-level comparisons acknowledge that
-the 60 windows come from only four records on one rig.
+configuration gives mean absolute error 9.60 mm, compared with 50.77 mm for
+seven views on 60 windows. This contrast persists under three noise settings,
+reference decimation and deletion of each record. A broader exploratory grid
+of two to seven views and four budget caps nevertheless reverses the ranking
+at 168 frames, where rare extreme errors affect the triple. The article reports
+this counterexample and does not recommend a universal view count. Original
+frozen candidate decisions are presented separately from the exploratory grid;
+the records do not constitute a newly collected independent validation set.
 
 The article also includes disjoint-camera comparisons, independent-pixel-noise
 controls with shared cameras, temporal error diagnostics and a fixed robust
 triangulation baseline. These qualify possible explanations rather than claim
 an identified common-mode mechanism. A reference-assisted curvature sampling
-rule is evaluated as a baseline, not a general optimization bound. Error
+rule is evaluated on explicit common-success populations, with its distinct
+eligibility policy explained; it is not a general optimization bound. Error
 reductions under a combined robustness gate are reported together with the
 loss of completed windows. In a secondary single-camera experiment, the
 pre-specified primary criterion is not fully met; that result is reported

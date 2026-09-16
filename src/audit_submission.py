@@ -22,7 +22,7 @@ args = parser.parse_args()
 if args.package:
     DESK = args.package.resolve()
 REPO = ROOT / 'paper/repo'
-ZIP = ROOT / 'paper/zenodo/view_instant_allocation_v1.0.2.zip'
+ZIP = ROOT / 'paper/zenodo/view_instant_allocation_v1.0.3.zip'
 
 issues, notes, ok = [], [], []
 
@@ -160,28 +160,16 @@ if abs(f3 / f7 * 100 - 43) > 1:
 else:
     good(f'the 43 % frame-cost claim checks out ({f3}/{f7} = {f3/f7*100:.1f} %)')
 
-# uncertainty budget consistency
+# Only retain the descriptive components; no combined uncertainty is claimed.
 bud = json.load(open(ROOT / 'experiments/uncertainty_budget_v1_2026-09-15/budget.json'))
 comp = {c['symbol']: c['value_mm'] for c in bud['components']}
-uc = (comp['u_A'] ** 2 + comp['u_ref'] ** 2) ** .5
-if abs(uc - bud['combined_standard_uncertainty_mm']) > 1e-6:
-    bad(f'uncertainty budget: u_c does not equal the RSS of its components')
-else:
-    good('uncertainty budget: u_c equals the root sum of squares of u_A and u_ref')
-if abs(bud['expanded_uncertainty_k2_mm'] - 2 * uc) > 1e-6:
-    bad('uncertainty budget: U is not 2 u_c')
-else:
-    good('uncertainty budget: U = 2 u_c')
-for label, val in (('-8.23', comp['b_samp']), ('7.43', comp['u_A']), ('0.55', comp['u_ref']),
-                   ('7.45', bud['combined_standard_uncertainty_mm']), ('14.9', bud['expanded_uncertainty_k2_mm'])):
+for label, val in (('-8.23', comp['b_samp']), ('7.43', comp['u_A']), ('0.55', comp['u_ref'])):
     if label not in body:
-        bad(f'uncertainty value {label} mm appears in the artefact but not in the manuscript table')
-if '0.22' in body:
-    rel = bud['relative_expanded'] * 100
-    if abs(rel - 0.22) > 0.01:
-        bad(f'the manuscript says 0.22 % relative but the artefact gives {rel:.3f} %')
-    else:
-        good(f'relative expanded uncertainty {rel:.2f} % matches')
+        bad(f'descriptive error value {label} mm missing from manuscript')
+if 'Illustrative scale' in body or 'Twice the illustrative scale' in body:
+    bad('withdrawn quadrature combination still appears')
+else:
+    good('bias, dispersion and reference sensitivity reported without a quadrature coverage claim')
 
 # mechanism table
 mech = json.load(open(ROOT / 'experiments/view_saturation_mechanism_v1_2026-09-15/mechanism.json'))

@@ -24,8 +24,8 @@
 
 \articletype{Paper}
 
-\title{How many views does a path-length measurement need? Trading camera
-views for time instants under a fixed frame budget}
+\title{Allocating camera views and time instants for trajectory-length
+measurement under a frame-processing budget}
 
 \author{Bowen Tan$^1$\orcid{0009-0007-0554-9261},
 Zihan Li$^3$,
@@ -56,29 +56,28 @@ multi-camera triangulation, sampling design, measurement uncertainty,
 budget allocation}
 
 \begin{abstract}
-A camera network that measures trajectory length can allocate a finite frame
-processing budget to more simultaneous views or to more sampling instants.
-We evaluate this allocation on a seven-camera rig using released image
-centroids and an independent optical tracking reference. A protocol frozen
-before the path-length confirmation run specifies the camera-selection rule
-and seals predictions before reference scoring. In an exploratory comparison
-of its recorded configurations at exactly 84 frames per window, three views
-at 28 instants give a mean absolute error of 9.60 mm, compared with 50.77 mm
-for seven views at 12 instants. At 33 instants, the selected three-view
-configuration uses 43 percent of the frames, with errors of 9.25 versus
-8.63 mm; these observations do not establish statistical equivalence.
-Development-set controls show correlated reconstruction errors, but also show
-that overlapping camera subsets produce correlation even under independent
-pixel noise. Shared and temporally persistent errors are therefore plausible
-contributors rather than an identified causal explanation. A tested
-reference-assisted curvature sampling rule improves on uniform placement by
-8 to 25 percent, without establishing a general optimization bound. Rare
-gross errors dominate the dense-sampling rise in mean error; a combined
-robustness gate reduces error at a cost in completion. A secondary
-single-camera chain favours sparse sampling in aggregate, although its
-pre-specified primary confirmation criterion is not fully met. These results
-support evaluating budget allocation for each measurement chain, with
-explicit error, completion and reference-sensitivity reporting.
+A multi-camera trajectory-length measurement can divide a finite processing
+budget between simultaneous views and sampling instants. We evaluate this
+allocation using released image centroids from a seven-camera rig and an
+independent optical tracking reference. Original protocol-frozen results are
+distinguished from exploratory analyses on four previously examined records.
+A calibration-selected three-view configuration at 28 instants gives a mean
+absolute error of 9.60 mm, compared with 50.77 mm for seven views at 12
+instants, at exactly 84 processed frames per window. This ordering persists
+under three observation-noise settings, reference decimation and deletion of
+each record in turn. However, a broader grid of budget caps and two to seven
+views reveals a reversal: at 168 frames, the tested three-view schedule has
+85.66 mm error versus 10.55 mm for seven views, driven by rare extreme errors.
+Thus spending an increased budget on more instants can worsen performance,
+and no universal three-view prescription follows. Comparisons report actual
+frame use, completed-window error, completion and tail risk. Overlapping-camera
+noise controls constrain possible explanations without identifying a causal
+saturation mechanism. A tested curvature-based sampling rule is evaluated on
+explicit common-success populations, and a secondary single-camera case
+illustrates an aggregate sparse-sampling preference with incomplete primary
+confirmation. The study provides a reproducible evaluation procedure for
+budget-dependent measurement choices, with explicit reference sensitivity
+and limits on generalization.
 
 \end{abstract}
 
@@ -91,9 +90,10 @@ window: the arc length of its trajectory, rather than the straight-line
 displacement between the endpoints. When the trajectory is observed only at
 discrete instants, the estimate is biased in two directions at once.
 Connecting sparse samples by straight lines cuts every corner and
-underestimates the arc. Connecting dense samples accumulates the per-sample
-position noise, and in the limit of infinitely dense sampling the polyline
-length diverges.
+underestimates the arc. With non-vanishing independent position noise, dense sampling can accumulate
+noise-driven length, and the limiting polyline length can diverge. This
+conclusion is conditional on the noise model; a constant position offset
+does not change length.
 
 This trade-off is established. Palmer [1] simulated it for fishing-vessel
 tracks and noted that the overestimation at high polling rates is inversely
@@ -138,6 +138,8 @@ sampling density are varied jointly. At an equal budget of 84 frames, the
 calibration-selected triple at 28 instants has a confirmation-set error of
 9.60\,mm against 50.77\,mm for seven views at 12 instants. This comparison is
 an exploratory analysis of configurations recorded under the frozen protocol.
+A broader budget-cap grid includes two through seven views and exposes
+budget-dependent rank reversals and rare large errors.
 
 \item \textit{Controls on a possible explanation.} We compare an
 independent-pixel-noise geometry model with observed reconstruction errors,
@@ -155,9 +157,9 @@ from rare extreme errors and report the completion loss of robustness gates.
 We follow the vision-based measurement framing of Shirmohammadi and Ferrero
 [9]: the camera rig is the instrument, and the object of study is the
 measurand and its uncertainty, not the performance of an algorithm.
-Section~\ref{sec:opposite} reports the same allocation question for a
-single-camera chained-registration system, where the optimum sits at the
-sparse end in aggregate, with incomplete primary confirmation. This is why
+Section~\ref{sec:opposite} provides a contrasting case study of a
+single-camera chained-registration system, where the smallest tested budget
+has the lowest aggregate error, with incomplete primary confirmation. This is why
 we present allocation as a quantity to evaluate per instrument.
 
 % =====================================================================
@@ -260,8 +262,8 @@ to new records and its estimation uncertainty have not been validated.
 
 \begin{table}
 \caption{Conditional error summary for the selected triple at 33 instants
-(99 frames per window). The scale $2s_*$ is descriptive and is not a validated
-95\% coverage interval or a complete instrument uncertainty budget.}
+(99 frames per window). Dispersion and reference sensitivity are reported
+separately; no combined uncertainty or coverage interval is asserted.}
 \centering
 \begin{tabular}{llr}
 \hline
@@ -271,9 +273,6 @@ Signed bias, $b$ & uncorrected & $-8.23$\\
 Error dispersion, $s_e$ & window standard deviation & $7.43$\\
 Reference sensitivity scale, $s_r$ & decimation proxy & $0.55$\\
 \hline
-Illustrative scale, $s_*=(s_e^2+s_r^2)^{1/2}$ & & $7.45$\\
-Twice the illustrative scale, $2s_*$ & & $14.9$\\
-\hline
 \end{tabular}
 \label{tab:uncertainty}
 \end{table}
@@ -282,9 +281,9 @@ The reference sensitivity proxy is the mean range of reference polyline
 lengths at strides one, two and four, divided by $\sqrt{3}$. Treating this
 range as a rectangular half-width is only a sensitivity convention; it does
 not characterize optical-reference calibration, scale or synchronization
-uncertainty. The quadrature sum is shown for comparison with the observed
-dispersion, not as an established combination of independent uncertainty
-components. Reference errors may already contribute to $s_e$.
+uncertainty. Reference errors may already contribute to $s_e$, so these
+quantities are not combined in quadrature. Section~\ref{sec:saturation}
+instead evaluates the principal comparison directly under reference decimation.
 
 The 60 windows share four records, one rig and one calibration session.
 Consequently, 59 independent degrees of freedom and 95\% coverage cannot be
@@ -302,6 +301,9 @@ polyline. If either endpoint instant is lost, the window is a failure.
 Failures remain in completion-rate denominators. Error summaries use
 completed windows; paired comparisons use the intersection of completed
 windows and report its size. A failed window has no finite error assigned.
+The earlier non-uniform sampling experiment used stricter, sequential
+eligibility screens; its distinct policy and conditional sample sizes are
+specified in section~\ref{sec:nonuniform}.
 
 % =====================================================================
 \section{Data and frozen protocols}
@@ -343,6 +345,15 @@ one-frame mismatch is retained explicitly. Same-density comparisons and the
 intervals, disjoint-group and noise controls, and robust-triangulation
 comparison reported here are exploratory analyses made after confirmation
 outcomes were examined. No equivalence margin was specified in advance.
+The additional budget-cap grid uses $B\in\{56,84,112,168\}$ and
+$k=2,\ldots,7$, with uniform $m=\lfloor B/k\rfloor$ instants. The existing
+calibration-only subset score is extended to four, five and six views before
+computing this grid, without optimizing subsets on reference errors. Noise
+sensitivity at $B=84$ uses fixed $\sigma=0.4,1,3$\,mm, spanning the earlier
+development-derived scale and the original setting. These choices were made
+after inspecting earlier results and remain exploratory; they are neither a
+new holdout nor a fresh preregistration. Of the recalculated estimates, 288
+overlap the archived primary-rig estimates and reproduce them exactly.
 For the secondary chain, XFeat was the pre-specified primary front end and
 ORB was secondary; both results are reported in section~\ref{sec:opposite}.
 
@@ -359,20 +370,46 @@ we report.
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{fig1.pdf}
-\caption{Path-length error against the frame budget $B=k\,m$, on the development
-set (a) and the protocol-frozen confirmation set (b). Each curve is the median
-over all camera subsets of that size, 21 pairs and 35 triples; the shaded
-bands span the best to the worst subset. Line style and marker distinguish the
-view counts, so the panels remain readable in greyscale.}
+\caption{Exploratory budget-cap grid using one calibration-selected subset
+per view count and $m=\lfloor B/k\rfloor$ uniform instants. (a) Completed-window
+MAE; pairs complete 48/60 windows and the other view counts complete 60/60.
+(b) The 95th percentile and maximum error for three and seven views. These
+are tested schedules using nearly all the cap, not a lower error envelope
+over all schedules costing at most $B$.}
 \label{fig:frontier}
 \end{figure}
 
 \subsection{Trading view count for sampling density}
 \label{sec:saturation}
-Figure~\ref{fig:frontier} shows the error against the frame budget, and
-figure~\ref{fig:saturation} shows it against view count at fixed sampling
-density on the protocol-frozen confirmation set. Table~\ref{tab:confirm} gives
-the numbers.
+Figure~\ref{fig:frontier} shows the new budget-cap grid. Before describing
+it, we distinguish original frozen decisions and same-density summaries.
+Figure~\ref{fig:saturation} and table~\ref{tab:confirm} summarize all subsets
+at fixed density on the protocol-frozen confirmation set.
+
+\begin{table}
+\caption{Original frozen candidate comparisons against the seven-view,
+eight-instant baseline (56 frames, 223.42\,mm MAE, 60/60 complete). Each
+candidate had to reduce MAE by at least 50\%, improve every record and incur
+no additional failures. The protocol explicitly allowed 56/57 frames. MAE
+is conditional on each arm's completed windows.}
+\centering
+\begin{tabular}{rrrrrl}
+\hline
+Views & Instants & Frames & MAE (mm) & Complete & Decision\\
+\hline
+2 & 28 & 56 & 12.52 & 48/60 & Fail: completion\\
+3 & 19 & 57 & 14.86 & 60/60 & Pass\\
+\hline
+\end{tabular}
+\label{tab:originaldecisions}
+\end{table}
+
+Table~\ref{tab:originaldecisions} reports the original decisions, not the
+new exploratory grid. The triple passed all stated gates but spent one
+extra frame; this is not an exactly equal-cost result. The pair's completed
+MAE is not a like-for-like comparison to all 60 baseline windows: the
+baseline MAE on its 48 common windows is 270.88\,mm. Its completion gate
+nevertheless failed. The separate 66-frame pair was not a primary candidate.
 
 \begin{figure}
 \centering
@@ -419,7 +456,7 @@ limited inferential resolution; these are not equivalence tests.}
 \centering
 \begin{tabular}{rrrrl}
 \hline
-$m$ & Triple MAE & Seven-view MAE & Difference & 95\% interval (mm)\\
+$m$ & Triple MAE & Seven-view MAE & Difference & 95\% resampling interval (mm)\\
 \hline
 16 & 72.79 & 27.92 & $+44.87$ & $[-0.27,134.93]$\\
 19 & 14.86 & 14.87 & $-0.01$ & $[-0.41,0.29]$\\
@@ -450,6 +487,65 @@ rig within the tested grid, not a universal optimal view count. Separately,
 three views at 19 instants cost 57 frames and give 14.86\,mm, versus
 27.92\,mm at 112 frames for seven views at 16 instants: a lower-cost,
 lower-error comparison, not an equal-cost comparison.
+
+
+\subsubsection{Budget-cap and parameter sensitivity.}
+Table~\ref{tab:budgetcaps} broadens the analysis to two through seven views.
+All configurations use the same 60 windows and original 3\,mm noise setting.
+Pairs complete only 48 windows, so their MAE cannot alone rank them above
+complete configurations. Within configurations completing all windows, the
+lowest observed MAE is at four views for $B=56$, three for $B=84$ and 112,
+and six for $B=168$. These are post-hoc rankings, not validated selection rules.
+
+\begin{table}
+\caption{Exploratory budget-cap grid: MAE in millimetres, with actual processed
+frames in parentheses. Each view count uses one calibration-only subset.
+Pairs complete 48/60 windows in every row; all other configurations complete
+60/60. Full per-record, percentile and maximum errors are supplied in the archive.}
+\centering
+\small
+\begin{tabular}{rrrrrrr}
+\hline
+Cap $B$ & 2 views & 3 views & 4 views & 5 views & 6 views & 7 views\\
+\hline
+56 & 12.52 (56) & 71.07 (54) & 36.08 (56) & 84.35 (55) & 139.13 (54) & 223.42 (56)\\
+84 & 10.79 (84) & 9.60 (84) & 77.24 (84) & 40.00 (80) & 33.92 (84) & 50.77 (84)\\
+112 & 9.83 (112) & 8.88 (111) & 10.78 (112) & 18.66 (110) & 29.01 (108) & 27.92 (112)\\
+168 & 9.61 (168) & 85.66 (168) & 25.45 (168) & 9.13 (165) & 8.61 (168) & 10.55 (168)\\
+\hline
+\end{tabular}
+\label{tab:budgetcaps}
+\end{table}
+
+At 168 frames the triple encounters two errors above 100\,mm, with a maximum
+of 4110.45\,mm, whereas the seven-view maximum is 24.92\,mm. At the 56-frame
+cap, one triple error reaches 3233.05\,mm. Completion therefore does not
+guarantee reliability, and using more of an available budget need not help.
+An upper budget permits retaining a cheaper schedule: the 84-frame triple
+is still feasible at a cap of 168. The table evaluates specified near-cap
+schedules, not the optimum over every allocation with $km\leq B$.
+
+At 84 frames, the three/seven-view MAEs are 8.36/49.97\,mm for
+$\sigma=0.4$\,mm, 8.48/50.04\,mm for 1\,mm and 9.60/50.77\,mm for
+3\,mm, with 60/60 completions throughout. Thus this particular ordering is
+stable over the tested settings. These are shared isotropic-noise sensitivity
+settings, not individually optimized covariance models or a test of every
+weighted reconstruction.
+
+For the original 3\,mm setting at 84 frames, the four record differences are
+all negative; deleting one whole record gives differences from $-42.88$ to
+$-39.49$\,mm. At 112 frames, the deletion range is $[-21.67,-12.62]$\,mm,
+while at 168 frames it is $[10.14,101.23]$\,mm: the adverse ranking remains
+after deleting any one record. These descriptive checks do not turn four
+records into a larger independent sample. Resampling intervals above retain
+their exploratory interpretation.
+
+Keeping each reference window's endpoints and decimating only its interior
+200\,Hz samples at strides one, two and four changes the 84-frame MAE
+difference from $-41.17$ to $-41.14$ and $-41.07$\,mm. Its ordering also
+persists at the two alternative noise settings. This directly tests
+reference-resolution sensitivity of the main contrast; it does not test
+reference calibration, clock offset or absolute scale errors.
 
 \subsection{Error structure and controls on the saturation hypothesis}
 \label{sec:mechanism}
@@ -585,16 +681,17 @@ table~\ref{tab:nonuniform} give the result.
 \centering
 \includegraphics{fig3.pdf}
 \caption{Non-uniform placement of instants on the development set, at three
-views. Even the oracle, which uses the reference trajectory, gains only 8\% to
-25\% over uniform sampling, and the deployable rule is worse than uniform
-throughout.}
+views. The reference-assisted rule improves completed-window MAE by approximately
+7.9\% to 23.5\% in the plotted three-view cells. The deployable rule is worse
+on their respective common-success populations.}
 \label{fig:nonuniform}
 \end{figure}
 
 \begin{table}
-\caption{Non-uniform placement at identical cost on the development set, 75
-windows, state-mean estimator, mean absolute error in millimetres. The last
-column counts the windows in which the deployable rule beat uniform sampling.}
+\caption{Non-uniform placement on a pool of 75 development windows.
+State-mean MAEs (mm) use only the common-success windows in the last-column
+denominator. The numerator counts windows where the deployable rule beats
+uniform placement. Eligibility and successful-output counts are given below.}
 \centering
 \begin{tabular}{rrrrrl}
 \hline
@@ -611,11 +708,23 @@ $k$ & $m$ & Uniform & Curvature & Oracle & Deployable wins\\
 \label{tab:nonuniform}
 \end{table}
 
-The deployable rule loses everywhere, by 30\% to 170\%. Two mechanisms are
-visible: equation~\eqref{eq:deficit} holds only for small $\Delta t$, so
+The recorded successful outputs for uniform/deployable/reference-assisted
+arms, respectively, are 71/69/67, 66/64/64, 67/62/63 and 66/63/62 out of
+75 for the listed three-view densities; all three arms have 75 outputs in
+the listed seven-view cells. The common sets contain 67, 63, 61 and 62 windows.
+Unlike the main experiment, this earlier implementation requires every
+selected instant to be valid and screens uniform, probe and later stages
+sequentially. Some absent downstream outputs were never attempted, so these
+counts are not independent per-method completion probabilities. The comparisons
+are conditional on joint eligibility, not a claim about overall operational
+success. The additional noise-calibration burst is a setup resource excluded
+from the within-window frame count.
+
+The deployable rule has higher aggregate MAE in every tested cell, by
+30\% to 170\%. Two possible explanations, not isolated by ablation, are that equation~\eqref{eq:deficit} holds only for small $\Delta t$, so
 concentrating instants in high-curvature regions creates long gaps whose cubic
-penalty outweighs the local gain; and the curvature estimated from a
-half-budget probe is very noisy.
+penalty may outweigh local gains; and curvature estimated from a
+half-budget probe may be noisy.
 
 Reference-assisted curvature placement improves on uniform sampling by
 8\% to 25\%, with a median of 17\% across the tested cells. This describes
@@ -755,9 +864,8 @@ establish transfer to other instruments.
 \section{Limitations}
 \label{sec:limitations}
 \begin{itemize}
-\item \textit{Two instruments, each a single rig.} The saturation point of
-about three views is a property of these camera geometries and of their
-detection-error structure, not a universal constant.
+\item \textit{Two instruments, each a single rig.} The budget-cap grid has different best observed view counts and rank
+reversals. No universal three-view optimum or saturation threshold is established.
 The controls in section~\ref{sec:mechanism} do not identify a unique
 causal mechanism; calibration, reference error, estimator choice and target
 visibility can all affect the observed surface.
@@ -783,22 +891,26 @@ additional sensitivity analyses are exploratory, not fresh confirmations.
 % =====================================================================
 \section{Conclusion}
 \label{sec:conclusion}
-For this synchronised rig, allocating 84 processed frames to three views at
-28 instants yields a smaller observed path-length MAE than seven views at
-12 instants. At a fixed 33 instants, the selected triple uses 43\% of the
-frames but has a slightly larger MAE, 9.25 versus 8.63\,mm; equivalence has
-not been established. The allocation advantage is therefore a measured
-cost--error trade-off for this chain, not a universal three-camera rule.
-Exploratory controls show overlapping-subset correlation, additional
-disjoint-group correlation and record-dependent temporal persistence, without
-identifying a unique saturation mechanism. The tested curvature rule and its
-reference-assisted version provide empirical comparisons, not optimality
-bounds. Rare extreme errors dominate the dense-regime mean, while robustness
-gates trade lower completed-window error for lower completion. A single-camera
-chain favours sparse sampling in aggregate, but its primary confirmation
-criterion is not fully met. These findings motivate reporting budget,
-accuracy, completion, reference sensitivity and analysis status jointly when
-choosing a measurement configuration.
+For this synchronised rig, allocating 84 frames to three views at 28
+instants gives lower observed MAE than seven views at 12 instants, and this
+contrast persists under the tested noise settings, reference decimation and
+whole-record deletion. The broader two-to-seven-view budget grid nevertheless
+reverses the three/seven-view ranking at 168 frames because of rare large
+errors. Thus a budget increase is not a prescription to sample more densely,
+and the lowest-error tested schedule is not a universal camera-count rule.
+At a fixed 33 instants the selected triple uses 43\% of the frames but has
+slightly larger error; equivalence remains unestablished.
+
+The reusable procedure is to specify a processing cap and failure policy,
+select camera subsets without using evaluation errors, and compare feasible
+schedules using error, completion, tail risk and sensitivity together. A
+prospective deployment would require selection on development data followed
+by validation on new records or sessions; the new grid here is exploratory.
+Correlated-error diagnostics do not identify a unique mechanism, and the
+curvature-rule comparisons condition on explicit joint eligibility. The
+single-camera example illustrates a contrasting regime with incomplete
+primary confirmation. These qualifications delimit the measurement choices
+supported by the present evidence.
 
 % =====================================================================
 
@@ -837,9 +949,9 @@ editing.}
 \data{The two datasets analysed here are third-party public releases, cited as
 [22] and [23]; we redistribute neither, and the access routes are those given
 by their publishers. The analysis code, frozen protocols, input hash lists, sealed
-predictions, scoring records and revised manuscript are archived as version 1.0.2
-at \url{https://doi.org/10.5281/zenodo.22793719}. The matching source release is
-\url{https://github.com/Jun-Jason-Ji/views-or-instants/tree/v1.0.2}.
+predictions, scoring records and revised manuscript are archived as version 1.0.3
+at \url{https://doi.org/10.5281/zenodo.22794671}. The matching source release is
+\url{https://github.com/Jun-Jason-Ji/views-or-instants/tree/v1.0.3}.
 The version preserves the original protocols and sealed results, alongside
 the exploratory analysis update with explicit sequence-equal aggregation,
 record-level comparisons and exploratory geometry controls, with input hashes

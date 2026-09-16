@@ -152,3 +152,5 @@ def main():
 
 if __name__ == '__main__':
     main()
+    from make_revision_budget_figure import make
+    make()

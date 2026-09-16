@@ -2,19 +2,35 @@
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22784740.svg)](https://doi.org/10.5281/zenodo.22784740)
 
-Reproducibility archive for the article *How many views does a path-length
-measurement need? Trading camera views for time instants under a fixed frame
-budget*, prepared for *Measurement Science and Technology*.
+Reproducibility archive for the article *Allocating camera views and time instants for trajectory-length measurement under a frame-processing budget*, prepared for *Measurement Science and Technology*.
 
 Everything here runs on CPU. No model is trained and none is proposed.
 
 ## Current manuscript revision (16 September 2026)
 
-Version 1.0.2 archives the revised manuscript, compiled PDF and derived
-exploratory analyses at https://doi.org/10.5281/zenodo.22793719.
-The matching source release is https://github.com/Jun-Jason-Ji/views-or-instants/tree/v1.0.2.
+Version 1.0.3 archives the revised manuscript, compiled PDF and derived
+exploratory analyses at https://doi.org/10.5281/zenodo.22794671.
+The matching source release is https://github.com/Jun-Jason-Ji/views-or-instants/tree/v1.0.3.
 Original protocols and sealed predictions remain unchanged. Earlier Zenodo
 versions preserve historical snapshots. The manuscript is prepared for submission.
+
+## Added budget and robustness analysis (v1.0.3)
+
+The new grid evaluates two through seven views at budget caps 56, 84, 112
+and 168, using one calibration-selected subset per view count and floor(B/k)
+uniform instants. All 1680 window configurations are retained, including failures.
+At 84 frames, the three-view advantage persists across observation noise of
+0.4, 1 and 3 mm, reference decimation and whole-record deletion. At 168 frames,
+however, the tested three-view schedule has MAE 85.66 mm against 10.55 mm for
+seven views; its largest error is 4110.45 mm. More budget does not require
+using all available frames: cheaper schedules remain feasible. This grid is
+not a globally optimized lower error envelope and supports no universal view count.
+
+Run `python src/allocation_revision_v103.py` with the original public inputs,
+then `python src/verify_budget_revision.py`. New results are under
+`experiments/allocation_revision_v103_2026-09-16/`. Original estimates are
+replicated for 288 overlapping cases with zero difference. These are exploratory
+analyses, not a new independent confirmation set.
 
 ## The question and current findings
 
@@ -112,7 +128,8 @@ full scope and for the third-party software terms.
 See [CITATION.cff](CITATION.cff).
 
 - Concept DOI, always the latest version: [10.5281/zenodo.22784740](https://doi.org/10.5281/zenodo.22784740)
-- Current manuscript and analysis revision, v1.0.2: [10.5281/zenodo.22793719](https://doi.org/10.5281/zenodo.22793719)
+- Current budget and robustness revision, v1.0.3: [10.5281/zenodo.22794671](https://doi.org/10.5281/zenodo.22794671)
+- Previous manuscript and analysis revision, v1.0.2: [10.5281/zenodo.22793719](https://doi.org/10.5281/zenodo.22793719)
 - Original archived results, v1.0.1: [10.5281/zenodo.22791285](https://doi.org/10.5281/zenodo.22791285)
 - Previous version, v1.0.0: [10.5281/zenodo.22784741](https://doi.org/10.5281/zenodo.22784741)
 

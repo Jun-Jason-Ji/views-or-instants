@@ -1,0 +1,9 @@
+{
+  "status": "Exploratory analyses after previous outcomes; not a new holdout or preregistration.",
+  "sha256": {
+    "src\\allocation_revision_v103.py": "d8037c88cb79a03251625d04f24d35d83fa3af9098dbcd3deaa236be66434c62",
+    "src\\continuous_motion_cpu.py": "ca8983d42f31b0a8252d382a9085feb051a02edace87226d7958de7c3ef4e75e",
+    "src\\analyze_allocation.py": "7d2b53c1bfa12ab62b25c25bc27dbefc4cdda76660e7329d28d6432bd45e48b3",
+    "experiments\\mcalib_3d_cache_2026-09-13_verified\\public\\calibration.json": "8ba602a36a0a13520d515d1880a8de07127f4aa5a9e46eebc7e12e135be8f2a6"
+  }
+}

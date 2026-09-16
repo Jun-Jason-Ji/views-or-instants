@@ -1,0 +1,987 @@
+{
+  "status": "Exploratory analyses after previous outcomes; not a new holdout or preregistration.",
+  "budgets": [
+    56,
+    84,
+    112,
+    168
+  ],
+  "sigma_mm": [
+    0.4,
+    1.0,
+    3.0
+  ],
+  "selection_rule": "Calibration-only minimum worst-pair geometric score; extended to k=4,5,6 without reference outcomes.",
+  "original_estimates_replicated": 288,
+  "max_replication_error_m": 0.0,
+  "summary": [
+    {
+      "budget": 56,
+      "views": 2,
+      "sigma_mm": 3.0,
+      "moments": 28,
+      "frames": 56,
+      "completed": 48,
+      "attempted": 60,
+      "mae_mm": 12.520123261533769,
+      "p95_mm": 37.01703172820422,
+      "maximum_mm": 50.00132232050092,
+      "over100mm": 0,
+      "per_record_mae_mm": {
+        "record15": 11.882875103118806,
+        "record16": 12.175545525901489,
+        "record17": 13.956736040013858,
+        "record18": 11.866784551128603
+      }
+    },
+    {
+      "budget": 56,
+      "views": 3,
+      "sigma_mm": 3.0,
+      "moments": 18,
+      "frames": 54,
+      "completed": 60,
+      "attempted": 60,
+      "mae_mm": 71.06775001008799,
+      "p95_mm": 42.26141644411965,
+      "maximum_mm": 3233.048650991293,
+      "over100mm": 1,
+      "per_record_mae_mm": {
+        "record15": 230.4028132100308,
+        "record16": 19.14225384909424,
+        "record17": 17.996327466736695,
+        "record18": 16.72960551449017
+      }
+    },
+    {
+      "budget": 56,
+      "views": 4,
+      "sigma_mm": 3.0,
+      "moments": 14,
+      "frames": 56,
+      "completed": 60,
+      "attempted": 60,
+      "mae_mm": 36.08165958751496,
+      "p95_mm": 83.5555267192499,
+      "maximum_mm": 106.71554298280306,
+      "over100mm": 2,
+      "per_record_mae_mm": {
+        "record15": 33.0278262501159,
+        "record16": 40.924776099351355,
+        "record17": 35.85185893269317,
+        "record18": 34.52217706789943
+      }
+    },
+    {
+      "budget": 56,
+      "views": 5,
+      "sigma_mm": 3.0,
+      "moments": 11,
+      "frames": 55,
+      "completed": 60,
+      "attempted": 60,
+      "mae_mm": 84.35227081164943,
+      "p95_mm": 199.53429375778475,
+      "maximum_mm": 911.6906708458919,
+      "over100mm": 23,
+      "per_record_mae_mm": {
+        "record15": 67.41856558271333,
+        "record16": 80.57547595302233,
+        "record17": 119.27413192028484,
+        "record18": 70.14090979057724
+      }
+    },
+    {
+      "budget": 56,
+      "views": 6,
+      "sigma_mm": 3.0,
+      "moments": 9,
+      "frames": 54,
+      "completed": 60,
+      "attempted": 60,
+      "mae_mm": 139.12782098370062,
+      "p95_mm": 380.57567518550036,
+      "maximum_mm": 578.8845031720555,
+      "over100mm": 26,
+      "per_record_mae_mm": {
+        "record15": 122.01186409618423,
+        "record16": 148.95867386607566,
+        "record17": 138.84301153709575,
+        "record18": 146.69773443544685
+      }
+    },
+    {
+      "budget": 56,
+      "views": 7,
+      "sigma_mm": 3.0,
+      "moments": 8,
+      "frames": 56,
+      "completed": 60,
+      "attempted": 60,
+      "mae_mm": 223.4203150548805,
+      "p95_mm": 610.8024111536079,
+      "maximum_mm": 830.99139240257,
+      "over100mm": 31,
+      "per_record_mae_mm": {
+        "record15": 191.87562603351884,
+        "record16": 257.8188637245606,
+        "record17": 209.97633405538906,
+        "record18": 234.01043640605351
+      }
+    },
+    {
+      "budget": 84,
+      "views": 2,
+      "sigma_mm": 3.0,
+      "moments": 42,
+      "frames": 84,
+      "completed": 48,
+      "attempted": 60,
+      "mae_mm": 10.788312458479055,
+      "p95_mm": 27.212013253577272,
+      "maximum_mm": 41.84825406136916,
+      "over100mm": 0,
+      "per_record_mae_mm": {
+        "record15": 9.966969627283474,
+        "record16": 12.155836960004601,
+        "record17": 11.443639674988267,
+        "record18": 9.219012350179009
+      }
+    },
+    {
+      "budget": 84,
+      "views": 3,
+      "sigma_mm": 0.4,
+      "moments": 28,
+      "frames": 84,
+      "completed": 60,
+      "attempted": 60,
+      "mae_mm": 8.35750147981494,
+      "p95_mm": 21.694149339682095,
+      "maximum_mm": 28.66960294164045,
+      "over100mm": 0,
+      "per_record_mae_mm": {
+        "record15": 8.754972564773016,
+        "record16": 8.091191126480387,
+        "record17": 7.862611364869624,
+        "record18": 8.721230863136734
+      }
+    },
+    {
+      "budget": 84,
+      "views": 3,
+      "sigma_mm": 1.0,
+      "moments": 28,
+      "frames": 84,
+      "completed": 60,
+      "attempted": 60,
+      "mae_mm": 8.47931816622983,
+      "p95_mm": 21.75425907287751,
+      "maximum_mm": 28.731881531511405,
+      "over100mm": 0,
+      "per_record_mae_mm": {
+        "record15": 8.900581317834089,
+        "record16": 8.199263990798933,
+        "record17": 7.9941957808383535,
+        "record18": 8.82323157544794
+      }
+    },
+    {
+      "budget": 84,
+      "views": 3,
+      "sigma_mm": 3.0,
+      "moments": 28,
+      "frames": 84,
+      "completed": 60,
+      "attempted": 60,
+      "mae_mm": 9.600221805488948,
+      "p95_mm": 22.324993334632822,
+      "maximum_mm": 29.323220810297812,
+      "over100mm": 0,
+      "per_record_mae_mm": {
+        "record15": 10.168459771399439,
+        "record16": 9.279085337665492,
+        "record17": 9.237221939956799,
+        "record18": 9.716120172934062
+      }
+    },
+    {
+      "budget": 84,
+      "views": 4,
+      "sigma_mm": 3.0,
+      "moments": 21,
+      "frames": 84,
+      "completed": 60,
+      "attempted": 60,
+      "mae_mm": 77.2403831531229,
+      "p95_mm": 37.13125375636463,
+      "maximum_mm": 2144.3465783776323,
+      "over100mm": 2,
+      "per_record_mae_mm": {
+        "record15": 155.1140858818777,
+        "record16": 15.491291314229311,
+        "record17": 124.40575587072823,
+        "record18": 13.950399545656467
+      }
+    },
+    {
+      "budget": 84,
+      "views": 5,
+      "sigma_mm": 3.0,
+      "moments": 16,
+      "frames": 80,
+      "completed": 60,
+      "attempted": 60,
+      "mae_mm": 39.99701017962549,
+      "p95_mm": 56.047453073120906,
+      "maximum_mm": 1071.519763796436,
+      "over100mm": 1,
+      "per_record_mae_mm": {
+        "record15": 20.5924504417835,
+        "record16": 22.338960213816723,
+        "record17": 94.3529889141378,
+        "record18": 22.703641148763918
+      }
+    },
+    {
+      "budget": 84,
+      "views": 6,
+      "sigma_mm": 3.0,
+      "moments": 14,
+      "frames": 84,
+      "completed": 60,
+      "attempted": 60,
+      "mae_mm": 33.92408221761964,
+      "p95_mm": 76.59682843245439,
+      "maximum_mm": 102.24326972014985,
+      "over100mm": 1,
+      "per_record_mae_mm": {
+        "record15": 30.913119005090667,
+        "record16": 38.672616403516,
+        "record17": 33.72699444677535,
+        "record18": 32.38359901509652
+      }
+    },
+    {
+      "budget": 84,
+      "views": 7,
+      "sigma_mm": 0.4,
+      "moments": 12,
+      "frames": 84,
+      "completed": 60,
+      "attempted": 60,
+      "mae_mm": 49.96511271209301,
+      "p95_mm": 130.39874095140104,
+      "maximum_mm": 171.445773819773,
+      "over100mm": 12,
+      "per_record_mae_mm": {
+        "record15": 45.42003595438639,
+        "record16": 54.65442784314203,
+        "record17": 52.365063501003085,
+        "record18": 47.420923549840545
+      }
+    },
+    {
+      "budget": 84,
+      "views": 7,
+      "sigma_mm": 1.0,
+      "moments": 12,
+      "frames": 84,
+      "completed": 60,
+      "attempted": 60,
+      "mae_mm": 50.04256621987401,
+      "p95_mm": 130.46350175052046,
+      "maximum_mm": 171.56177231018788,
+      "over100mm": 12,
+      "per_record_mae_mm": {
+        "record15": 45.494942183413535,
+        "record16": 54.73464058734006,
+        "record17": 52.44554679781406,
+        "record18": 47.49513531092836
+      }
+    },
+    {
+      "budget": 84,
+      "views": 7,
+      "sigma_mm": 3.0,
+      "moments": 12,
+      "frames": 84,
+      "completed": 60,
+      "attempted": 60,
+      "mae_mm": 50.76828438287693,
+      "p95_mm": 131.0801039301498,
+      "maximum_mm": 172.66585199811146,
+      "over100mm": 12,
+      "per_record_mae_mm": {
+        "record15": 46.19641552065161,
+        "record16": 55.48638981123511,
+        "record17": 53.19932553556974,
+        "record18": 48.19100666405122
+      }
+    },
+    {
+      "budget": 112,
+      "views": 2,
+      "sigma_mm": 3.0,
+      "moments": 56,
+      "frames": 112,
+      "completed": 48,
+      "attempted": 60,
+      "mae_mm": 9.827695514829538,
+      "p95_mm": 24.933383044567933,
+      "maximum_mm": 29.56506087657651,
+      "over100mm": 0,
+      "per_record_mae_mm": {
+        "record15": 8.814801066514232,
+        "record16": 10.204261658678263,
+        "record17": 10.616398927220224,
+        "record18": 9.463453214861902
+      }
+    },
+    {
+      "budget": 112,
+      "views": 3,
+      "sigma_mm": 3.0,
+      "moments": 37,
+      "frames": 111,
+      "completed": 60,
+      "attempted": 60,
+      "mae_mm": 8.87971473504788,
+      "p95_mm": 20.15284772054291,
+      "maximum_mm": 22.167236099107868,
+      "over100mm": 0,
+      "per_record_mae_mm": {
+        "record15": 9.105735683567968,
+        "record16": 8.867121695285421,
+        "record17": 8.80089579040959,
+        "record18": 8.745105770928538
+      }
+    },
+    {
+      "budget": 112,
+      "views": 4,
+      "sigma_mm": 3.0,
+      "moments": 28,
+      "frames": 112,
+      "completed": 60,
+      "attempted": 60,
+      "mae_mm": 10.784067059198575,
+      "p95_mm": 25.7241357662842,
+      "maximum_mm": 32.11749843586276,
+      "over100mm": 0,
+      "per_record_mae_mm": {
+        "record15": 11.329077884101995,
+        "record16": 10.407081536103924,
+        "record17": 11.017237650867349,
+        "record18": 10.382871165721022
+      }
+    },
+    {
+      "budget": 112,
+      "views": 5,
+      "sigma_mm": 3.0,
+      "moments": 22,
+      "frames": 110,
+      "completed": 60,
+      "attempted": 60,
+      "mae_mm": 18.662189731514736,
+      "p95_mm": 28.214404075663328,
+      "maximum_mm": 430.9908259525361,
+      "over100mm": 1,
+      "per_record_mae_mm": {
+        "record15": 11.580192001070047,
+        "record16": 40.18750781240314,
+        "record17": 12.264714425949027,
+        "record18": 10.616344686636717
+      }
+    },
+    {
+      "budget": 112,
+      "views": 6,
+      "sigma_mm": 3.0,
+      "moments": 18,
+      "frames": 108,
+      "completed": 60,
+      "attempted": 60,
+      "mae_mm": 29.010227807706517,
+      "p95_mm": 40.30542142590802,
+      "maximum_mm": 732.3229330710026,
+      "over100mm": 1,
+      "per_record_mae_mm": {
+        "record15": 63.07552786743429,
+        "record16": 18.922379925626842,
+        "record17": 18.249557003122693,
+        "record18": 15.793446434642238
+      }
+    },
+    {
+      "budget": 112,
+      "views": 7,
+      "sigma_mm": 3.0,
+      "moments": 16,
+      "frames": 112,
+      "completed": 60,
+      "attempted": 60,
+      "mae_mm": 27.917651993031864,
+      "p95_mm": 53.79860686037074,
+      "maximum_mm": 367.784325004016,
+      "over100mm": 1,
+      "per_record_mae_mm": {
+        "record15": 20.23825869305575,
+        "record16": 21.911579682896114,
+        "record17": 47.10418760185587,
+        "record18": 22.416581994319706
+      }
+    },
+    {
+      "budget": 168,
+      "views": 2,
+      "sigma_mm": 3.0,
+      "moments": 84,
+      "frames": 168,
+      "completed": 48,
+      "attempted": 60,
+      "mae_mm": 9.607364963775993,
+      "p95_mm": 22.394175204873612,
+      "maximum_mm": 44.0137578695472,
+      "over100mm": 0,
+      "per_record_mae_mm": {
+        "record15": 8.661520372116014,
+        "record16": 9.425031035766947,
+        "record17": 11.346930887431936,
+        "record18": 8.712844469671456
+      }
+    },
+    {
+      "budget": 168,
+      "views": 3,
+      "sigma_mm": 3.0,
+      "moments": 56,
+      "frames": 168,
+      "completed": 60,
+      "attempted": 60,
+      "mae_mm": 85.65988192886616,
+      "p95_mm": 21.29279950113014,
+      "maximum_mm": 4110.447049445934,
+      "over100mm": 2,
+      "per_record_mae_mm": {
+        "record15": 44.91472303183079,
+        "record16": 8.283459211540626,
+        "record17": 281.2177632938435,
+        "record18": 8.223582178249758
+      }
+    },
+    {
+      "budget": 168,
+      "views": 4,
+      "sigma_mm": 3.0,
+      "moments": 42,
+      "frames": 168,
+      "completed": 60,
+      "attempted": 60,
+      "mae_mm": 25.44999117481147,
+      "p95_mm": 26.813470090393917,
+      "maximum_mm": 954.030423074073,
+      "over100mm": 1,
+      "per_record_mae_mm": {
+        "record15": 10.363643366930596,
+        "record16": 9.461081992322738,
+        "record17": 72.56443238867378,
+        "record18": 9.410806951318781
+      }
+    },
+    {
+      "budget": 168,
+      "views": 5,
+      "sigma_mm": 3.0,
+      "moments": 33,
+      "frames": 165,
+      "completed": 60,
+      "attempted": 60,
+      "mae_mm": 9.129601215216356,
+      "p95_mm": 22.304818277794777,
+      "maximum_mm": 24.89181101939586,
+      "over100mm": 0,
+      "per_record_mae_mm": {
+        "record15": 9.640264538958714,
+        "record16": 8.609739170831135,
+        "record17": 9.523071071879249,
+        "record18": 8.745330079196318
+      }
+    },
+    {
+      "budget": 168,
+      "views": 6,
+      "sigma_mm": 3.0,
+      "moments": 28,
+      "frames": 168,
+      "completed": 60,
+      "attempted": 60,
+      "mae_mm": 8.613774829703138,
+      "p95_mm": 18.362564310921616,
+      "maximum_mm": 24.90389244669622,
+      "over100mm": 0,
+      "per_record_mae_mm": {
+        "record15": 8.900026832202043,
+        "record16": 8.366677643924092,
+        "record17": 8.99561453369439,
+        "record18": 8.19278030899202
+      }
+    },
+    {
+      "budget": 168,
+      "views": 7,
+      "sigma_mm": 3.0,
+      "moments": 24,
+      "frames": 168,
+      "completed": 60,
+      "attempted": 60,
+      "mae_mm": 10.548515659929542,
+      "p95_mm": 22.61748290422214,
+      "maximum_mm": 24.923468847745767,
+      "over100mm": 0,
+      "per_record_mae_mm": {
+        "record15": 9.82951837353756,
+        "record16": 11.516053231870414,
+        "record17": 11.183095924546473,
+        "record18": 9.665395109763727
+      }
+    }
+  ],
+  "paired": [
+    {
+      "budget": 56,
+      "sigma_mm": 3.0,
+      "reference_stride": 1,
+      "common": 60,
+      "mae3_mm": 71.06775001008799,
+      "mae7_mm": 223.4203150548805,
+      "difference_mm": -152.35256504479253,
+      "per_record_difference_mm": {
+        "record15": 38.52718717651203,
+        "record16": -238.67660987546634,
+        "record17": -191.9800065886524,
+        "record18": -217.28083089156337
+      },
+      "leave_one_record_out_mm": {
+        "record15": -215.9791491185607,
+        "record16": -123.57788343456791,
+        "record17": -139.1434178635059,
+        "record18": -130.70980976253557
+      }
+    },
+    {
+      "budget": 84,
+      "sigma_mm": 0.4,
+      "reference_stride": 1,
+      "common": 60,
+      "mae3_mm": 8.35750147981494,
+      "mae7_mm": 49.96511271209301,
+      "difference_mm": -41.60761123227807,
+      "per_record_difference_mm": {
+        "record15": -36.665063389613366,
+        "record16": -46.56323671666165,
+        "record17": -44.50245213613346,
+        "record18": -38.699692686703806
+      },
+      "leave_one_record_out_mm": {
+        "record15": -43.255127179832975,
+        "record16": -39.955736070816876,
+        "record17": -40.64266426432627,
+        "record18": -42.576917414136155
+      }
+    },
+    {
+      "budget": 84,
+      "sigma_mm": 0.4,
+      "reference_stride": 2,
+      "common": 60,
+      "mae3_mm": 8.154592826410653,
+      "mae7_mm": 49.71781589564034,
+      "difference_mm": -41.56322306922968,
+      "per_record_difference_mm": {
+        "record15": -36.624363910749175,
+        "record16": -46.52498679149062,
+        "record17": -44.45058111876706,
+        "record18": -38.65296045591187
+      },
+      "leave_one_record_out_mm": {
+        "record15": -43.20950945538985,
+        "record16": -39.90930182847604,
+        "record17": -40.60077038605055,
+        "record18": -42.533310607002285
+      }
+    },
+    {
+      "budget": 84,
+      "sigma_mm": 0.4,
+      "reference_stride": 4,
+      "common": 60,
+      "mae3_mm": 7.555941311233708,
+      "mae7_mm": 49.021638158780306,
+      "difference_mm": -41.465696847546596,
+      "per_record_difference_mm": {
+        "record15": -36.54274523227597,
+        "record16": -46.43862232937969,
+        "record17": -44.33750799692735,
+        "record18": -38.54391183160336
+      },
+      "leave_one_record_out_mm": {
+        "record15": -43.10668071930346,
+        "record16": -39.80805502026889,
+        "record17": -40.50842646441967,
+        "record18": -42.43962518619434
+      }
+    },
+    {
+      "budget": 84,
+      "sigma_mm": 1.0,
+      "reference_stride": 1,
+      "common": 60,
+      "mae3_mm": 8.47931816622983,
+      "mae7_mm": 50.04256621987401,
+      "difference_mm": -41.56324805364417,
+      "per_record_difference_mm": {
+        "record15": -36.59436086557945,
+        "record16": -46.53537659654112,
+        "record17": -44.451351016975714,
+        "record18": -38.67190373548042
+      },
+      "leave_one_record_out_mm": {
+        "record15": -43.21954378299909,
+        "record16": -39.905871872678524,
+        "record17": -40.600547065867,
+        "record18": -42.527029493032096
+      }
+    },
+    {
+      "budget": 84,
+      "sigma_mm": 1.0,
+      "reference_stride": 2,
+      "common": 60,
+      "mae3_mm": 8.276409512825541,
+      "mae7_mm": 49.79526940342133,
+      "difference_mm": -41.51885989059578,
+      "per_record_difference_mm": {
+        "record15": -36.55366138671526,
+        "record16": -46.49712667137008,
+        "record17": -44.399479999609305,
+        "record18": -38.625171504688474
+      },
+      "leave_one_record_out_mm": {
+        "record15": -43.173926058555956,
+        "record16": -39.85943763033768,
+        "record17": -40.55865318759127,
+        "record18": -42.48342268589821
+      }
+    },
+    {
+      "budget": 84,
+      "sigma_mm": 1.0,
+      "reference_stride": 4,
+      "common": 60,
+      "mae3_mm": 7.676667935073163,
+      "mae7_mm": 49.0990916665613,
+      "difference_mm": -41.42242373148813,
+      "per_record_difference_mm": {
+        "record15": -36.47204270824206,
+        "record16": -46.4151224595609,
+        "record17": -44.28640687776961,
+        "record18": -38.51612288037997
+      },
+      "leave_one_record_out_mm": {
+        "record15": -43.07255073923682,
+        "record16": -39.758190822130544,
+        "record17": -40.46776268272764,
+        "record18": -42.391190681857516
+      }
+    },
+    {
+      "budget": 84,
+      "sigma_mm": 3.0,
+      "reference_stride": 1,
+      "common": 60,
+      "mae3_mm": 9.600221805488948,
+      "mae7_mm": 50.76828438287693,
+      "difference_mm": -41.16806257738797,
+      "per_record_difference_mm": {
+        "record15": -36.02795574925217,
+        "record16": -46.20730447356962,
+        "record17": -43.962103595612945,
+        "record18": -38.47488649111715
+      },
+      "leave_one_record_out_mm": {
+        "record15": -42.88143152009991,
+        "record16": -39.48831527866076,
+        "record17": -40.23671557131298,
+        "record18": -42.06578793947825
+      }
+    },
+    {
+      "budget": 84,
+      "sigma_mm": 3.0,
+      "reference_stride": 2,
+      "common": 60,
+      "mae3_mm": 9.384358613597753,
+      "mae7_mm": 50.520987566424246,
+      "difference_mm": -41.13662895282649,
+      "per_record_difference_mm": {
+        "record15": -36.00569016578762,
+        "record16": -46.178780614362346,
+        "record17": -43.923740517795785,
+        "record18": -38.4383045133602
+      },
+      "leave_one_record_out_mm": {
+        "record15": -42.84694188183945,
+        "record16": -39.45591173231454,
+        "record17": -40.207591764503384,
+        "record18": -42.036070432648586
+      }
+    },
+    {
+      "budget": 84,
+      "sigma_mm": 3.0,
+      "reference_stride": 4,
+      "common": 60,
+      "mae3_mm": 8.752751955660216,
+      "mae7_mm": 49.82480982956421,
+      "difference_mm": -41.072057873904,
+      "per_record_difference_mm": {
+        "record15": -35.96862364921307,
+        "record16": -46.123852968761156,
+        "record17": -43.840504552848834,
+        "record18": -38.35525032479292
+      },
+      "leave_one_record_out_mm": {
+        "record15": -42.77320261546763,
+        "record16": -39.388126175618275,
+        "record17": -40.149242314255716,
+        "record18": -41.97766039027436
+      }
+    },
+    {
+      "budget": 112,
+      "sigma_mm": 3.0,
+      "reference_stride": 1,
+      "common": 60,
+      "mae3_mm": 8.87971473504788,
+      "mae7_mm": 27.917651993031864,
+      "difference_mm": -19.037937257983977,
+      "per_record_difference_mm": {
+        "record15": -11.132523009487786,
+        "record16": -13.04445798761069,
+        "record17": -38.303291811446265,
+        "record18": -13.67147622339117
+      },
+      "leave_one_record_out_mm": {
+        "record15": -21.67307534081604,
+        "record16": -21.03576368144174,
+        "record17": -12.616152406829883,
+        "record18": -20.826757602848247
+      }
+    },
+    {
+      "budget": 168,
+      "sigma_mm": 3.0,
+      "reference_stride": 1,
+      "common": 60,
+      "mae3_mm": 85.65988192886616,
+      "mae7_mm": 10.548515659929542,
+      "difference_mm": 75.1113662689366,
+      "per_record_difference_mm": {
+        "record15": 35.08520465829323,
+        "record16": -3.2325940203297896,
+        "record17": 270.034667369297,
+        "record18": -1.4418129315139676
+      },
+      "leave_one_record_out_mm": {
+        "record15": 88.45342013915108,
+        "record16": 101.22601969869207,
+        "record17": 10.13693256881649,
+        "record18": 100.6290926690868
+      }
+    }
+  ],
+  "adaptive_completion": [
+    {
+      "views": 2,
+      "moments": 8,
+      "total": 75,
+      "recorded_success": {
+        "uniform": 53,
+        "adaptive": 50,
+        "oracle_nonuniform": 50
+      },
+      "common": 49,
+      "note": "Sequential eligibility screens: absent downstream results may be unattempted, not independent method failures."
+    },
+    {
+      "views": 2,
+      "moments": 12,
+      "total": 75,
+      "recorded_success": {
+        "uniform": 51,
+        "adaptive": 49,
+        "oracle_nonuniform": 49
+      },
+      "common": 48,
+      "note": "Sequential eligibility screens: absent downstream results may be unattempted, not independent method failures."
+    },
+    {
+      "views": 2,
+      "moments": 16,
+      "total": 75,
+      "recorded_success": {
+        "uniform": 51,
+        "adaptive": 49,
+        "oracle_nonuniform": 47
+      },
+      "common": 47,
+      "note": "Sequential eligibility screens: absent downstream results may be unattempted, not independent method failures."
+    },
+    {
+      "views": 2,
+      "moments": 25,
+      "total": 75,
+      "recorded_success": {
+        "uniform": 50,
+        "adaptive": 49,
+        "oracle_nonuniform": 47
+      },
+      "common": 47,
+      "note": "Sequential eligibility screens: absent downstream results may be unattempted, not independent method failures."
+    },
+    {
+      "views": 2,
+      "moments": 33,
+      "total": 75,
+      "recorded_success": {
+        "uniform": 50,
+        "adaptive": 48,
+        "oracle_nonuniform": 48
+      },
+      "common": 47,
+      "note": "Sequential eligibility screens: absent downstream results may be unattempted, not independent method failures."
+    },
+    {
+      "views": 3,
+      "moments": 8,
+      "total": 75,
+      "recorded_success": {
+        "uniform": 71,
+        "adaptive": 69,
+        "oracle_nonuniform": 67
+      },
+      "common": 67,
+      "note": "Sequential eligibility screens: absent downstream results may be unattempted, not independent method failures."
+    },
+    {
+      "views": 3,
+      "moments": 12,
+      "total": 75,
+      "recorded_success": {
+        "uniform": 72,
+        "adaptive": 68,
+        "oracle_nonuniform": 68
+      },
+      "common": 66,
+      "note": "Sequential eligibility screens: absent downstream results may be unattempted, not independent method failures."
+    },
+    {
+      "views": 3,
+      "moments": 16,
+      "total": 75,
+      "recorded_success": {
+        "uniform": 66,
+        "adaptive": 64,
+        "oracle_nonuniform": 64
+      },
+      "common": 63,
+      "note": "Sequential eligibility screens: absent downstream results may be unattempted, not independent method failures."
+    },
+    {
+      "views": 3,
+      "moments": 25,
+      "total": 75,
+      "recorded_success": {
+        "uniform": 67,
+        "adaptive": 62,
+        "oracle_nonuniform": 63
+      },
+      "common": 61,
+      "note": "Sequential eligibility screens: absent downstream results may be unattempted, not independent method failures."
+    },
+    {
+      "views": 3,
+      "moments": 33,
+      "total": 75,
+      "recorded_success": {
+        "uniform": 66,
+        "adaptive": 63,
+        "oracle_nonuniform": 62
+      },
+      "common": 62,
+      "note": "Sequential eligibility screens: absent downstream results may be unattempted, not independent method failures."
+    },
+    {
+      "views": 7,
+      "moments": 8,
+      "total": 75,
+      "recorded_success": {
+        "uniform": 75,
+        "adaptive": 75,
+        "oracle_nonuniform": 75
+      },
+      "common": 75,
+      "note": "Sequential eligibility screens: absent downstream results may be unattempted, not independent method failures."
+    },
+    {
+      "views": 7,
+      "moments": 12,
+      "total": 75,
+      "recorded_success": {
+        "uniform": 75,
+        "adaptive": 75,
+        "oracle_nonuniform": 75
+      },
+      "common": 75,
+      "note": "Sequential eligibility screens: absent downstream results may be unattempted, not independent method failures."
+    },
+    {
+      "views": 7,
+      "moments": 16,
+      "total": 75,
+      "recorded_success": {
+        "uniform": 75,
+        "adaptive": 75,
+        "oracle_nonuniform": 75
+      },
+      "common": 75,
+      "note": "Sequential eligibility screens: absent downstream results may be unattempted, not independent method failures."
+    },
+    {
+      "views": 7,
+      "moments": 25,
+      "total": 75,
+      "recorded_success": {
+        "uniform": 75,
+        "adaptive": 75,
+        "oracle_nonuniform": 75
+      },
+      "common": 75,
+      "note": "Sequential eligibility screens: absent downstream results may be unattempted, not independent method failures."
+    },
+    {
+      "views": 7,
+      "moments": 33,
+      "total": 75,
+      "recorded_success": {
+        "uniform": 75,
+        "adaptive": 75,
+        "oracle_nonuniform": 75
+      },
+      "common": 75,
+      "note": "Sequential eligibility screens: absent downstream results may be unattempted, not independent method failures."
+    }
+  ]
+}
