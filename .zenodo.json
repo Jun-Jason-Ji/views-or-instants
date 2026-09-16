@@ -1,10 +1,10 @@
 {
   "title": "Views or instants: reproducibility archive for frame-budget allocation in multi-camera path-length measurement",
   "upload_type": "software",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "license": "mit",
   "access_right": "open",
-  "description": "<p>Reproducibility archive for the revised Measurement Science and Technology manuscript on allocating camera views and sampling instants under a frame-processing budget.</p><p>Version 1.0.3 adds an exploratory two-to-seven-view grid at four budget caps, noise-parameter and reference-resolution sensitivity, whole-record deletion, original frozen decision reporting and an audit of conditional eligibility in the non-uniform sampling experiment. At 84 frames, three-view MAE is 9.60 mm versus 50.77 mm for seven views, and this ordering persists under the tested sensitivities. At 168 frames, the tested three-view schedule instead gives 85.66 mm versus 10.55 mm, because of rare large errors. Thus no universal three-view prescription is supported. All new analyses are exploratory; original frozen protocols and sealed prediction files remain unchanged.</p>",
+  "description": "<p>Reproducibility archive for the Measurement Science and Technology manuscript on allocating camera views and sampling instants under a frame-processing budget.</p><p>Version 1.0.4 adds eleven-grid sampling sensitivity, fixed spatial and temporal robustness controls, and retrospective development-only configuration selection. Across 17820 window configurations on previously examined records, unfiltered rankings depend on the sampling grid. Spatial checks give lower three-view error in all eleven grids at 84 and 168 frames, with all 60 evaluation windows complete. On the original 168-frame grid, rejecting two internal observations reduces three-view MAE from 85.66 to 7.92 mm. Additional temporal gating loses completed windows and does not consistently improve accuracy. These are retrospective analyses, not fresh independent validation. The historical subset score is correctly described as a best-pair score; original selected cameras, frozen protocols and sealed results are unchanged.</p>",
   "keywords": [
     "vision-based measurement",
     "distance travelled",
@@ -53,10 +53,10 @@
   "publication_date": "2026-09-16",
   "related_identifiers": [
     {
-      "identifier": "https://github.com/Jun-Jason-Ji/views-or-instants/tree/v1.0.3",
+      "identifier": "https://github.com/Jun-Jason-Ji/views-or-instants/tree/v1.0.4",
       "relation": "isSupplementTo",
       "resource_type": "software"
     }
   ],
-  "notes": "The manuscript is prepared for submission and has not been finally submitted. Version 1.0.3 contains 1680 new window configurations and verifies 288 estimates against the archived results, with zero numerical difference. New analyses are exploratory after prior results were examined. The original frozen protocols, predictions and decision records are preserved. No third-party image datasets or model weights are redistributed. Calibration matrices and input hashes support reproducibility."
+  "notes": "The manuscript is prepared for submission and has not been finally submitted. Version 1.0.4 includes 17820 grid/processing configurations on five development and four evaluation records; grids reuse the same windows and are not independent replicates. All 240 overlapping uniform DLT predictions reproduce v1.0.3 exactly. New results are retrospective. Original frozen files and source snapshots are preserved. The reference-decimation range is reported directly rather than converted to an uncertainty. No third-party image datasets or model weights are redistributed."
 }

@@ -1,0 +1,13 @@
+{
+  "sha256": {
+    "allocation_revision_v104.py": "500ea1be8bec44323195f02b9167b6da12b604a7239978839b7fc8624f11c37d",
+    "analyze_allocation.py": "7d2b53c1bfa12ab62b25c25bc27dbefc4cdda76660e7329d28d6432bd45e48b3",
+    "run_allocation_sweep.py": "f71958b2ec9c7820dfdff8de7bba10cfa2143016007747f74ff5392fea5566f7",
+    "run_allocation_gate.py": "260d5b878d39309e1049f16befe286d6206eb5648f122e4ecac3fb444fcf4e08",
+    "three_view_cpu.py": "a8a71c4f98a3f757fdf06e8ad494e3e2041edfee52ce4f2f77087cbf44e2d8e3",
+    "robust_triangulation_cpu.py": "182de76d3e86079e0cacb00ce949d258542ed83357771117a2575b2923a02d70",
+    "gated_state_cpu.py": "b17c88be5657d786933431ec52ab71f194b9f94bd3ec9c67d790bb427eda0f5f",
+    "continuous_motion_cpu.py": "ca8983d42f31b0a8252d382a9085feb051a02edace87226d7958de7c3ef4e75e",
+    "prepare_mcalib_cache.py": "211cdd21adc5a12fc9fb25d31bc433c6687454130a68ec80f5286f975e8cbf29"
+  }
+}

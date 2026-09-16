@@ -16,11 +16,7 @@ def scene_center(cams):
 
 
 def subset_score(cams,subset,center):
-    """Calibration-only best-pair score; max range/focal ratio within a pair.
-
-    The historical implementation takes the MINIMUM over pairs. Its old
-    'worst-pair' description was incorrect; predictions are not changed.
-    """
+    """Predicted triangulation error scale (m per px) from calibration only: worst-pair z/(f sin angle)."""
     info={}
     for cid in subset:
         c=cams[cid];R=np.asarray(c['R']);t=np.asarray(c['t_m']);o=-R.T@t;K=np.asarray(c['K']);f=(K[0,0]+K[1,1])/2

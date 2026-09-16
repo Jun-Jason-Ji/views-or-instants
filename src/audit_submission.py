@@ -22,7 +22,7 @@ args = parser.parse_args()
 if args.package:
     DESK = args.package.resolve()
 REPO = ROOT / 'paper/repo'
-ZIP = ROOT / 'paper/zenodo/view_instant_allocation_v1.0.3.zip'
+ZIP = ROOT / 'paper/zenodo/view_instant_allocation_v1.0.4.zip'
 
 issues, notes, ok = [], [], []
 
@@ -163,7 +163,9 @@ else:
 # Only retain the descriptive components; no combined uncertainty is claimed.
 bud = json.load(open(ROOT / 'experiments/uncertainty_budget_v1_2026-09-15/budget.json'))
 comp = {c['symbol']: c['value_mm'] for c in bud['components']}
-for label, val in (('-8.23', comp['b_samp']), ('7.43', comp['u_A']), ('0.55', comp['u_ref'])):
+for label, val in (('-8.23', comp['b_samp']), ('7.43', comp['u_A']), ('0.95', comp['u_ref'] * 3**0.5)):
+    if abs(float(label) - val) > .005:
+        bad(f'descriptive error value {label} does not round from archived calculation {val}')
     if label not in body:
         bad(f'descriptive error value {label} mm missing from manuscript')
 if 'Illustrative scale' in body or 'Twice the illustrative scale' in body:

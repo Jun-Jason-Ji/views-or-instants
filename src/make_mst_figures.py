@@ -154,3 +154,5 @@ if __name__ == '__main__':
     main()
     from make_revision_budget_figure import make
     make()
+    from make_grid_robustness_figure import make as make_grid
+    make_grid()

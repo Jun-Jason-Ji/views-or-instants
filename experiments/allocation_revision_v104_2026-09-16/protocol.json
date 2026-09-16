@@ -1,0 +1,44 @@
+{
+  "status": "Exploratory retrospective checks on previously examined development and evaluation records.",
+  "development": [
+    19,
+    20,
+    21,
+    22,
+    23
+  ],
+  "evaluation": [
+    15,
+    16,
+    17,
+    18
+  ],
+  "budgets": [
+    84,
+    168
+  ],
+  "views": [
+    3,
+    7
+  ],
+  "sigma_m": 0.003,
+  "grids": "Uniform; internal offsets -0.4,-0.2,+0.2,+0.4 of one ideal interval; six independent seeded jitters uniform in +/-0.4 interval. Endpoints fixed. No outcome-based grid selection.",
+  "seeds": [
+    10401,
+    10402,
+    10403,
+    10404,
+    10405,
+    10406
+  ],
+  "arms": [
+    "dlt",
+    "spatial",
+    "spatial_temporal"
+  ],
+  "spatial": "Existing three_view_cpu (4 px, 5 degrees, 20 mm pair spread) with unchanged two-visible-view DLT fallback; seven-view robust_triangulate (4 px, >=4 and majority support).",
+  "temporal": "Existing gate, sigma=3 mm, NIS=16.27, q from ungated innovation likelihood; first two valid observations retained; endpoint loss fails window.",
+  "subset_rule": "Historical subset_score is MINIMUM over pairs of MAXIMUM depth/focal-length scale divided by ray sine, not a worst-pair score. Equal scores use lexicographic camera order.",
+  "selection": "Retrospective development-only selection among uniform-grid 3/7-view, DLT/spatial/spatial_temporal schedules with cost<=cap (including cheaper 84-frame choices at 168). Eligible only if all 75 development windows complete and empirical p95<=100 mm; minimize MAE, then cost, views, arm name. No eligible candidate means abstain. Evaluate chosen candidate unchanged on records15-18. No unseen-data claim.",
+  "recorded_utc": "2026-09-16T11:56:49.721445+00:00"
+}

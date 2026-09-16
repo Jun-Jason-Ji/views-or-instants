@@ -8,11 +8,38 @@ Everything here runs on CPU. No model is trained and none is proposed.
 
 ## Current manuscript revision (16 September 2026)
 
-Version 1.0.3 archives the revised manuscript, compiled PDF and derived
-exploratory analyses at https://doi.org/10.5281/zenodo.22794671.
-The matching source release is https://github.com/Jun-Jason-Ji/views-or-instants/tree/v1.0.3.
+Version 1.0.4 archives the revised manuscript, compiled PDF and derived
+exploratory analyses at https://doi.org/10.5281/zenodo.22795247.
+The matching source release is https://github.com/Jun-Jason-Ji/views-or-instants/tree/v1.0.4.
 Original protocols and sealed predictions remain unchanged. Earlier Zenodo
 versions preserve historical snapshots. The manuscript is prepared for submission.
+
+## Sampling-grid and robustness controls (v1.0.4)
+
+The new analysis applies eleven fixed-endpoint grids to three and seven views
+at 84 and 168 frames, under DLT, spatial checks and spatial-plus-temporal
+checks. It retains all 17820 window/configuration outcomes on five development
+and four evaluation records. These are correlated perturbations of previously
+examined data, not a new holdout or 17820 independent observations.
+
+At 168 frames the unfiltered three-view MAE spans 8.01--144.66 mm across grids.
+Spatial checks narrow this to 7.92--8.36 mm, with three views below seven in
+all eleven grids and 60/60 evaluation windows complete throughout. On the
+original grid, two internal rejections reduce MAE from 85.66 to 7.92 mm.
+Additional temporal gating does not consistently help and loses windows.
+Retrospective development-only selection illustrates completion and empirical
+tail-error constraints; independent validation is still needed.
+
+The historical geometric subset score is **best-pair**, not worst-pair:
+it takes a maximum range/focal scale within each pair, then the minimum
+over pairs. Ties use lexicographic camera-ID order. Code outputs and old
+selected subsets are unchanged; prior text descriptions were inaccurate.
+
+Run `python src/allocation_revision_v104.py`, then
+`python src/allocation_revision_v104_report.py` and
+`python src/verify_grid_revision.py`. Exact executed source hashes and snapshots
+are under `experiments/allocation_revision_v104_2026-09-16/`.
+Version 1.0.3 remains available at https://doi.org/10.5281/zenodo.22794671.
 
 ## Added budget and robustness analysis (v1.0.3)
 

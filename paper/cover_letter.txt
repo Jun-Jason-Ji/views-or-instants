@@ -17,26 +17,28 @@ measurement chain. The familiar sparse-versus-dense sampling bias is credited
 to the telemetry literature; we examine the additional budget constraint
 introduced by multiple cameras.
 
-At exactly 84 frames per window, a calibration-selected three-view
-configuration gives mean absolute error 9.60 mm, compared with 50.77 mm for
-seven views on 60 windows. This contrast persists under three noise settings,
-reference decimation and deletion of each record. A broader exploratory grid
-of two to seven views and four budget caps nevertheless reverses the ranking
-at 168 frames, where rare extreme errors affect the triple. The article reports
-this counterexample and does not recommend a universal view count. Original
-frozen candidate decisions are presented separately from the exploratory grid;
-the records do not constitute a newly collected independent validation set.
+At exactly 84 frames per window, the original three-view schedule gives
+mean absolute error 9.60 mm versus 50.77 mm for seven views on 60 windows.
+The original 168-frame schedule reverses that ranking. Eleven-grid sensitivity
+checks, however, reveal that the reversal depends on sampling instants.
+Fixed spatial consistency checks restore lower three-view error on all eleven
+grids at both budgets, without losing completed windows. On the original
+168-frame grid, two rejected internal observations reduce three-view error
+from 85.66 to 7.92 mm. Additional temporal gating loses windows and does not
+consistently improve error. The findings therefore concern the interaction
+between allocation, sampling grid and outlier handling, not a universal camera
+count. Equal frame counts remain a proxy, not a claim of equal runtime.
 
-The article also includes disjoint-camera comparisons, independent-pixel-noise
-controls with shared cameras, temporal error diagnostics and a fixed robust
-triangulation baseline. These qualify possible explanations rather than claim
-an identified common-mode mechanism. A reference-assisted curvature sampling
-rule is evaluated on explicit common-success populations, with its distinct
-eligibility policy explained; it is not a general optimization bound. Error
-reductions under a combined robustness gate are reported together with the
-loss of completed windows. In a secondary single-camera experiment, the
-pre-specified primary criterion is not fully met; that result is reported
-alongside the successful secondary analysis.
+A restricted development-only selection procedure reports completion and
+tail-error constraints explicitly. The procedure and sensitivity analyses
+are retrospective on previously examined records, not independent validation.
+Original frozen decisions and prediction files are preserved. The historical
+subset-score description has also been corrected to match its best-pair
+implementation, without changing previously selected cameras or predictions.
+
+Disjoint-camera and shared-noise controls qualify possible explanations.
+Curvature-based sampling and a contrasting single-camera chain are reported
+as secondary analyses with their eligibility and confirmation limitations.
 
 Measurement uncertainty is discussed through observed error dispersion,
 uncorrected bias, reference-resolution sensitivity, and the calibration and

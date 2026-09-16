@@ -60,25 +60,24 @@ A multi-camera trajectory-length measurement can divide a finite processing
 budget between simultaneous views and sampling instants. We evaluate this
 allocation using released image centroids from a seven-camera rig and an
 independent optical tracking reference. Original protocol-frozen results are
-distinguished from exploratory analyses on four previously examined records.
-A calibration-selected three-view configuration at 28 instants gives a mean
-absolute error of 9.60 mm, compared with 50.77 mm for seven views at 12
-instants, at exactly 84 processed frames per window. This ordering persists
-under three observation-noise settings, reference decimation and deletion of
-each record in turn. However, a broader grid of budget caps and two to seven
-views reveals a reversal: at 168 frames, the tested three-view schedule has
-85.66 mm error versus 10.55 mm for seven views, driven by rare extreme errors.
-Thus spending an increased budget on more instants can worsen performance,
-and no universal three-view prescription follows. Comparisons report actual
-frame use, completed-window error, completion and tail risk. Overlapping-camera
-noise controls constrain possible explanations without identifying a causal
-saturation mechanism. A tested curvature-based sampling rule is evaluated on
-explicit common-success populations, and a secondary single-camera case
-illustrates an aggregate sparse-sampling preference with incomplete primary
-confirmation. The study provides a reproducible evaluation procedure for
-budget-dependent measurement choices, with explicit reference sensitivity
-and limits on generalization.
-
+distinguished from retrospective exploratory analyses. At 84 processed frames
+per window, a calibration-selected three-view configuration gives mean absolute
+error of 9.60 mm versus 50.77 mm for seven views on 60 windows from four records.
+The original uniform schedule reverses this ranking at 168 frames, but
+perturbing internal sampling instants reveals substantial grid sensitivity.
+Across eleven schedules, the unfiltered three-view configuration has lower
+error in ten cases at 84 frames and four at 168 frames. Fixed spatial
+consistency checks restore lower three-view error in all eleven schedules
+at both budgets, with all windows completed. At 168 frames on the original
+grid, rejecting two internal observations reduces three-view mean absolute
+error from 85.66 to 7.92 mm. Additional temporal gating loses completed windows
+and does not consistently improve accuracy. A retrospective development-only
+selection procedure illustrates how completion and tail-error constraints can
+accompany allocation decisions; it is not independently validated. These
+results show that budget, sampling grid and outlier handling jointly determine
+the observed allocation trade-off. Reference sensitivity and remaining
+calibration uncertainties are reported, and no universal view count or
+instrument-wide uncertainty coverage is claimed.
 \end{abstract}
 
 % =====================================================================
@@ -114,7 +113,7 @@ found that eighteen, twelve and six cameras change biomechanical kinematics by
 only a few degrees. We report the existence of saturation as confirmation of
 their finding, not as a discovery.
 
-What neither literature contains is the allocation question that these two
+The studies discussed above do not jointly evaluate the allocation question that these two
 facts jointly create. A telemetry collar has one sensor and a fixed duty
 cycle, so the sampling interval is its only lever, and the practical response
 to the bias trade-off is post-hoc correction. A camera rig has two levers, and
@@ -139,7 +138,9 @@ calibration-selected triple at 28 instants has a confirmation-set error of
 9.60\,mm against 50.77\,mm for seven views at 12 instants. This comparison is
 an exploratory analysis of configurations recorded under the frozen protocol.
 A broader budget-cap grid includes two through seven views and exposes
-budget-dependent rank reversals and rare large errors.
+budget-dependent rank reversals and rare large errors. Sampling-grid and
+robustness controls show that these rankings depend jointly on allocation
+and the handling of inconsistent observations.
 
 \item \textit{Controls on a possible explanation.} We compare an
 independent-pixel-noise geometry model with observed reconstruction errors,
@@ -148,8 +149,10 @@ triangulation baseline. The results distinguish evidence for correlated
 errors from a causal or quantitative decomposition of their sources.
 
 \item \textit{Tests of further tuning and its costs.} We quantify the
-performance of one curvature-based placement rule, including an oracle-assisted
-version, without claiming a general optimum. We also separate typical errors
+sensitivity to eleven sampling grids and to fixed spatial and temporal
+checks, and illustrate retrospective development-only configuration selection.
+One curvature-based placement rule is retained as a secondary comparison,
+without claiming a general optimum. We also separate typical errors
 from rare extreme errors and report the completion loss of robustness gates.
 
 \end{enumerate}
@@ -271,17 +274,16 @@ Quantity & Evaluation & Value (mm)\\
 \hline
 Signed bias, $b$ & uncorrected & $-8.23$\\
 Error dispersion, $s_e$ & window standard deviation & $7.43$\\
-Reference sensitivity scale, $s_r$ & decimation proxy & $0.55$\\
+Reference length variation & mean decimation range & $0.95$\\
 \hline
 \end{tabular}
 \label{tab:uncertainty}
 \end{table}
 
-The reference sensitivity proxy is the mean range of reference polyline
-lengths at strides one, two and four, divided by $\sqrt{3}$. Treating this
-range as a rectangular half-width is only a sensitivity convention; it does
-not characterize optical-reference calibration, scale or synchronization
-uncertainty. Reference errors may already contribute to $s_e$, so these
+Reference decimation at strides one, two and four gives a mean within-window
+range of reference polyline lengths of 0.95\,mm (maximum 2.22\,mm). These
+are observed sensitivity measures, not standard uncertainties; they do not
+characterize optical-reference calibration, scale or synchronization uncertainty. Reference errors may already contribute to $s_e$, so these
 quantities are not combined in quadrature. Section~\ref{sec:saturation}
 instead evaluates the principal comparison directly under reference decimation.
 
@@ -292,7 +294,7 @@ represented by between-window variation. A complete instrument uncertainty
 assessment would require those contributions, their covariance, independent
 calibration information and coverage validation on additional sessions.
 Section~\ref{sec:saturation} instead reports paired record-level sensitivity
-intervals for comparisons, and section~\ref{sec:mechanism} examines temporal
+ranges for comparisons, and section~\ref{sec:mechanism} examines temporal
 error structure without treating it as a full uncertainty propagation model.
 
 \subsection{Failure policy}
@@ -354,6 +356,19 @@ development-derived scale and the original setting. These choices were made
 after inspecting earlier results and remain exploratory; they are neither a
 new holdout nor a fresh preregistration. Of the recalculated estimates, 288
 overlap the archived primary-rig estimates and reproduce them exactly.
+The subsequent grid/robustness experiment fixes eleven schedules at 84 and
+168 frames: the original rounded uniform grid, four offsets of its internal
+instants by $-0.4,-0.2,0.2,0.4$ ideal intervals, and six independently seeded
+jitters of each internal instant within $\pm0.4$ interval. Endpoints remain
+fixed, indices are rounded to native frames, and all schedules retain the
+specified number of distinct instants. The same schedules are applied to
+all records; grids are correlated perturbations, not independent replicates.
+The settings, rejection rules and development-selection criterion were written
+before this additional execution, but after previous outcomes were known.
+The 17820 record-window/configuration results cover five development and four
+evaluation records, not 17820 independent observations. All 240 overlapping
+uniform-grid DLT evaluation estimates reproduce the prior archive exactly.
+
 For the secondary chain, XFeat was the pre-specified primary front end and
 ORB was secondary; both results are reported in section~\ref{sec:opposite}.
 
@@ -444,19 +459,25 @@ The subset medians in table~\ref{tab:confirm} are close for three and seven
 views at $m\geq19$, but they do not identify a deployable subset and the 35
 triples are not independent replicates. We therefore report the single triple
 selected by the frozen calibration-only rule separately. Its camera IDs are
-216f21c1, 3e0f8f0 and 44c4b2e; the rule minimizes the worst-pair geometric
-error scale at a calibration-derived scene centre.
+216f21c1, 3e0f8f0 and 44c4b2e; the historical rule minimizes the best-pair geometric error scale within
+each subset at a calibration-derived scene centre. For each pair the scale
+uses the larger range-to-focal-length ratio divided by the sine of the ray
+angle; it then takes the minimum over pairs. Equal subset scores are resolved
+by lexicographic camera-ID order. Thus extra cameras need not improve this
+score. Earlier manuscript versions incorrectly called it a worst-pair rule;
+the code, chosen subsets and historical predictions are unchanged.
 
 \begin{table}
 \caption{Exploratory comparison of the pre-selected triple with all seven
 views on 60 completed confirmation windows. Differences are three-view minus
 seven-view MAE. Intervals resample the four whole records with replacement
-(all $4^4$ combinations), retaining their 15 windows each. Four clusters give
-limited inferential resolution; these are not equivalence tests.}
+(all $4^4$ combinations), retaining their 15 windows each. These are central percentile ranges of this four-record empirical
+resampling distribution, without a verified confidence-coverage interpretation
+or an equivalence claim.}
 \centering
 \begin{tabular}{rrrrl}
 \hline
-$m$ & Triple MAE & Seven-view MAE & Difference & 95\% resampling interval (mm)\\
+$m$ & Triple MAE & Seven-view MAE & Difference & Central 95\% resampling range (mm)\\
 \hline
 16 & 72.79 & 27.92 & $+44.87$ & $[-0.27,134.93]$\\
 19 & 14.86 & 14.87 & $-0.01$ & $[-0.41,0.29]$\\
@@ -481,7 +502,7 @@ against zero of 2100 for the triples.
 At an exactly equal cost of 84 frames, the selected triple at 28 instants
 gives 9.60\,mm versus 50.77\,mm for seven views at 12 instants, with all
 60 windows completed. Every record favours the triple, with MAE differences
-between $-46.21$ and $-36.03$\,mm; the exploratory record-resampling interval
+between $-46.21$ and $-36.03$\,mm; the exploratory record-resampling range
 is $[-45.08,-37.25]$\,mm. This supports allocating more instants on this
 rig within the tested grid, not a universal optimal view count. Separately,
 three views at 19 instants cost 57 frames and give 14.86\,mm, versus
@@ -537,7 +558,7 @@ all negative; deleting one whole record gives differences from $-42.88$ to
 $-39.49$\,mm. At 112 frames, the deletion range is $[-21.67,-12.62]$\,mm,
 while at 168 frames it is $[10.14,101.23]$\,mm: the adverse ranking remains
 after deleting any one record. These descriptive checks do not turn four
-records into a larger independent sample. Resampling intervals above retain
+records into a larger independent sample. Resampling ranges above retain
 their exploratory interpretation.
 
 Keeping each reference window's endpoints and decimating only its interior
@@ -546,6 +567,109 @@ difference from $-41.17$ to $-41.14$ and $-41.07$\,mm. Its ordering also
 persists at the two alternative noise settings. This directly tests
 reference-resolution sensitivity of the main contrast; it does not test
 reference calibration, clock offset or absolute scale errors.
+
+
+\subsection{Sampling-grid sensitivity and fixed robustness checks}
+\label{sec:gridrobust}
+The 84- and 168-frame comparisons are repeated on eleven schedules, using
+three processing arms: original DLT, spatial checks, and spatial checks
+followed by a temporal gate. All use the same requested frames and 3\,mm
+observation-noise setting. With three visible views the spatial rule requires
+at most 4-pixel reprojection error, at least a $5^\circ$ pairwise ray angle,
+and at most 20\,mm spread between pairwise reconstructions. The historical
+two-visible-view DLT fallback is retained. Seven-view processing uses the
+existing 4-pixel consensus rule with at least four and a majority of visible
+views. Rejected internal instants are omitted; losing an endpoint fails a
+window. The additional temporal gate uses normalized innovation squared
+16.27, retains the first two valid observations and selects process noise
+by the ungated likelihood rule. The same thresholds apply to every record
+and grid. They use no reference positions. These arms share a frame count,
+not a measured runtime: robustness adds computation.
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{fig3.pdf}
+\caption{Exploratory grid sensitivity on four evaluation records. Each point
+is the three-view minus seven-view MAE on their common completed windows;
+negative values favour three views. U is the original uniform grid, offsets
+move only internal instants, and J1--J6 are seeded jitter schedules. DLT and
+spatial-only comparisons each use all 60 windows. Spatial-plus-temporal
+comparisons use 53--56 common windows at 84 frames and 53--58 at 168 frames.
+Connecting lines aid reading and do not define a continuous parameter or
+independent replicates.}
+\label{fig:gridrobust}
+\end{figure}
+
+\begin{table}
+\caption{Paired MAE sensitivity across eleven grids. Ranges are minima and
+maxima across grids, not uncertainty intervals. A win means strictly lower
+three-view MAE on common completed windows.}
+\centering
+\begin{tabular}{rlrrr}
+\hline
+Frames & Processing & Difference range (mm) & Wins & Common windows\\
+\hline
+84 & DLT & $[-66.90,16.37]$ & 10/11 & 60\\
+84 & Spatial & $[-75.30,-41.21]$ & 11/11 & 60\\
+84 & Spatial + temporal & $[-69.51,-19.82]$ & 11/11 & 53--56\\
+168 & DLT & $[-13.68,133.49]$ & 4/11 & 60\\
+168 & Spatial & $[-5.34,-2.63]$ & 11/11 & 60\\
+168 & Spatial + temporal & $[-5.15,23.03]$ & 9/11 & 53--58\\
+\hline
+\end{tabular}
+\label{tab:gridrobust}
+\end{table}
+
+The unfiltered rank reversal at 168 frames is therefore not stable across
+sampling grids. DLT three-view MAE ranges from 8.01 to 144.66\,mm, compared
+with 10.55 to 30.31\,mm for seven views. With spatial checks these ranges
+narrow to 7.92--8.36\,mm and 10.55--13.37\,mm; three views have lower MAE
+on every tested grid, and every arm/grid completes 60/60 windows. At 84
+frames, spatial three-view and seven-view ranges are 9.60--11.98\,mm and
+50.81--85.44\,mm, also with 60/60 completions throughout.
+
+On the original 168-frame grid, spatial checks reject two of 3360 requested
+three-view instants (0.060\%), in addition to seven missing instants under
+DLT. Both rejections are internal. Three-view MAE falls from 85.66 to
+7.92\,mm and maximum error from 4110.45 to 22.59\,mm on exactly the same
+60 windows; seven-view MAE remains 10.55\,mm. Thus this reduction is not
+produced by discarding high-error windows. At 84 frames, the original-grid
+three-view spatial result is unchanged at 9.60\,mm. This ablation ties the
+specific adverse result to retained inconsistent observations, without
+establishing their physical source or robustness to all anomaly types.
+
+Additional temporal gating does not consistently help. Across grids its
+three/seven-view completion counts are 57--59/56--57 out of 60 at 84 frames
+and 54--59/57--59 at 168 frames. The archived comparisons include both
+arm-specific summaries and paired errors on explicit common windows.
+In particular, the spatial-only three-view advantage at 168 frames no longer
+holds for two temporal-gated grids. Rejecting more observations is not a
+general improvement, and completion and error must be assessed together.
+
+\subsection{Retrospective development-only configuration selection}
+\label{sec:selection}
+We illustrate a restricted decision procedure rather than optimize every
+possible allocation. Candidates are the original uniform schedules with
+three or seven views and the three processing arms above. At each cap we
+admit all tested schedules with cost at most that cap, including the
+84-frame choices at 168. Eligibility requires all 75 development windows
+to complete and their empirical 95th-percentile error to be at most
+100\,mm. Among eligible candidates we minimize development MAE, breaking
+ties by cost, view count and arm name. With no eligible candidate the
+procedure abstains. The 100\,mm threshold is an illustrative criterion,
+not a universal engineering tolerance or guarantee for future errors.
+
+At 84 frames, two of six candidates are eligible and the procedure selects
+three-view DLT at 28 instants (development MAE 9.89\,mm); evaluation MAE
+is 9.60\,mm with 60/60 completions. At 168, six of twelve are eligible and
+it selects three-view spatial processing at 56 instants (development MAE
+8.37\,mm); evaluation MAE is 7.92\,mm with 60/60 completions. The evaluation
+95th-percentile errors are 22.32 and 19.17\,mm, respectively. The rule reads
+only development scores when selecting, but its family and criterion were
+formulated after earlier evaluation outcomes were known. These results
+demonstrate an executable retrospective procedure, not unbiased validation,
+and do not establish superiority over untested allocations or grids.
+An independent acquisition session is still required to test transfer.
 
 \subsection{Error structure and controls on the saturation hypothesis}
 \label{sec:mechanism}
@@ -639,8 +763,9 @@ DLT and 8.809\,mm with the selected three-view DLT. All 75 windows complete;
 one of 2475 queried instants is rejected by consensus. Thus this control
 changes path error little at this density. It does not establish that all
 robust or weighted reconstructions behave similarly, or that additional
-views are intrinsically harmful. The measured allocation surface remains
-conditional on the calibration, estimator and detection regime.
+views are intrinsically harmful. The grid-specific checks in section~\ref{sec:gridrobust} show a much
+larger effect at 168 frames. The measured allocation surface remains
+conditional on the calibration, estimator, sampling grid and detection regime.
 
 \subsection{A curvature-based non-uniform sampling rule}
 \label{sec:nonuniform}
@@ -674,18 +799,8 @@ $\rho$ from the smoothed trajectory and places the remaining instants at equal
 increments of the cumulative $\rho$ while keeping the probe instants; and an
 oracle arm that computes $\rho$ from the reference trajectory. The oracle uses otherwise unavailable trajectory information to evaluate
 this particular rule. It is neither deployable nor a certified optimum for
-path-error minimization, even within curvature-driven methods. Figure~\ref{fig:nonuniform} and
-table~\ref{tab:nonuniform} give the result.
-
-\begin{figure}
-\centering
-\includegraphics{fig3.pdf}
-\caption{Non-uniform placement of instants on the development set, at three
-views. The reference-assisted rule improves completed-window MAE by approximately
-7.9\% to 23.5\% in the plotted three-view cells. The deployable rule is worse
-on their respective common-success populations.}
-\label{fig:nonuniform}
-\end{figure}
+path-error minimization, even within curvature-driven methods.
+Table~\ref{tab:nonuniform} gives the result.
 
 \begin{table}
 \caption{Non-uniform placement on a pool of 75 development windows.
@@ -864,8 +979,9 @@ establish transfer to other instruments.
 \section{Limitations}
 \label{sec:limitations}
 \begin{itemize}
-\item \textit{Two instruments, each a single rig.} The budget-cap grid has different best observed view counts and rank
-reversals. No universal three-view optimum or saturation threshold is established.
+\item \textit{Two instruments, each a single rig.} The unfiltered budget-cap grid has different best observed view counts and
+rank reversals; grid perturbations and spatial checks change these rankings.
+No universal three-view optimum or saturation threshold is established.
 The controls in section~\ref{sec:mechanism} do not identify a unique
 causal mechanism; calibration, reference error, estimator choice and target
 visibility can all affect the observed surface.
@@ -885,32 +1001,36 @@ section~\ref{sec:nonuniform} is not an upper bound on other curvature-based,
 adaptive or learned schedules.
 \item \textit{Limited confirmation.} The record-level analyses have only four
 clusters, and the primary single-camera criterion was not fully met. The
-additional sensitivity analyses are exploratory, not fresh confirmations.
+additional sensitivity analyses and development-only selection exercise are
+retrospective, not fresh confirmations. Eleven grids reuse the same windows;
+their win counts are descriptive and do not provide eleven independent tests.
 \end{itemize}
 
 % =====================================================================
 \section{Conclusion}
 \label{sec:conclusion}
-For this synchronised rig, allocating 84 frames to three views at 28
-instants gives lower observed MAE than seven views at 12 instants, and this
-contrast persists under the tested noise settings, reference decimation and
-whole-record deletion. The broader two-to-seven-view budget grid nevertheless
-reverses the three/seven-view ranking at 168 frames because of rare large
-errors. Thus a budget increase is not a prescription to sample more densely,
-and the lowest-error tested schedule is not a universal camera-count rule.
-At a fixed 33 instants the selected triple uses 43\% of the frames but has
-slightly larger error; equivalence remains unestablished.
+For this synchronised rig, the original 84-frame schedule gives lower
+three-view error than seven-view error, while the original 168-frame schedule
+reverses that ordering. Eleven-grid checks show that the latter reversal is
+sensitive to which instants are sampled. Fixed spatial checks remove it on
+all tested grids without losing completed windows; on the original grid,
+two rejected internal observations reduce three-view MAE from 85.66 to
+7.92\,mm. The supported conclusion is that frame allocation, sampling grid
+and outlier handling jointly determine this instrument's observed trade-off.
+Additional temporal gating is not uniformly beneficial. Neither a universal
+three-view prescription nor a benefit from spending every available frame
+follows. At a fixed 33 instants the original selected triple uses 43\% of
+the frames but has slightly larger error; equivalence remains unestablished.
 
-The reusable procedure is to specify a processing cap and failure policy,
-select camera subsets without using evaluation errors, and compare feasible
-schedules using error, completion, tail risk and sensitivity together. A
-prospective deployment would require selection on development data followed
-by validation on new records or sessions; the new grid here is exploratory.
-Correlated-error diagnostics do not identify a unique mechanism, and the
-curvature-rule comparisons condition on explicit joint eligibility. The
-single-camera example illustrates a contrasting regime with incomplete
-primary confirmation. These qualifications delimit the measurement choices
-supported by the present evidence.
+A reusable evaluation should specify its cost proxy and failure policy,
+choose subsets without evaluation errors, perturb sampling grids, compare
+fixed robustness rules, and report completion and common-population tail
+errors alongside MAE. The development-only selection exercise makes a
+restricted decision rule explicit, but remains retrospective. Validation
+on new records or sessions is needed before deployment. The correlated-error
+controls do not identify a unique physical source; reference sensitivity
+does not constitute a complete uncertainty budget. The secondary curvature
+and single-camera results delimit further tuning and transfer claims.
 
 % =====================================================================
 
@@ -949,13 +1069,15 @@ editing.}
 \data{The two datasets analysed here are third-party public releases, cited as
 [22] and [23]; we redistribute neither, and the access routes are those given
 by their publishers. The analysis code, frozen protocols, input hash lists, sealed
-predictions, scoring records and revised manuscript are archived as version 1.0.3
-at \url{https://doi.org/10.5281/zenodo.22794671}. The matching source release is
-\url{https://github.com/Jun-Jason-Ji/views-or-instants/tree/v1.0.3}.
+predictions, scoring records and revised manuscript are archived as version 1.0.4
+at \url{https://doi.org/10.5281/zenodo.22795247}. The matching source release is
+\url{https://github.com/Jun-Jason-Ji/views-or-instants/tree/v1.0.4}.
 The version preserves the original protocols and sealed results, alongside
-the exploratory analysis update with explicit sequence-equal aggregation,
-record-level comparisons and exploratory geometry controls, with input hashes
-and a reproducible analysis script. Protocol freezing and prior data exposure
+the exploratory updates on budget caps, sampling-grid sensitivity, spatial
+and temporal checks, retrospective development-only selection, sequence-equal
+aggregation and geometric controls. Input hashes and reproducible scripts
+are provided; the best-pair subset-score description is corrected without
+changing original results. Protocol freezing and prior data exposure
 are described in section~\ref{sec:data}.}
 
 % =====================================================================
