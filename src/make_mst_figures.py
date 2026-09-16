@@ -26,7 +26,7 @@ plt.rcParams.update({
     'font.serif': ['Times New Roman', 'DejaVu Serif'], 'mathtext.fontset': 'stix',
     'savefig.bbox': 'tight', 'savefig.pad_inches': .02, 'pdf.fonttype': 42})
 
-W2, W1 = 6.3, 4.3
+W2, W1 = 6.0, 4.3
 # colour plus a distinct dash pattern and marker for every series
 STYLE = {2: ('#1f77b4', 'o', '-'), 3: ('#2ca02c', 's', '--'), 7: ('#d62728', '^', ':')}
 
@@ -56,7 +56,15 @@ def main():
             if k != 7:
                 a.fill_between(x, lo, hi, color=c, alpha=.12, lw=0)
         a.set_xscale('log'); a.set_yscale('log')
-        a.set_xlabel('camera frames per window, $B=km$')
+        # Explicit ticks with the minor ones off. On a log axis matplotlib
+        # otherwise labels the minor ticks too, and at this figure width those
+        # labels collide with each other.
+        a.set_xticks([20, 50, 100, 200, 400])
+        a.set_xticklabels(['20', '50', '100', '200', '400'])
+        a.set_yticks([10, 20, 50, 100, 200, 500])
+        a.set_yticklabels(['10', '20', '50', '100', '200', '500'])
+        a.minorticks_off()
+        a.set_xlabel(r'camera frames per window, $B = k \times m$')
         a.set_ylabel('path-length MAE (mm)')
         a.set_title(t); a.legend(frameon=False)
     fig.tight_layout(pad=.3); fig.savefig(OUT / 'fig1.pdf'); fig.savefig(OUT / 'fig1.png', dpi=400); plt.close(fig)

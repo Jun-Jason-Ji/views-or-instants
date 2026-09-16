@@ -237,7 +237,7 @@ integrated speed, so under our state model this is exactly the estimator of
 as [4] requires.
 
 \subsection{Cost model}
-One camera frame read at one instant is one unit, so a window costs $B=km$.
+One camera frame read at one instant is one unit, so a window costs $B=k\,m$.
 Frames in which the detector returns nothing are still charged. This counts
 transfer, decoding, detection and triangulation, and deliberately does not
 count acquisition: a rig that records seven cameras and processes three has
@@ -344,7 +344,7 @@ we report.
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{fig1.pdf}
-\caption{Path-length error against the frame budget $B=km$, on the development
+\caption{Path-length error against the frame budget $B=k\,m$, on the development
 set (a) and the pre-registered confirmation set (b). Each curve is the median
 over all camera subsets of that size, 21 pairs and 35 triples; the shaded
 bands span the best to the worst subset. Line style and marker distinguish the

@@ -251,6 +251,25 @@ if ph:
     note(f'{len(ph)} placeholders still in the manuscript: ' +
          '; '.join(' '.join(p.split())[:42] for p in ph))
 
+# ------------------------------------------------- figure tick-label collisions
+# On a log axis matplotlib labels the minor ticks as well, and at journal column
+# widths those labels overlap each other. Every log axis must therefore either
+# set its own ticks or switch the minor ones off.
+figsrc = (ROOT / 'src/make_mst_figures.py').read_text(encoding='utf-8')
+blocks = re.split(r'\n    fig, ax = |\n    fig, ax\b', figsrc)
+for i, blk in enumerate(blocks[1:], 1):
+    logx = len(re.findall(r"set_xscale\('log'\)", blk))
+    if not logx:
+        continue
+    guarded = len(re.findall(r'minorticks_off\(\)', blk))
+    ticks = len(re.findall(r'set_xticks\(', blk))
+    if guarded == 0 and ticks == 0:
+        bad(f'figure block {i} sets a log x axis but neither fixes the ticks nor '
+            f'calls minorticks_off; matplotlib will label the minor ticks and they '
+            f'will overlap at column width')
+    else:
+        good(f'figure block {i}: log axis has explicit ticks or minor ticks off')
+
 # ---------------------------------------------------------------- real compile
 TECT = Path(r'C:\Users\Jason\AppData\Local\Temp\claude\E--research-VLLM'
             r'\21767287-c04b-4dd2-a6c6-30ae524b66df\scratchpad\tect\tectonic.exe')
