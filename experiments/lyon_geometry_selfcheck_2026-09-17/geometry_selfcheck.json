@@ -1,0 +1,1458 @@
+{
+ "calib": "data_external\\lbmc_lyon_2026-09-15\\Example_Anonymized_Video_Data\\calibration\\Calib.toml",
+ "c3d": "data_external/lbmc_lyon_2026-09-15/Markers_extracted/Markers/participant_02/gait.c3d",
+ "scale_mm_to_calib": 0.001,
+ "marker_rate_hz": 120.0,
+ "marker_frames": 2400,
+ "cameras": {
+  "26578": {
+   "video": "data_external\\lbmc_lyon_2026-09-15\\Example_Anonymized_Video_Data\\participant_02\\gait\\videos\\26578\\26578.avi",
+   "fps": 60.0,
+   "video_frames": 1200,
+   "video_size": [
+    1088,
+    1920
+   ],
+   "calib_size": [
+    1088,
+    1920
+   ],
+   "size_match": true,
+   "marker_to_video_ratio": 2.0,
+   "tests": [
+    {
+     "video_frame": 100,
+     "n_blobs": 137,
+     "sweep": {
+      "-4": {
+       "median_px": 102.95746482135365,
+       "frac_within_6px": 0.020833333333333332,
+       "inside": 48,
+       "in_front": 48
+      },
+      "-2": {
+       "median_px": 101.23120891183021,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "-1": {
+       "median_px": 102.7929751938523,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "0": {
+       "median_px": 106.16369550978513,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "1": {
+       "median_px": 109.91642055039969,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "2": {
+       "median_px": 109.8082329880705,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "4": {
+       "median_px": 110.71560839080755,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      }
+     }
+    },
+    {
+     "video_frame": 400,
+     "n_blobs": 134,
+     "sweep": {
+      "-4": {
+       "median_px": 186.31030154243206,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "-2": {
+       "median_px": 187.48146578840158,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "-1": {
+       "median_px": 187.30649126027967,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "0": {
+       "median_px": 185.60316025525748,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "1": {
+       "median_px": 183.53899697333583,
+       "frac_within_6px": 0.020833333333333332,
+       "inside": 48,
+       "in_front": 48
+      },
+      "2": {
+       "median_px": 183.42593493639885,
+       "frac_within_6px": 0.020833333333333332,
+       "inside": 48,
+       "in_front": 48
+      },
+      "4": {
+       "median_px": 180.56207035255812,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      }
+     }
+    },
+    {
+     "video_frame": 800,
+     "n_blobs": 145,
+     "sweep": {
+      "-4": {
+       "median_px": 152.88818262997884,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "-2": {
+       "median_px": 151.33527598192103,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "-1": {
+       "median_px": 150.80827037275458,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "0": {
+       "median_px": 150.08501716980055,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "1": {
+       "median_px": 150.44794979153392,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "2": {
+       "median_px": 152.0833764423557,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "4": {
+       "median_px": 158.97878251346307,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      }
+     }
+    }
+   ]
+  },
+  "26579": {
+   "video": "data_external\\lbmc_lyon_2026-09-15\\Example_Anonymized_Video_Data\\participant_02\\gait\\videos\\26579\\26579.avi",
+   "fps": 60.0,
+   "video_frames": 1200,
+   "video_size": [
+    1088,
+    1920
+   ],
+   "calib_size": [
+    1088,
+    1920
+   ],
+   "size_match": true,
+   "marker_to_video_ratio": 2.0,
+   "tests": [
+    {
+     "video_frame": 100,
+     "n_blobs": 104,
+     "sweep": {
+      "-4": {
+       "median_px": 52.95694127408889,
+       "frac_within_6px": 0.041666666666666664,
+       "inside": 48,
+       "in_front": 48
+      },
+      "-2": {
+       "median_px": 56.63244088555562,
+       "frac_within_6px": 0.08333333333333333,
+       "inside": 48,
+       "in_front": 48
+      },
+      "-1": {
+       "median_px": 56.02455562604406,
+       "frac_within_6px": 0.08333333333333333,
+       "inside": 48,
+       "in_front": 48
+      },
+      "0": {
+       "median_px": 55.143327036486696,
+       "frac_within_6px": 0.08333333333333333,
+       "inside": 48,
+       "in_front": 48
+      },
+      "1": {
+       "median_px": 54.047664050199245,
+       "frac_within_6px": 0.08333333333333333,
+       "inside": 48,
+       "in_front": 48
+      },
+      "2": {
+       "median_px": 51.637218612721554,
+       "frac_within_6px": 0.0625,
+       "inside": 48,
+       "in_front": 48
+      },
+      "4": {
+       "median_px": 49.13043610544911,
+       "frac_within_6px": 0.020833333333333332,
+       "inside": 48,
+       "in_front": 48
+      }
+     }
+    },
+    {
+     "video_frame": 400,
+     "n_blobs": 95,
+     "sweep": {
+      "-4": {
+       "median_px": 48.21454543749425,
+       "frac_within_6px": 0.020833333333333332,
+       "inside": 48,
+       "in_front": 48
+      },
+      "-2": {
+       "median_px": 48.27037228888405,
+       "frac_within_6px": 0.0625,
+       "inside": 48,
+       "in_front": 48
+      },
+      "-1": {
+       "median_px": 49.74058727078722,
+       "frac_within_6px": 0.0625,
+       "inside": 48,
+       "in_front": 48
+      },
+      "0": {
+       "median_px": 49.443047820191126,
+       "frac_within_6px": 0.0625,
+       "inside": 48,
+       "in_front": 48
+      },
+      "1": {
+       "median_px": 47.50400694615875,
+       "frac_within_6px": 0.0625,
+       "inside": 48,
+       "in_front": 48
+      },
+      "2": {
+       "median_px": 47.377090496467176,
+       "frac_within_6px": 0.0625,
+       "inside": 48,
+       "in_front": 48
+      },
+      "4": {
+       "median_px": 42.28218333386913,
+       "frac_within_6px": 0.041666666666666664,
+       "inside": 48,
+       "in_front": 48
+      }
+     }
+    },
+    {
+     "video_frame": 800,
+     "n_blobs": 81,
+     "sweep": {
+      "-4": {
+       "median_px": 64.4985760045958,
+       "frac_within_6px": 0.08333333333333333,
+       "inside": 48,
+       "in_front": 48
+      },
+      "-2": {
+       "median_px": 64.09218169407566,
+       "frac_within_6px": 0.0625,
+       "inside": 48,
+       "in_front": 48
+      },
+      "-1": {
+       "median_px": 63.796943107523674,
+       "frac_within_6px": 0.08333333333333333,
+       "inside": 48,
+       "in_front": 48
+      },
+      "0": {
+       "median_px": 63.38314576380702,
+       "frac_within_6px": 0.10416666666666667,
+       "inside": 48,
+       "in_front": 48
+      },
+      "1": {
+       "median_px": 62.78582684580075,
+       "frac_within_6px": 0.10416666666666667,
+       "inside": 48,
+       "in_front": 48
+      },
+      "2": {
+       "median_px": 62.048530202788015,
+       "frac_within_6px": 0.08333333333333333,
+       "inside": 48,
+       "in_front": 48
+      },
+      "4": {
+       "median_px": 59.492147560991626,
+       "frac_within_6px": 0.041666666666666664,
+       "inside": 48,
+       "in_front": 48
+      }
+     }
+    }
+   ]
+  },
+  "26580": {
+   "video": "data_external\\lbmc_lyon_2026-09-15\\Example_Anonymized_Video_Data\\participant_02\\gait\\videos\\26580\\26580.avi",
+   "fps": 60.0,
+   "video_frames": 1200,
+   "video_size": [
+    1088,
+    1920
+   ],
+   "calib_size": [
+    1088,
+    1920
+   ],
+   "size_match": true,
+   "marker_to_video_ratio": 2.0,
+   "tests": [
+    {
+     "video_frame": 100,
+     "n_blobs": 128,
+     "sweep": {
+      "-4": {
+       "median_px": 56.14665619902736,
+       "frac_within_6px": 0.041666666666666664,
+       "inside": 48,
+       "in_front": 48
+      },
+      "-2": {
+       "median_px": 54.28150793724744,
+       "frac_within_6px": 0.041666666666666664,
+       "inside": 48,
+       "in_front": 48
+      },
+      "-1": {
+       "median_px": 53.65899641233641,
+       "frac_within_6px": 0.041666666666666664,
+       "inside": 48,
+       "in_front": 48
+      },
+      "0": {
+       "median_px": 57.49056069399283,
+       "frac_within_6px": 0.020833333333333332,
+       "inside": 48,
+       "in_front": 48
+      },
+      "1": {
+       "median_px": 60.33169840235094,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "2": {
+       "median_px": 63.53332376843906,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "4": {
+       "median_px": 64.74378279002963,
+       "frac_within_6px": 0.020833333333333332,
+       "inside": 48,
+       "in_front": 48
+      }
+     }
+    },
+    {
+     "video_frame": 400,
+     "n_blobs": 115,
+     "sweep": {
+      "-4": {
+       "median_px": 61.476918889794895,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "-2": {
+       "median_px": 59.00493553903544,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "-1": {
+       "median_px": 58.46305958268088,
+       "frac_within_6px": 0.020833333333333332,
+       "inside": 48,
+       "in_front": 48
+      },
+      "0": {
+       "median_px": 63.422929866213764,
+       "frac_within_6px": 0.020833333333333332,
+       "inside": 48,
+       "in_front": 48
+      },
+      "1": {
+       "median_px": 69.27862732313093,
+       "frac_within_6px": 0.020833333333333332,
+       "inside": 48,
+       "in_front": 48
+      },
+      "2": {
+       "median_px": 73.50821269709759,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "4": {
+       "median_px": 77.17091203755848,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      }
+     }
+    },
+    {
+     "video_frame": 800,
+     "n_blobs": 116,
+     "sweep": {
+      "-4": {
+       "median_px": 87.7607209218936,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "-2": {
+       "median_px": 87.932804987012,
+       "frac_within_6px": 0.020833333333333332,
+       "inside": 48,
+       "in_front": 48
+      },
+      "-1": {
+       "median_px": 87.4642949309321,
+       "frac_within_6px": 0.020833333333333332,
+       "inside": 48,
+       "in_front": 48
+      },
+      "0": {
+       "median_px": 87.04175340221701,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "1": {
+       "median_px": 85.34477559688384,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "2": {
+       "median_px": 83.13860072230517,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "4": {
+       "median_px": 81.93953475959978,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      }
+     }
+    }
+   ]
+  },
+  "26582": {
+   "video": "data_external\\lbmc_lyon_2026-09-15\\Example_Anonymized_Video_Data\\participant_02\\gait\\videos\\26582\\26582.avi",
+   "fps": 60.0,
+   "video_frames": 1200,
+   "video_size": [
+    1088,
+    1920
+   ],
+   "calib_size": [
+    1088,
+    1920
+   ],
+   "size_match": true,
+   "marker_to_video_ratio": 2.0,
+   "tests": [
+    {
+     "video_frame": 100,
+     "n_blobs": 83,
+     "sweep": {
+      "-4": {
+       "median_px": 43.901636555741334,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "-2": {
+       "median_px": 45.85727345231282,
+       "frac_within_6px": 0.22916666666666666,
+       "inside": 48,
+       "in_front": 48
+      },
+      "-1": {
+       "median_px": 44.3338202474758,
+       "frac_within_6px": 0.22916666666666666,
+       "inside": 48,
+       "in_front": 48
+      },
+      "0": {
+       "median_px": 42.051624186007736,
+       "frac_within_6px": 0.25,
+       "inside": 48,
+       "in_front": 48
+      },
+      "1": {
+       "median_px": 38.80978878201401,
+       "frac_within_6px": 0.22916666666666666,
+       "inside": 48,
+       "in_front": 48
+      },
+      "2": {
+       "median_px": 37.007930804605536,
+       "frac_within_6px": 0.20833333333333334,
+       "inside": 48,
+       "in_front": 48
+      },
+      "4": {
+       "median_px": 32.789158757109135,
+       "frac_within_6px": 0.16666666666666666,
+       "inside": 48,
+       "in_front": 48
+      }
+     }
+    },
+    {
+     "video_frame": 400,
+     "n_blobs": 83,
+     "sweep": {
+      "-4": {
+       "median_px": 36.27345720162013,
+       "frac_within_6px": 0.16666666666666666,
+       "inside": 48,
+       "in_front": 48
+      },
+      "-2": {
+       "median_px": 31.930249155921498,
+       "frac_within_6px": 0.22916666666666666,
+       "inside": 48,
+       "in_front": 48
+      },
+      "-1": {
+       "median_px": 31.36578991550609,
+       "frac_within_6px": 0.25,
+       "inside": 48,
+       "in_front": 48
+      },
+      "0": {
+       "median_px": 28.02249002433149,
+       "frac_within_6px": 0.3541666666666667,
+       "inside": 48,
+       "in_front": 48
+      },
+      "1": {
+       "median_px": 24.744494662061406,
+       "frac_within_6px": 0.3333333333333333,
+       "inside": 48,
+       "in_front": 48
+      },
+      "2": {
+       "median_px": 25.569101518397158,
+       "frac_within_6px": 0.25,
+       "inside": 48,
+       "in_front": 48
+      },
+      "4": {
+       "median_px": 32.527491777474225,
+       "frac_within_6px": 0.020833333333333332,
+       "inside": 48,
+       "in_front": 48
+      }
+     }
+    },
+    {
+     "video_frame": 800,
+     "n_blobs": 79,
+     "sweep": {
+      "-4": {
+       "median_px": 36.71328043061369,
+       "frac_within_6px": 0.20833333333333334,
+       "inside": 48,
+       "in_front": 48
+      },
+      "-2": {
+       "median_px": 35.60337222918889,
+       "frac_within_6px": 0.22916666666666666,
+       "inside": 48,
+       "in_front": 48
+      },
+      "-1": {
+       "median_px": 37.87955759277405,
+       "frac_within_6px": 0.25,
+       "inside": 48,
+       "in_front": 48
+      },
+      "0": {
+       "median_px": 34.74682864637764,
+       "frac_within_6px": 0.2916666666666667,
+       "inside": 48,
+       "in_front": 48
+      },
+      "1": {
+       "median_px": 34.10641428145669,
+       "frac_within_6px": 0.2916666666666667,
+       "inside": 48,
+       "in_front": 48
+      },
+      "2": {
+       "median_px": 33.45449027009704,
+       "frac_within_6px": 0.20833333333333334,
+       "inside": 48,
+       "in_front": 48
+      },
+      "4": {
+       "median_px": 32.172095398321126,
+       "frac_within_6px": 0.1875,
+       "inside": 48,
+       "in_front": 48
+      }
+     }
+    }
+   ]
+  },
+  "26583": {
+   "video": "data_external\\lbmc_lyon_2026-09-15\\Example_Anonymized_Video_Data\\participant_02\\gait\\videos\\26583\\26583.avi",
+   "fps": 60.0,
+   "video_frames": 1200,
+   "video_size": [
+    1088,
+    1920
+   ],
+   "calib_size": [
+    1088,
+    1920
+   ],
+   "size_match": true,
+   "marker_to_video_ratio": 2.0,
+   "tests": [
+    {
+     "video_frame": 100,
+     "n_blobs": 65,
+     "sweep": {
+      "-4": {
+       "median_px": 72.57276380418077,
+       "frac_within_6px": 0.020833333333333332,
+       "inside": 48,
+       "in_front": 48
+      },
+      "-2": {
+       "median_px": 75.43032063135675,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "-1": {
+       "median_px": 75.19587569274807,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "0": {
+       "median_px": 74.7149899074117,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "1": {
+       "median_px": 73.82760188449024,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "2": {
+       "median_px": 72.87370346006463,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "4": {
+       "median_px": 71.58561843393319,
+       "frac_within_6px": 0.020833333333333332,
+       "inside": 48,
+       "in_front": 48
+      }
+     }
+    },
+    {
+     "video_frame": 400,
+     "n_blobs": 77,
+     "sweep": {
+      "-4": {
+       "median_px": 44.23428768372156,
+       "frac_within_6px": 0.020833333333333332,
+       "inside": 48,
+       "in_front": 48
+      },
+      "-2": {
+       "median_px": 46.21537885090037,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "-1": {
+       "median_px": 47.386385341284424,
+       "frac_within_6px": 0.020833333333333332,
+       "inside": 48,
+       "in_front": 48
+      },
+      "0": {
+       "median_px": 47.513754704974666,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "1": {
+       "median_px": 47.28039728846802,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "2": {
+       "median_px": 48.24844422594785,
+       "frac_within_6px": 0.020833333333333332,
+       "inside": 48,
+       "in_front": 48
+      },
+      "4": {
+       "median_px": 50.4806958656834,
+       "frac_within_6px": 0.0625,
+       "inside": 48,
+       "in_front": 48
+      }
+     }
+    },
+    {
+     "video_frame": 800,
+     "n_blobs": 74,
+     "sweep": {
+      "-4": {
+       "median_px": 46.07828123892847,
+       "frac_within_6px": 0.041666666666666664,
+       "inside": 48,
+       "in_front": 48
+      },
+      "-2": {
+       "median_px": 45.7265930965134,
+       "frac_within_6px": 0.041666666666666664,
+       "inside": 48,
+       "in_front": 48
+      },
+      "-1": {
+       "median_px": 45.950193610748016,
+       "frac_within_6px": 0.020833333333333332,
+       "inside": 48,
+       "in_front": 48
+      },
+      "0": {
+       "median_px": 46.35241608777534,
+       "frac_within_6px": 0.041666666666666664,
+       "inside": 48,
+       "in_front": 48
+      },
+      "1": {
+       "median_px": 47.11766536074546,
+       "frac_within_6px": 0.041666666666666664,
+       "inside": 48,
+       "in_front": 48
+      },
+      "2": {
+       "median_px": 47.44488277894113,
+       "frac_within_6px": 0.020833333333333332,
+       "inside": 48,
+       "in_front": 48
+      },
+      "4": {
+       "median_px": 46.358185768615485,
+       "frac_within_6px": 0.041666666666666664,
+       "inside": 48,
+       "in_front": 48
+      }
+     }
+    }
+   ]
+  },
+  "26584": {
+   "video": "data_external\\lbmc_lyon_2026-09-15\\Example_Anonymized_Video_Data\\participant_02\\gait\\videos\\26584\\26584.avi",
+   "fps": 60.0,
+   "video_frames": 1200,
+   "video_size": [
+    1088,
+    1920
+   ],
+   "calib_size": [
+    1088,
+    1920
+   ],
+   "size_match": true,
+   "marker_to_video_ratio": 2.0,
+   "tests": [
+    {
+     "video_frame": 100,
+     "n_blobs": 1,
+     "sweep": {
+      "-4": {
+       "median_px": 283.43412960785383,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "-2": {
+       "median_px": 281.6161214588937,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "-1": {
+       "median_px": 279.74818372139123,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "0": {
+       "median_px": 278.4252399164176,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "1": {
+       "median_px": 277.5663407428764,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "2": {
+       "median_px": 276.9675960879876,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "4": {
+       "median_px": 277.64496147288787,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      }
+     }
+    },
+    {
+     "video_frame": 400,
+     "n_blobs": 1,
+     "sweep": {
+      "-4": {
+       "median_px": 274.5508350198012,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "-2": {
+       "median_px": 276.30232728632905,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "-1": {
+       "median_px": 276.7127459281238,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "0": {
+       "median_px": 277.10090918848545,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "1": {
+       "median_px": 277.97593513466677,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "2": {
+       "median_px": 279.31815929421595,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "4": {
+       "median_px": 283.74421534532974,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      }
+     }
+    },
+    {
+     "video_frame": 800,
+     "n_blobs": 1,
+     "sweep": {
+      "-4": {
+       "median_px": 294.8485578386435,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "-2": {
+       "median_px": 294.96314548194584,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "-1": {
+       "median_px": 293.7504884533171,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "0": {
+       "median_px": 292.3838180974702,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "1": {
+       "median_px": 290.713368333433,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "2": {
+       "median_px": 287.8156906201224,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "4": {
+       "median_px": 289.47147239871435,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      }
+     }
+    }
+   ]
+  },
+  "26585": {
+   "video": "data_external\\lbmc_lyon_2026-09-15\\Example_Anonymized_Video_Data\\participant_02\\gait\\videos\\26585\\26585.avi",
+   "fps": 60.0,
+   "video_frames": 1200,
+   "video_size": [
+    1088,
+    1920
+   ],
+   "calib_size": [
+    1088,
+    1920
+   ],
+   "size_match": true,
+   "marker_to_video_ratio": 2.0,
+   "tests": [
+    {
+     "video_frame": 100,
+     "n_blobs": 126,
+     "sweep": {
+      "-4": {
+       "median_px": 64.31136693854123,
+       "frac_within_6px": 0.020833333333333332,
+       "inside": 48,
+       "in_front": 48
+      },
+      "-2": {
+       "median_px": 62.45205560778666,
+       "frac_within_6px": 0.020833333333333332,
+       "inside": 48,
+       "in_front": 48
+      },
+      "-1": {
+       "median_px": 61.731038541971735,
+       "frac_within_6px": 0.020833333333333332,
+       "inside": 48,
+       "in_front": 48
+      },
+      "0": {
+       "median_px": 62.17230682415479,
+       "frac_within_6px": 0.020833333333333332,
+       "inside": 48,
+       "in_front": 48
+      },
+      "1": {
+       "median_px": 61.36929518419696,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "2": {
+       "median_px": 61.907432669609285,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "4": {
+       "median_px": 60.246119682371656,
+       "frac_within_6px": 0.020833333333333332,
+       "inside": 48,
+       "in_front": 48
+      }
+     }
+    },
+    {
+     "video_frame": 400,
+     "n_blobs": 129,
+     "sweep": {
+      "-4": {
+       "median_px": 59.19738452189844,
+       "frac_within_6px": 0.041666666666666664,
+       "inside": 48,
+       "in_front": 48
+      },
+      "-2": {
+       "median_px": 64.25798125964329,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "-1": {
+       "median_px": 68.5746193307183,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "0": {
+       "median_px": 70.4062153962901,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "1": {
+       "median_px": 73.61251508934532,
+       "frac_within_6px": 0.020833333333333332,
+       "inside": 48,
+       "in_front": 48
+      },
+      "2": {
+       "median_px": 76.40742697199065,
+       "frac_within_6px": 0.020833333333333332,
+       "inside": 48,
+       "in_front": 48
+      },
+      "4": {
+       "median_px": 75.92736977819285,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      }
+     }
+    },
+    {
+     "video_frame": 800,
+     "n_blobs": 131,
+     "sweep": {
+      "-4": {
+       "median_px": 49.74872470944739,
+       "frac_within_6px": 0.020833333333333332,
+       "inside": 48,
+       "in_front": 48
+      },
+      "-2": {
+       "median_px": 48.271787196327,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "-1": {
+       "median_px": 49.05273935974837,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "0": {
+       "median_px": 47.50689119176337,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "1": {
+       "median_px": 47.62142834971404,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "2": {
+       "median_px": 46.95457725327675,
+       "frac_within_6px": 0.020833333333333332,
+       "inside": 48,
+       "in_front": 48
+      },
+      "4": {
+       "median_px": 48.15607611958394,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      }
+     }
+    }
+   ]
+  },
+  "26586": {
+   "video": "data_external\\lbmc_lyon_2026-09-15\\Example_Anonymized_Video_Data\\participant_02\\gait\\videos\\26586\\26586.avi",
+   "fps": 60.0,
+   "video_frames": 1200,
+   "video_size": [
+    1088,
+    1920
+   ],
+   "calib_size": [
+    1088,
+    1920
+   ],
+   "size_match": true,
+   "marker_to_video_ratio": 2.0,
+   "tests": [
+    {
+     "video_frame": 100,
+     "n_blobs": 152,
+     "sweep": {
+      "-4": {
+       "median_px": 69.81321277017472,
+       "frac_within_6px": 0.020833333333333332,
+       "inside": 48,
+       "in_front": 48
+      },
+      "-2": {
+       "median_px": 76.22619560333194,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "-1": {
+       "median_px": 78.61551520159435,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "0": {
+       "median_px": 75.25841444148307,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "1": {
+       "median_px": 73.48674394978715,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "2": {
+       "median_px": 71.0430431961331,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "4": {
+       "median_px": 70.58404628976758,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      }
+     }
+    },
+    {
+     "video_frame": 400,
+     "n_blobs": 149,
+     "sweep": {
+      "-4": {
+       "median_px": 148.2526672383682,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "-2": {
+       "median_px": 148.3491238358713,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "-1": {
+       "median_px": 147.24898130925698,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "0": {
+       "median_px": 150.0532646818508,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "1": {
+       "median_px": 150.65757231896416,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "2": {
+       "median_px": 153.3452869758026,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "4": {
+       "median_px": 155.79260325845962,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      }
+     }
+    },
+    {
+     "video_frame": 800,
+     "n_blobs": 157,
+     "sweep": {
+      "-4": {
+       "median_px": 67.35481663177197,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "-2": {
+       "median_px": 66.62277557996501,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "-1": {
+       "median_px": 67.02795870194234,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "0": {
+       "median_px": 66.65579907900745,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "1": {
+       "median_px": 65.3684860377868,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "2": {
+       "median_px": 65.58582113996997,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "4": {
+       "median_px": 62.17901596644777,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      }
+     }
+    }
+   ]
+  },
+  "26587": {
+   "video": "data_external\\lbmc_lyon_2026-09-15\\Example_Anonymized_Video_Data\\participant_02\\gait\\videos\\26587\\26587.avi",
+   "fps": 60.0,
+   "video_frames": 1200,
+   "video_size": [
+    1088,
+    1920
+   ],
+   "calib_size": [
+    1088,
+    1920
+   ],
+   "size_match": true,
+   "marker_to_video_ratio": 2.0,
+   "tests": [
+    {
+     "video_frame": 100,
+     "n_blobs": 76,
+     "sweep": {
+      "-4": {
+       "median_px": 73.66400301047936,
+       "frac_within_6px": 0.020833333333333332,
+       "inside": 48,
+       "in_front": 48
+      },
+      "-2": {
+       "median_px": 72.95009154071838,
+       "frac_within_6px": 0.08333333333333333,
+       "inside": 48,
+       "in_front": 48
+      },
+      "-1": {
+       "median_px": 73.70282476152099,
+       "frac_within_6px": 0.08333333333333333,
+       "inside": 48,
+       "in_front": 48
+      },
+      "0": {
+       "median_px": 73.26056066876717,
+       "frac_within_6px": 0.08333333333333333,
+       "inside": 48,
+       "in_front": 48
+      },
+      "1": {
+       "median_px": 69.93001577565396,
+       "frac_within_6px": 0.08333333333333333,
+       "inside": 48,
+       "in_front": 48
+      },
+      "2": {
+       "median_px": 65.86901626945732,
+       "frac_within_6px": 0.08333333333333333,
+       "inside": 48,
+       "in_front": 48
+      },
+      "4": {
+       "median_px": 67.11610853438258,
+       "frac_within_6px": 0.020833333333333332,
+       "inside": 48,
+       "in_front": 48
+      }
+     }
+    },
+    {
+     "video_frame": 400,
+     "n_blobs": 82,
+     "sweep": {
+      "-4": {
+       "median_px": 42.355446112352155,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "-2": {
+       "median_px": 41.90684384162192,
+       "frac_within_6px": 0.020833333333333332,
+       "inside": 48,
+       "in_front": 48
+      },
+      "-1": {
+       "median_px": 43.142199137909245,
+       "frac_within_6px": 0.041666666666666664,
+       "inside": 48,
+       "in_front": 48
+      },
+      "0": {
+       "median_px": 43.65089515422163,
+       "frac_within_6px": 0.041666666666666664,
+       "inside": 48,
+       "in_front": 48
+      },
+      "1": {
+       "median_px": 42.767761745529434,
+       "frac_within_6px": 0.041666666666666664,
+       "inside": 48,
+       "in_front": 48
+      },
+      "2": {
+       "median_px": 42.32885502470661,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      },
+      "4": {
+       "median_px": 44.382956963665535,
+       "frac_within_6px": 0.0,
+       "inside": 48,
+       "in_front": 48
+      }
+     }
+    },
+    {
+     "video_frame": 800,
+     "n_blobs": 75,
+     "sweep": {
+      "-4": {
+       "median_px": 58.456216179131076,
+       "frac_within_6px": 0.0625,
+       "inside": 48,
+       "in_front": 48
+      },
+      "-2": {
+       "median_px": 56.054663570331755,
+       "frac_within_6px": 0.0625,
+       "inside": 48,
+       "in_front": 48
+      },
+      "-1": {
+       "median_px": 52.56041768014518,
+       "frac_within_6px": 0.0625,
+       "inside": 48,
+       "in_front": 48
+      },
+      "0": {
+       "median_px": 53.98770347122988,
+       "frac_within_6px": 0.08333333333333333,
+       "inside": 48,
+       "in_front": 48
+      },
+      "1": {
+       "median_px": 56.67421970800459,
+       "frac_within_6px": 0.08333333333333333,
+       "inside": 48,
+       "in_front": 48
+      },
+      "2": {
+       "median_px": 59.59386642975156,
+       "frac_within_6px": 0.08333333333333333,
+       "inside": 48,
+       "in_front": 48
+      },
+      "4": {
+       "median_px": 57.77338322248525,
+       "frac_within_6px": 0.020833333333333332,
+       "inside": 48,
+       "in_front": 48
+      }
+     }
+    }
+   ]
+  }
+ }
+}

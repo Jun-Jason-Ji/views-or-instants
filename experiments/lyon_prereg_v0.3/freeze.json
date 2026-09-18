@@ -1,0 +1,16 @@
+{
+ "hashes": {
+  "protocol/LYON_PREREG_v0.3.md": "060073380e983ab7b7064b99a8c2122880c68343ca777e8f1a1f70ad3f9dc7ec",
+  "src/lyon_prereg_runner.py": "0b9baefb359b0b81edbd50664b7f4359cc5f45b8611a24369d2a03f346f0e2b6",
+  "src/lyon_observe.py": "c458bd00608c2b51afc848431bdf827cbe54801009c94eefbc86b19d1e7ce8bb",
+  "src/three_view_cpu.py": "a8a71c4f98a3f757fdf06e8ad494e3e2041edfee52ce4f2f77087cbf44e2d8e3",
+  "src/robust_triangulation_cpu.py": "182de76d3e86079e0cacb00ce949d258542ed83357771117a2575b2923a02d70",
+  "src/mcalib_cache_observer.py": "a29c6db2e7d826673cb771c5f24a406d0ba39950f2e19e4e66cd34cc0d2caaff",
+  "src/continuous_motion_cpu.py": "ca8983d42f31b0a8252d382a9085feb051a02edace87226d7958de7c3ef4e75e",
+  "src/limited_arc_cpu.py": "41f6eb7f12945d8d4c379715b9ec9fa40e52f98d47b7036248bde0e088d70c64",
+  "src/gated_state_cpu.py": "b17c88be5657d786933431ec52ab71f194b9f94bd3ec9c67d790bb427eda0f5f",
+  "src/analyze_allocation.py": "806713cc11d580c1da73929f0828e6fb0faee4eee5ade843176777f078f1ffae",
+  "experiments/lyon_calibration_2026-09-17/calibration.json": "799510f1cc8e29832d36bf8ae84551f0bdbcbcd20a4a270bdc94fa78f343a029"
+ },
+ "utc": "2026-09-18T08:16:59.785864+00:00"
+}
