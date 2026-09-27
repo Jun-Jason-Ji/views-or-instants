@@ -107,7 +107,11 @@ def main() -> int:
     out = Path(sys.argv[sys.argv.index("--out") + 1]) if "--out" in sys.argv else OUT
     out.mkdir(parents=True, exist_ok=True)
 
-    fig, axes = plt.subplots(1, 2, figsize=(7.16, 2.1))
+    single = "--single-column" in sys.argv          # full text width of a one-column journal page
+    fs_leg, fs_title = (7.0, 9) if single else (5.8, 8)
+    if single:
+        plt.rcParams.update({"font.size": 8.5})
+    fig, axes = plt.subplots(1, 2, figsize=(7.16, 3.0) if single else (7.16, 2.1))
     ax = axes[0]
     ax.axhline(0, color="0.4", lw=0.6)
     values = {}
@@ -123,10 +127,10 @@ def main() -> int:
     ax.set_xscale("log")
     ax.set_xlabel("instants per window, $m$")
     ax.set_ylabel("signed bias (% of the measurand)")
-    ax.set_title("(a) sampling bias changes sign at $m^{*}$", fontsize=8)
+    ax.set_title("(a) sampling bias changes sign at $m^{*}$", fontsize=fs_title)
     ax.set_ylim(-12, 12)
     ax.grid(True, which="both", lw=0.3, alpha=0.4)
-    ax.legend(frameon=False, handlelength=1.4, ncol=2, loc="lower right", fontsize=5.8,
+    ax.legend(frameon=False, handlelength=1.4, ncol=2, loc="lower right", fontsize=fs_leg,
               columnspacing=1.0)
 
     ax = axes[1]
@@ -158,9 +162,9 @@ def main() -> int:
     ax.set_ylim(*lim)
     ax.set_xlabel("$m$ where the signed bias crosses zero")
     ax.set_ylabel("$m^{*}$, minimiser of |error|")
-    ax.set_title("(b) the crossing predicts $m^{*}$ (filled: median, open: mean)", fontsize=8)
+    ax.set_title("(b) the crossing predicts $m^{*}$ (filled: median, open: mean)", fontsize=fs_title)
     ax.grid(True, which="both", lw=0.3, alpha=0.4)
-    ax.legend(frameon=False, handlelength=1.0, loc="upper left")
+    ax.legend(frameon=False, handlelength=1.0, loc="upper left", fontsize=fs_leg if single else None)
     fig.tight_layout(pad=0.4)
     for ext in ("pdf", "png"):
         fig.savefig(out / ("fig_mechanism.%s" % ext), dpi=300, bbox_inches="tight")

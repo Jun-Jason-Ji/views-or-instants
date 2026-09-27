@@ -23,6 +23,13 @@ MANUAL = {
     "muller2025": "A. Muller, A. Na" + BS + '"{i}m, R. Dumas, T. Robert, Benchmarking dataset for markerless motion '
                   "capture analysis (version 2.0), Recherche Data Gouv, 2025. " + BS + "url{https://doi.org/10.57745/LQI2MJ}.",
     "archive": "[Reference withheld for double-anonymized review.]",
+    "jcgm200": "JCGM 200:2012, International vocabulary of metrology -- Basic and general concepts and associated "
+               "terms (VIM), third ed., Joint Committee for Guides in Metrology, 2012. " + BS + "url{https://doi.org/10.59161/JCGM200-2012}.",
+    "jcgm100": "JCGM 100:2008, Evaluation of measurement data -- Guide to the expression of uncertainty in measurement "
+               "(GUM), Joint Committee for Guides in Metrology, 2008. " + BS + "url{https://doi.org/10.59161/JCGM100-2008E}.",
+    "jcgm101": "JCGM 101:2008, Evaluation of measurement data -- Supplement 1 to the Guide to the expression of "
+               "uncertainty in measurement -- Propagation of distributions using a Monte Carlo method, Joint Committee "
+               "for Guides in Metrology, 2008. " + BS + "url{https://doi.org/10.59161/JCGM101-2008}.",
 }
 EXTRA = {"primaryrig": " MCalib dataset: " + BS + "url{https://koonyook.github.io/MCalib/}."}
 

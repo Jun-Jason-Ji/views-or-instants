@@ -88,6 +88,10 @@ def main() -> int:
     chk(BS + "linenumbers" in ms, "line numbers on for review", "warn")
     vim = len(re.findall(r"VIM|GUM|Type~A|Type~B|expanded uncertainty|systematic error", ms))
     chk(vim >= 8, "VIM/GUM vocabulary used (%d occurrences)" % vim)
+    chk("jcgm200" in cited and "jcgm100" in cited, "VIM and GUM cited to their JCGM documents")
+    chk("International vocabulary of metrology" in body and "Guide to the expression of uncertainty" in body,
+        "VIM and GUM spelled out at first use")
+    chk("relative accuracy" not in body, "no quantitative use of 'accuracy' (VIM: qualitative)")
     chk(not re.search(re.escape(BS) + r"(todo|dev)\{", ms), "no \\todo or \\dev markers")
     for f in re.findall(re.escape(BS) + r"includegraphics(?:\[[^\]]*\])?\{([^}]*)\}", ms):
         chk((d / f).exists(), "figure file present: %s" % f)
