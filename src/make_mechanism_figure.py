@@ -127,7 +127,7 @@ def main() -> int:
     ax.set_xscale("log")
     ax.set_xlabel("instants per window, $m$")
     ax.set_ylabel("signed bias (% of the measurand)")
-    ax.set_title("(a) sampling bias changes sign at $m^{*}$", fontsize=fs_title)
+    ax.set_title("(a) sampling bias changes sign at $m_\\mathrm{b}$", fontsize=fs_title)
     ax.set_ylim(-12, 12)
     ax.grid(True, which="both", lw=0.3, alpha=0.4)
     ax.legend(frameon=False, handlelength=1.4, ncol=2, loc="lower right", fontsize=fs_leg,
