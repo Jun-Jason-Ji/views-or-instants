@@ -1,0 +1,18 @@
+Reassembling the v1.1.0 archive
+
+The archive view_instant_allocation_v1.1.0.zip (267397145 bytes) is split into 7 parts because a single upload of this size
+did not complete. Concatenate the parts in order and check the digest:
+
+  Linux/macOS:  cat view_instant_allocation_v1.1.0.zip.part* > view_instant_allocation_v1.1.0.zip
+  Windows:      copy /b view_instant_allocation_v1.1.0.zip.part01+view_instant_allocation_v1.1.0.zip.part02+view_instant_allocation_v1.1.0.zip.part03+view_instant_allocation_v1.1.0.zip.part04+view_instant_allocation_v1.1.0.zip.part05+view_instant_allocation_v1.1.0.zip.part06+view_instant_allocation_v1.1.0.zip.part07 view_instant_allocation_v1.1.0.zip
+
+  SHA-256 of the reassembled archive: fb6b48fba5231e1873bdfd353a8551731702a9e6bbdbafd6c302bb4b4f4dd8ea
+
+Parts:
+  view_instant_allocation_v1.1.0.zip.part01  41943040 bytes  sha256 9628e8b992282c1502db6254227655f91f050a5cc8c18f5b292e427622495a80
+  view_instant_allocation_v1.1.0.zip.part02  41943040 bytes  sha256 d6913e5cbaf9e0d3d3f292d77d2fdbd06b4c0198d829b8bb32bdb15079c43340
+  view_instant_allocation_v1.1.0.zip.part03  41943040 bytes  sha256 7b5978a63767e80cf1dbe5e956d3920cf4f3d2c3643148dbdf8f228d574e686c
+  view_instant_allocation_v1.1.0.zip.part04  41943040 bytes  sha256 a22e0b94fa4184846b6a1cf7c167fa3af38d0dfa6a89c9b8a4754ad46d13a33e
+  view_instant_allocation_v1.1.0.zip.part05  41943040 bytes  sha256 dba5108b1e7e733f176290eee2f5647fe310230b4608d64b895c50a6a1780f9f
+  view_instant_allocation_v1.1.0.zip.part06  41943040 bytes  sha256 df5269116ba6bede7b9fb190cbcf9c44ce74e9d454293e66e19389005077f8e7
+  view_instant_allocation_v1.1.0.zip.part07  15738905 bytes  sha256 9cb9427819d5a5a07938a386d2fa7058aa4fd29602774f082953bf392d6ba049

@@ -102,7 +102,10 @@ def main() -> int:
     sets = [("rig A, MCalib, $k=7$",) + series_mcalib(7),
             ("rig B, DPJAIT real, $k=4$",) + series_dpjait(REAL, 4)]
     sets += [("rig B$'$, %s, $k=8$" % n,) + series_dpjait([n], 8) for n in SIM]
-    sets += [("rig C dev, %s, $k=9$" % t,) + series_lyon(t) for t in ("RFM5", "SV")]
+    if "--no-rig-c" not in sys.argv:   # the Measurement version keeps rig C in the supplement only
+        sets += [("rig C dev, %s, $k=9$" % t,) + series_lyon(t) for t in ("RFM5", "SV")]
+    out = Path(sys.argv[sys.argv.index("--out") + 1]) if "--out" in sys.argv else OUT
+    out.mkdir(parents=True, exist_ok=True)
 
     fig, axes = plt.subplots(1, 2, figsize=(7.16, 2.1))
     ax = axes[0]
@@ -160,12 +163,12 @@ def main() -> int:
     ax.legend(frameon=False, handlelength=1.0, loc="upper left")
     fig.tight_layout(pad=0.4)
     for ext in ("pdf", "png"):
-        fig.savefig(OUT / ("fig_mechanism.%s" % ext), dpi=300, bbox_inches="tight")
+        fig.savefig(out / ("fig_mechanism.%s" % ext), dpi=300, bbox_inches="tight")
     plt.close(fig)
-    (OUT / "figure_values_mechanism.json").write_text(json.dumps(values, indent=1), encoding="utf-8")
+    (out / "figure_values_mechanism.json").write_text(json.dumps(values, indent=1), encoding="utf-8")
     for k, v in values.items():
         print("%-40s crossing %-8s m* %s" % (k, ("%.1f" % v["zero_crossing"]) if v["zero_crossing"] else "none", v["m_star"]))
-    print("wrote %s and %s" % (OUT / "fig_mechanism.pdf", OUT / "figure_values_mechanism.json"))
+    print("wrote %s and %s" % (out / "fig_mechanism.pdf", out / "figure_values_mechanism.json"))
     return 0
 
 
