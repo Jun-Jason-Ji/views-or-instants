@@ -1,0 +1,40 @@
+{
+ "note": "post-hoc diagnostic, not part of the frozen chain",
+ "stride_frames": 10,
+ "gate_px": 60.0,
+ "records": [
+  {
+   "record": "S08_D8",
+   "n_residuals": 16681,
+   "n_instants": 2543,
+   "residual_px_median": 6.089740251183431,
+   "residual_px_p90": 15.538597321933183,
+   "err3d_mm_median": 57.674050896232316,
+   "err3d_mm_p90": 114.33146371795475,
+   "depth_m_median": 10.27385426685007,
+   "speed_ms_median": 3.4321901123857503
+  },
+  {
+   "record": "S09_D6",
+   "n_residuals": 12381,
+   "n_instants": 1966,
+   "residual_px_median": 3.5391118550595277,
+   "residual_px_p90": 8.628554417381887,
+   "err3d_mm_median": 40.048155193644284,
+   "err3d_mm_p90": 52.070594037248256,
+   "depth_m_median": 10.759365090470695,
+   "speed_ms_median": 3.968509904418343
+  },
+  {
+   "record": "S10_D6",
+   "n_residuals": 12163,
+   "n_instants": 1968,
+   "residual_px_median": 8.273359755388762,
+   "residual_px_p90": 38.96420348833842,
+   "err3d_mm_median": 173.60224582902026,
+   "err3d_mm_p90": 413.87391659424173,
+   "depth_m_median": 10.954009586151773,
+   "speed_ms_median": 3.9979641584125387
+  }
+ ]
+}

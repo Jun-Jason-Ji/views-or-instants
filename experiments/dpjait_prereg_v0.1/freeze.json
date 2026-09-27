@@ -1,0 +1,13 @@
+{
+ "hashes": {
+  "protocol/DPJAIT_PREREG_v0.1.md": "3d74eafea57b08a42edf6b232d90b8148eac897c79442b9728cb0a274a6aa33d",
+  "src/dpjait_record.py": "29b274c71834de7e612fc10faf98ee79f0e8e810251e9fdfb005f592c7cef72f",
+  "src/dpjait_sim_record.py": "44586ebb3f8ee19a0c863540a29fefbc240cfa413b0a698dd9be19f91f334ad1",
+  "src/dpjait_identity.py": "f6fa02eb2bdae42fecdbc96b89f33cff1c407151d2d1cc59c7dc84ff5c7093bd",
+  "src/dpjait_chain_compare.py": "8113324c036c1eddffdf9153961eecd9958dc71adc25248f09f61e94e0fc96ab",
+  "src/dpjait_prereg_runner.py": "e5bb28891e55892412bbb94b101a06054559d441a6f6bf865184ba9d7d1dfecd",
+  "src/mcalib_cache_observer.py": "a29c6db2e7d826673cb771c5f24a406d0ba39950f2e19e4e66cd34cc0d2caaff",
+  "src/limited_arc_cpu.py": "41f6eb7f12945d8d4c379715b9ec9fa40e52f98d47b7036248bde0e088d70c64"
+ },
+ "utc": "2026-09-20T11:15:23Z"
+}

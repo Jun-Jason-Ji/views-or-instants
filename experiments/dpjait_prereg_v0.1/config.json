@@ -1,0 +1,78 @@
+{
+ "protocol": "DPJAIT_PREREG_v0.1",
+ "window_frames": 100,
+ "m_grid": [
+  4,
+  6,
+  8,
+  10,
+  13,
+  17,
+  20,
+  25,
+  34,
+  50,
+  100
+ ],
+ "gate_px": 60.0,
+ "consistency_px": 20.0,
+ "eligibility_proxy_px": 75.0,
+ "budgets_real": [
+  40,
+  52,
+  68,
+  80,
+  100,
+  136,
+  200
+ ],
+ "budgets_sim": [
+  40,
+  52,
+  68,
+  80,
+  100,
+  136,
+  200,
+  272
+ ],
+ "budget_tol": 0.12,
+ "primary_estimator": "polygon",
+ "k_real": [
+  2,
+  3,
+  4
+ ],
+ "k_sim": [
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8
+ ],
+ "max_subsets_sim": 10,
+ "subset_seed": 20401,
+ "confirm_real_single": [
+  "R05_D1",
+  "R06_D1",
+  "R07_D1",
+  "R08_D1",
+  "R09_D1",
+  "R10_D1",
+  "R11_D1",
+  "R16_D1_A",
+  "R18_D1_A"
+ ],
+ "confirm_real_multi": [
+  "R14_D3",
+  "R15_D3"
+ ],
+ "confirm_sim": [
+  "S08_D8",
+  "S09_D6",
+  "S10_D6"
+ ],
+ "utc": "2026-09-20T11:15:23Z"
+}

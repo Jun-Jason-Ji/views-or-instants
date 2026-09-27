@@ -1,0 +1,68 @@
+{
+ "R09_D1": {
+  "sha256": "ff88c778e581fb3e0b715159bfeec784be727032e0393653e09446abeab2d07e",
+  "dense_sha256": "3bdf00a70ea1cbfb14ef0ce7df8076a721ec42eb6d7ec4de6fb6596632419521",
+  "utc": "2026-09-25T11:22:17Z",
+  "n_rows": 535
+ },
+ "R08_D1": {
+  "sha256": "3d183def7010413b14f94146e5ab4a672786e2c670888835791a66cf19e85934",
+  "dense_sha256": "118c71580252272d1bbb76a3916bc0ab614a8ce7b6acaa779d7ce28f9a8b77c1",
+  "utc": "2026-09-25T11:27:36Z",
+  "n_rows": 1114
+ },
+ "R16_D1_A": {
+  "sha256": "179a4531f225d3e9e61a9e4681ab791177dd98bf32fc3126949eddadceb59c9a",
+  "dense_sha256": "90c4a06add80078b4da330db1c0e67c54211f938ec20fa819d70fe19e47767ab",
+  "utc": "2026-09-25T11:30:47Z",
+  "n_rows": 2129
+ },
+ "R07_D1": {
+  "sha256": "6d22230b25ba659320853fc104bc16148561093be46199d73cb50de2f0a625c5",
+  "dense_sha256": "af71b6ec10e3083659d18491bf876452458ac40a0d4095f8521e27ac090c0053",
+  "utc": "2026-09-25T11:33:40Z",
+  "n_rows": 2151
+ },
+ "R06_D1": {
+  "sha256": "3d88bd0dba6fbebccf8fdf1e3108faf0109e6915605f3c7ea0fdaaf3aaa5f5ba",
+  "dense_sha256": "21e75ed267b2a90c9cfecf076db7eaa8b4e228e9ece325143eeb5497902a4fc4",
+  "utc": "2026-09-25T11:33:40Z",
+  "n_rows": 2140
+ },
+ "R10_D1": {
+  "sha256": "5365bb890b429d5758c40663ad520a39263a4aab505bea050da7007ea5d4e590",
+  "dense_sha256": "033a24ac08efaf76cee70dc3345abca2b8393102098f6d74df3170aae82fb19e",
+  "utc": "2026-09-25T11:36:09Z",
+  "n_rows": 2664
+ },
+ "S11_D4": {
+  "sha256": "9c5dcd673f280c882200a936a9445ddce697bb6b96b8e08ad4f3b68e9ad134f4",
+  "dense_sha256": "00854265d50e7d4753d35b17055fcc4ba12d719d07b97018168865ce7aa7b692",
+  "utc": "2026-09-25T11:40:07Z",
+  "n_rows": 9600
+ },
+ "S13_D3": {
+  "sha256": "41ba4fa900a4bd579a984f4ec41cb7d57fd7818def992233144f455c492df835",
+  "dense_sha256": "34e5904421bba517f1f5a53845b592a98585a6cd360a460c77a8dff7cb66a72d",
+  "utc": "2026-09-25T11:48:04Z",
+  "n_rows": 18720
+ },
+ "R11_D1": {
+  "sha256": "57292ef34a73027754cbace89584e35d559c345da6473214b74811f32f46981e",
+  "dense_sha256": "fb9235347c2d6acf038b7af4d03f6334d525d026c4e7701b03822b8852f781b3",
+  "utc": "2026-09-25T11:57:56Z",
+  "n_rows": 10491
+ },
+ "S12_D3": {
+  "sha256": "6a1aa7eeb6411fe4051fddfedec5f25a95e8349147e97af342e1d2f2367cb538",
+  "dense_sha256": "4bf449fceced7a78b91c784745a6da12b2c657b2940a060a31edc66c9bf84e91",
+  "utc": "2026-09-25T11:59:44Z",
+  "n_rows": 27360
+ },
+ "R05_D1": {
+  "sha256": "2ea9e7169d6a61d7e75ce03accc2e704a55112cb6451fdcc3262f5b2e1f0d768",
+  "dense_sha256": "602cefe54a75961d68c4ab9f49d3e2a6f07bccf7de4cc94cfcbee0e88aa894a2",
+  "utc": "2026-09-25T12:12:44Z",
+  "n_rows": 19432
+ }
+}

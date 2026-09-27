@@ -32,7 +32,34 @@ release yourself; it is distributed by its authors under the Apache License
 2.0, and its terms govern your use of it. The same applies to the dense matcher
 used in the single-camera chain, also Apache 2.0.
 
-No model weights are included in this release.
+No third-party model weights are included. One set of weights of our own is:
+`experiments/dpjait_learned_det/train/run/weights/best.pt`, a YOLO11n detector
+fine-tuned only on development records of the DPJAIT dataset (below). It is
+included because the frozen protocol `REFREE_MSTAR_PREREG_v0.1` records its
+SHA-256, so a reader can verify that the confirmation run used exactly these
+weights. The base checkpoint and training code are Ultralytics (AGPL-3.0); the
+weights are distributed on the same terms as the upstream checkpoint.
+
+## DPJAIT (drone-tracking dataset)
+
+The drone rig of the manuscript is the DPJAIT dataset (Rosner et al., Sci. Data
+12:257, 2025), published on Zenodo under CC BY 4.0. We do not redistribute its
+videos, calibration or Vicon reference. This release contains only our own
+derived results on it: protocols, freeze records, sealed-prediction digests,
+decisions and reports. Per-frame detections, dense reconstructions and scored
+files are in the Zenodo archive (v1.1.0 and later), with attribution to the
+dataset authors as required by CC BY 4.0.
+
+## Pre-registration timestamps: what they do and do not prove
+
+The protocols `DPJAIT_PREREG_v0.1`, `DPJAIT_NOISE_PREREG_v0.1`,
+`DPJAIT_NOISE_PREREG_v0.2` and `REFREE_MSTAR_PREREG_v0.1` were frozen locally,
+with the UTC time and SHA-256 digests recorded in each `freeze.json`, before
+their confirmation records were processed. They were first published together
+in this repository on 2026-09-26, after their results were known. The git tags
+therefore time-stamp the publication, not the freeze: the freeze times rest on
+our own records. Only `lyon-prereg-v0.3` was published before any of its
+confirmation data existed.
 
 ## Bulk result files
 

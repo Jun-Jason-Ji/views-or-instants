@@ -1,0 +1,22 @@
+{
+ "real": {
+  "slope_sigma_a": -0.4428420836071168,
+  "slope_sigma_eff": -0.3520369253261414,
+  "slope_sigma_eff_cont": -0.351237062588043
+ },
+ "S11_D4": {
+  "slope_sigma_a": -0.6325804601823629,
+  "slope_sigma_eff": -0.6035536245660127,
+  "slope_sigma_eff_cont": -0.5860455971613212
+ },
+ "S12_D3": {
+  "slope_sigma_a": -0.6345167310446609,
+  "slope_sigma_eff": -0.5374683476332931,
+  "slope_sigma_eff_cont": -0.5743734065283654
+ },
+ "S13_D3": {
+  "slope_sigma_a": -0.6933530914275898,
+  "slope_sigma_eff": -0.5833733958696755,
+  "slope_sigma_eff_cont": -0.5785624076938611
+ }
+}

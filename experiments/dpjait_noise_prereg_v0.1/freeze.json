@@ -1,0 +1,11 @@
+{
+ "hashes": {
+  "protocol/DPJAIT_NOISE_PREREG_v0.1.md": "3d5b9f45a95684ab834d7143e79c3644f3e1f9160a72abcff584fcf7ddbeab72",
+  "src/dpjait_noise_runner.py": "1d897de735c260af7b85ed5612908a2ad5c88bfd42ab878807234e49ea037ba9",
+  "src/own_blob_observer.py": "3f47c5728599abc2fc09df35b6c1e8b5535c6f9351444ac70730f7cb17cd9b9c",
+  "src/dpjait_record.py": "29b274c71834de7e612fc10faf98ee79f0e8e810251e9fdfb005f592c7cef72f",
+  "src/dpjait_sim_record.py": "44586ebb3f8ee19a0c863540a29fefbc240cfa413b0a698dd9be19f91f334ad1",
+  "src/dpjait_prereg_runner.py": "e5bb28891e55892412bbb94b101a06054559d441a6f6bf865184ba9d7d1dfecd"
+ },
+ "utc": "2026-09-25T11:11:51Z"
+}

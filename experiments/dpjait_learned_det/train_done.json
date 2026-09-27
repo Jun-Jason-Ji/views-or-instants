@@ -1,0 +1,26 @@
+{
+ "best": "E:\\research\\VLLM\\paper3\\experiments\\dpjait_learned_det\\train\\run\\weights\\best.pt",
+ "sha256": "16da922a73cf7c89cfd8d2544fc2e84567a039c6dc5fda21b3c64121e3bbd937",
+ "cfg": {
+  "model": "yolo11n.pt",
+  "imgsz": 1280,
+  "epochs": 60,
+  "patience": 15,
+  "batch": 8,
+  "workers": 4,
+  "seed": 20460926,
+  "deterministic": true,
+  "plots": false,
+  "amp": true,
+  "device": 0,
+  "name": "run"
+ },
+ "metrics": {
+  "metrics/precision(B)": 0.9702393766608444,
+  "metrics/recall(B)": 0.9474795519203414,
+  "metrics/mAP50(B)": 0.9710163860424944,
+  "metrics/mAP50-95(B)": 0.8044215911223546,
+  "fitness": 0.8044215911223546
+ },
+ "seconds": 8413
+}

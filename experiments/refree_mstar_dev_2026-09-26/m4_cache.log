@@ -1,0 +1,21 @@
+v0.1_blob R05_D1 fidelity(max |dX| m): {'0|drone': 0.0, '1|drone': 0.0, '2|drone': 0.0, '3|drone': 0.0, '4|drone': 0.0, '5|drone': 0.0}
+v0.1_blob R06_D1 fidelity(max |dX| m): {'0|drone': 0.0, '1|drone': 0.0, '2|drone': 0.0, '3|drone': 0.0, '4|drone': 0.0, '5|drone': 0.0}
+v0.1_blob R07_D1 fidelity(max |dX| m): {'0|drone': 0.0, '1|drone': 0.0, '2|drone': 0.0, '3|drone': 0.0, '4|drone': 0.0, '5|drone': 0.0}
+v0.1_blob R08_D1 fidelity(max |dX| m): {'0|drone': 0.0, '1|drone': 0.0, '2|drone': 0.0, '3|drone': 0.0, '4|drone': 0.0, '5|drone': 0.0}
+v0.1_blob R09_D1 fidelity(max |dX| m): {'0|drone': 0.0, '1|drone': 0.0, '2|drone': 0.0, '3|drone': 0.0, '4|drone': 0.0, '5|drone': 0.0}
+v0.1_blob R10_D1 fidelity(max |dX| m): {'0|drone': 0.0, '1|drone': 0.0, '2|drone': 0.0, '3|drone': 0.0, '4|drone': 0.0, '5|drone': 0.0}
+v0.1_blob R11_D1 fidelity(max |dX| m): {'0|drone': 0.0, '1|drone': 0.0, '2|drone': 0.0, '3|drone': 0.0, '4|drone': 0.0, '5|drone': 0.0}
+v0.1_blob R16_D1_A fidelity(max |dX| m): {'0|drone': 0.0, '1|drone': 0.0, '2|drone': 0.0, '3|drone': 0.0, '4|drone': 0.0, '5|drone': 0.0}
+v0.1_blob S11_D4 fidelity(max |dX| m): {'0|dron1': 0.0, '0|dron2': 0.0, '0|dron3': 0.0, '0|dron4': 0.0, '1|dron1': 0.0, '1|dron2': 0.0, '1|dron3': 0.0, '1|dron4': 0.0, '2|dron1': 0.0, '2|dron2': 0.0, '2|dron3': 0.0, '2|dron4': 0.0, '3|dron1': 0.0, '3|dron2': 0.0, '3|dron3': 0.0, '3|dron4': 0.0, '4|dron1': 0.0, '4|dron2': 0.0, '4|dron3': 0.0, '4|dron4': 0.0, '5|dron1': 0.0, '5|dron2': 0.0, '5|dron3': 0.0, '5|dron4': 0.0}
+v0.1_blob S12_D3 fidelity(max |dX| m): {'0|dron1': 0.0, '0|dron2': 0.0, '0|dron3': 0.0, '1|dron1': 0.0, '1|dron2': 0.0, '1|dron3': 0.0, '2|dron1': 0.0, '2|dron2': 0.0, '2|dron3': 0.0, '3|dron1': 0.0, '3|dron2': 0.0, '3|dron3': 0.0, '4|dron1': 0.0, '4|dron2': 0.0, '4|dron3': 0.0, '5|dron1': 0.0, '5|dron2': 0.0, '5|dron3': 0.0}
+v0.1_blob S13_D3 fidelity(max |dX| m): {'0|dron1': 0.0, '0|dron2': 0.0, '0|dron3': 0.0, '1|dron1': 0.0, '1|dron2': 0.0, '1|dron3': 0.0, '2|dron1': 0.0, '2|dron2': 0.0, '2|dron3': 0.0, '3|dron1': 0.0, '3|dron2': 0.0, '3|dron3': 0.0, '4|dron1': 0.0, '4|dron2': 0.0, '4|dron3': 0.0, '5|dron1': 0.0, '5|dron2': 0.0, '5|dron3': 0.0}
+v0.2_yolo R05_D1 fidelity(max |dX| m): {'0|drone': 0.0, '1|drone': 0.0, '2|drone': 0.0, '3|drone': 0.0, '4|drone': 0.0, '5|drone': 0.0}
+v0.2_yolo R06_D1 fidelity(max |dX| m): {'0|drone': 0.0, '1|drone': 0.0, '2|drone': 0.0, '3|drone': 0.0, '4|drone': 0.0, '5|drone': 0.0}
+v0.2_yolo R07_D1 fidelity(max |dX| m): {'0|drone': 0.0, '1|drone': 0.0, '2|drone': 0.0, '3|drone': 0.0, '4|drone': 0.0, '5|drone': 0.0}
+v0.2_yolo R08_D1 fidelity(max |dX| m): {'0|drone': 0.0, '1|drone': 0.0, '2|drone': 0.0, '3|drone': 0.0, '4|drone': 0.0, '5|drone': 0.0}
+v0.2_yolo R09_D1 fidelity(max |dX| m): {'0|drone': 0.0, '1|drone': 0.0, '2|drone': 0.0, '3|drone': 0.0, '4|drone': 0.0, '5|drone': 0.0}
+v0.2_yolo R10_D1 fidelity(max |dX| m): {'0|drone': 0.0, '1|drone': 0.0, '2|drone': 0.0, '3|drone': 0.0, '4|drone': 0.0, '5|drone': 0.0}
+v0.2_yolo R11_D1 fidelity(max |dX| m): {'0|drone': 0.0, '1|drone': 0.0, '2|drone': 0.0, '3|drone': 0.0, '4|drone': 0.0, '5|drone': 0.0}
+v0.2_yolo R16_D1_A fidelity(max |dX| m): {'0|drone': 0.0, '1|drone': 0.0, '2|drone': 0.0, '3|drone': 0.0, '4|drone': 0.0, '5|drone': 0.0}
+v0.2_yolo S12_D3 fidelity(max |dX| m): {'0|dron1': 0.0, '0|dron2': 0.0, '0|dron3': 0.0, '1|dron1': 0.0, '1|dron2': 0.0, '1|dron3': 0.0, '2|dron1': 0.0, '2|dron2': 0.0, '2|dron3': 0.0, '3|dron1': 0.0, '3|dron2': 0.0, '3|dron3': 0.0, '4|dron1': 0.0, '4|dron2': 0.0, '4|dron3': 0.0, '5|dron1': 0.0, '5|dron2': 0.0, '5|dron3': 0.0}
+v0.2_yolo S13_D3 fidelity(max |dX| m): {'0|dron1': 0.0, '0|dron2': 0.0, '0|dron3': 0.0, '1|dron1': 0.0, '1|dron2': 0.0, '1|dron3': 0.0, '2|dron1': 0.0, '2|dron2': 0.0, '2|dron3': 0.0, '3|dron1': 0.0, '3|dron2': 0.0, '3|dron3': 0.0, '4|dron1': 0.0, '4|dron2': 0.0, '4|dron3': 0.0, '5|dron1': 0.0, '5|dron2': 0.0, '5|dron3': 0.0}

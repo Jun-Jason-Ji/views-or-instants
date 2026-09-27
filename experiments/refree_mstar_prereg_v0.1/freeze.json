@@ -1,0 +1,15 @@
+{
+ "hashes": {
+  "protocol/REFREE_MSTAR_PREREG_v0.1.md": "9666ae1ba141e382a0eef81960538f36de1dce94db472661ea916bd351d226fe",
+  "src/refree_prereg_runner.py": "a033971c18fd90fc605056cc8d467a4526504b0adbec657e694eb7a6d9807128",
+  "src/refree_mstar_dev.py": "5e6b82f9d93703d54c580b593a2beabb55acdc08630a4e0aad3d647bdae69c87",
+  "src/refree_mstar_m4.py": "464b2e54f971e3f7aed61e3162163a84e39bf88bcf0b491336311985f25697ea",
+  "src/dpjait_noise_runner.py": "1d897de735c260af7b85ed5612908a2ad5c88bfd42ab878807234e49ea037ba9",
+  "src/learned_det_infer.py": "b644b9a725c6092faa43299c56331241865cc21e96e08d6388595e72043ae62e",
+  "src/own_blob_observer.py": "3f47c5728599abc2fc09df35b6c1e8b5535c6f9351444ac70730f7cb17cd9b9c",
+  "src/dpjait_record.py": "29b274c71834de7e612fc10faf98ee79f0e8e810251e9fdfb005f592c7cef72f",
+  "src/dpjait_prereg_runner.py": "e5bb28891e55892412bbb94b101a06054559d441a6f6bf865184ba9d7d1dfecd",
+  "experiments/dpjait_learned_det/train/run/weights/best.pt": "16da922a73cf7c89cfd8d2544fc2e84567a039c6dc5fda21b3c64121e3bbd937"
+ },
+ "utc": "2026-09-26T15:56:53Z"
+}

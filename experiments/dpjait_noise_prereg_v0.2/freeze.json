@@ -1,0 +1,15 @@
+{
+ "hashes": {
+  "protocol/DPJAIT_NOISE_PREREG_v0.2.md": "f36897ce6c06a9b753cf7a7c958e1c2c10328a99c7eae17e71e714ea63deb69d",
+  "src/dpjait_noise_runner_v02.py": "265a14e1baac8541524bd18a73d52e7d4a844c37e7bb1649ae0a9065a2ed4732",
+  "src/dpjait_noise_runner.py": "1d897de735c260af7b85ed5612908a2ad5c88bfd42ab878807234e49ea037ba9",
+  "src/own_blob_observer.py": "3f47c5728599abc2fc09df35b6c1e8b5535c6f9351444ac70730f7cb17cd9b9c",
+  "src/learned_det_dataset.py": "31b7bb9fa268d4eac07dfce819c3e0c3017e6b16ce7eb2291ba1815bdeee897a",
+  "src/learned_det_train.py": "b4eacb7bad0df25badee00d307cbff73930c2f124cd7d228a30cac5ef453d0fb",
+  "src/learned_det_infer.py": "b644b9a725c6092faa43299c56331241865cc21e96e08d6388595e72043ae62e",
+  "src/dpjait_record.py": "29b274c71834de7e612fc10faf98ee79f0e8e810251e9fdfb005f592c7cef72f",
+  "src/dpjait_sim_record.py": "44586ebb3f8ee19a0c863540a29fefbc240cfa413b0a698dd9be19f91f334ad1",
+  "src/dpjait_prereg_runner.py": "e5bb28891e55892412bbb94b101a06054559d441a6f6bf865184ba9d7d1dfecd"
+ },
+ "utc": "2026-09-25T12:32:42Z"
+}
