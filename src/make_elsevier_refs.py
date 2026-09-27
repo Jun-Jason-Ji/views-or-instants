@@ -41,7 +41,8 @@ ACCENT = {"ä": '"{a}', "ö": '"{o}', "ü": '"{u}', "é": "'{e}", "è": "`{e}",
 
 
 def tex(s):
-    s = re.sub(r"<[^>]+>", "", s or "")
+    import html
+    s = html.unescape(re.sub(r"<[^>]+>", "", s or ""))   # Crossref titles carry HTML entities (&amp;)
     for a, b in LATEX.items():
         s = s.replace(a, b)
     for a, b in ACCENT.items():
